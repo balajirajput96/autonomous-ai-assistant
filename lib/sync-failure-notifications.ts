@@ -4,6 +4,7 @@ import { Platform } from "react-native";
 
 import { createRedactedPushTokenRegistration, type DevicePushTokenRegistration } from "@/shared/push-token-registration";
 import type { SyncFailureAlert } from "@/shared/sync-failure-alerts";
+import type { LocalTestNotificationResult } from "@/shared/test-notification";
 
 const SYNC_FAILURE_CHANNEL = "sync-failures";
 
@@ -73,6 +74,27 @@ export function subscribeToDevicePushTokenChanges(onTokenChange: (registration: 
     const tokenValue = typeof token.data === "string" ? token.data : JSON.stringify(token.data);
     onTokenChange(createRedactedPushTokenRegistration(tokenValue, "A refreshed device token is ready for a future authenticated server registration. Its full value is not stored on this device."));
   });
+}
+
+export async function sendLocalTestNotification(): Promise<LocalTestNotificationResult> {
+  if (Platform.OS === "web") return "UNAVAILABLE";
+
+  try {
+    await configureSyncFailureNotifications();
+    const permissions = await Notifications.getPermissionsAsync();
+    if (permissions.status !== "granted") return "PERMISSION_REQUIRED";
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Autonomous test alert",
+        body: "Local sync-failure notifications are ready on this device.",
+        data: { type: "sync-failure-test", localOnly: true },
+      },
+      trigger: null,
+    });
+    return "SENT";
+  } catch {
+    return "ERROR";
+  }
 }
 
 export async function presentSyncFailureNotification(alert: SyncFailureAlert): Promise<boolean> {

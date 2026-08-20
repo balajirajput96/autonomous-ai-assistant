@@ -3,8 +3,10 @@ import { Alert, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "re
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { useAssistant } from "@/lib/assistant-context";
+import { sendLocalTestNotification } from "@/lib/sync-failure-notifications";
 import { CONNECTOR_CATALOG, connectorStateDescription, connectorStateLabel, connectorSyncStateLabel, type ConnectorProviderId, type ConnectorState } from "@/shared/connectors";
 import { syncFailureKindLabel } from "@/shared/sync-failure-alerts";
+import { localTestNotificationResultMessage } from "@/shared/test-notification";
 
 function connectorColor(state: ConnectorState, colors: ReturnType<typeof useColors>): string {
   if (state === "CONNECTED") return colors.success;
@@ -78,6 +80,12 @@ export default function SettingsScreen() {
       } else if (registration.state !== "REGISTERING") {
         Alert.alert("Device registration unavailable", registration.detail ?? "This device could not be registered for background delivery.", [{ text: "Understood" }]);
       }
+    });
+  };
+
+  const sendTestNotification = () => {
+    void sendLocalTestNotification().then((result) => {
+      Alert.alert(result === "SENT" ? "Test notification sent" : "Test notification unavailable", localTestNotificationResultMessage(result), [{ text: "Understood" }]);
     });
   };
 
@@ -167,6 +175,14 @@ export default function SettingsScreen() {
               <Text style={[styles.deviceRegistrationStatus, { color: pushTokenRegistration.state === "PENDING_SERVER_REGISTRATION" ? colors.success : pushTokenRegistration.state === "ERROR" || pushTokenRegistration.state === "PERMISSION_DENIED" ? colors.error : colors.muted }]}>{pushTokenRegistration.state.replaceAll("_", " ")}</Text>
             </View>
             <Pressable accessibilityLabel="Register this device for background sync-failure notifications" onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
+          </View>
+          <View style={[styles.rule, { backgroundColor: colors.border }]} />
+          <View style={styles.testNotificationRow}>
+            <View style={styles.rowCopy}>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>Verify local delivery</Text>
+              <Text style={[styles.rowDescription, { color: colors.muted }]}>Sends one immediate alert through this device’s sync-failure channel. It does not use your push token or contact a server.</Text>
+            </View>
+            <Pressable accessibilityLabel="Send a local test notification" onPress={sendTestNotification} style={({ pressed }) => [styles.testNotificationButton, { borderColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={[styles.testNotificationText, { color: preferences.syncFailureAlerts ? colors.tint : colors.muted }]}>Send test</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           {syncFailureAlerts.length === 0 ? (
@@ -284,6 +300,9 @@ const styles = StyleSheet.create({
   deviceRegistrationStatus: { fontSize: 10, fontWeight: "800", marginTop: 3 },
   registerDeviceButton: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 9 },
   registerDeviceText: { color: "#FFFFFF", fontSize: 11, fontWeight: "800" },
+  testNotificationRow: { alignItems: "center", flexDirection: "row", gap: 12 },
+  testNotificationButton: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 10, paddingVertical: 9 },
+  testNotificationText: { fontSize: 11, fontWeight: "800" },
   rule: { height: StyleSheet.hairlineWidth, width: "100%" },
   alertEmptyState: { gap: 4 },
   alertEmptyTitle: { fontSize: 13, fontWeight: "800" },

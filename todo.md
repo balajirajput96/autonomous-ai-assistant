@@ -30,3 +30,6 @@
 - [x] Define device push-token consent, storage, rotation, and server-registration boundaries.
 - [x] Implement permission-aware device push-token registration in notification settings.
 - [x] Test device-token state handling and document authenticated backend registration requirements.
+- [x] Define local test-notification conditions, feedback states, and non-remote delivery boundary.
+- [x] Implement a Send Test Notification control in settings with permission-aware local delivery feedback.
+- [x] Test test-notification states and document the local-versus-remote verification boundary.
