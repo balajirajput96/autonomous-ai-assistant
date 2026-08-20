@@ -6,6 +6,7 @@ import { RecordingPresets, requestRecordingPermissionsAsync, setAudioModeAsync, 
 
 import { ScreenContainer } from "@/components/screen-container";
 import { TaskDetailSheet } from "@/components/task-detail-sheet";
+import { useKeyboardShortcuts } from "@/components/keyboard-shortcuts-provider";
 import { useAssistant } from "@/lib/assistant-context";
 import { useAccessibility } from "@/hooks/use-accessibility";
 import { useColors } from "@/hooks/use-colors";
@@ -33,6 +34,7 @@ export default function HomeScreen() {
   const colors = useColors();
   const { scaleText } = useAccessibility();
   const { isReady, messages, preferences, setMode, submitPrompt, tasks } = useAssistant();
+  const { openShortcutHelp } = useKeyboardShortcuts();
   const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
   const recorderState = useAudioRecorderState(audioRecorder);
   const [prompt, setPrompt] = useState("");
@@ -179,6 +181,13 @@ export default function HomeScreen() {
           </View>
         </View>
 
+        {Platform.OS === "web" ? (
+          <Pressable accessibilityLabel="Open keyboard shortcut help" accessibilityRole="button" accessibilityHint="Shows shortcuts for jumping between Chat, Activity, Workspace, and Settings." onPress={openShortcutHelp} style={({ pressed }) => [styles.shortcutHelpBar, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}35` }, pressed && styles.pressed]}>
+            <Text style={[styles.shortcutHelpText, { color: colors.muted }]}>Keyboard navigation</Text>
+            <Text style={[styles.shortcutHelpKey, { color: colors.tint }]}>Press ? for shortcuts</Text>
+          </Pressable>
+        ) : null}
+
         <FlatList
           data={messages}
           keyExtractor={(message) => message.id}
@@ -296,6 +305,9 @@ const styles = StyleSheet.create({
   modeSegment: { borderRadius: 10, borderWidth: 1, flexDirection: "row", padding: 2 },
   modeButton: { borderRadius: 8, paddingHorizontal: 11, paddingVertical: 6 },
   modeText: { fontSize: 11, fontWeight: "700" },
+  shortcutHelpBar: { alignItems: "center", borderBottomWidth: 1, flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 18, paddingVertical: 7 },
+  shortcutHelpText: { fontSize: 10, fontWeight: "800", letterSpacing: 0.55 },
+  shortcutHelpKey: { fontSize: 11, fontWeight: "800" },
   messageList: { flex: 1 },
   messageContent: { gap: 14, paddingHorizontal: 18, paddingTop: 18, paddingBottom: 20 },
   starterCard: { borderRadius: 18, borderWidth: 1, gap: 8, marginBottom: 4, padding: 14 },

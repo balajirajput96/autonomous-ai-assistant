@@ -21,6 +21,7 @@ The current mobile MVP provides a functional AI workspace rather than a simulate
 | **Focused usability pass** | Chat offers editable starter prompts, Activity provides status filters, and notification controls show clearer disabled states when alerts are not enabled. | Starter prompts do not send automatically, activity filters do not alter history, and notification controls remain unavailable until the user opts in. |
 | **Accessibility preferences** | Settings provides persistent Standard, Large, and Extra large text choices plus a high-contrast palette. Chat, Activity, Settings, shared screen backgrounds, and navigation colours respond to the selected preferences. | The options change only this app’s presentation and preserve device-level accessibility scaling; they do not change operating-system settings or external provider surfaces. |
 | **Screen-reader navigation** | Primary Chat, Activity, Settings, and task-detail controls include native labels, roles, selected and disabled states, contextual hints, live status announcements, and modal containment. | The implementation uses React Native’s native accessibility semantics; device-level TalkBack and VoiceOver verification remains a release test requirement. |
+| **Keyboard navigation** | In the web build, `1`–`4` jump to Chat, Activity, Workspace, and Settings; `?` opens shortcut help and `Escape` closes it. | Shortcuts are ignored while typing in editable fields or when browser/platform modifier keys are held; native touch navigation is unchanged. |
 
 ## Intentional MVP Boundaries
 

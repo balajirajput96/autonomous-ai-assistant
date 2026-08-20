@@ -46,3 +46,6 @@
 - [x] Define screen-reader semantic patterns and priority control coverage.
 - [x] Add dedicated accessibility labels, roles, state descriptions, and hints to core interactions.
 - [x] Validate screen-reader semantics and document the accessibility coverage.
+- [x] Define keyboard shortcut map, platform scope, and input-focus safeguards.
+- [x] Implement shortcut-driven navigation and an in-app shortcut discovery control.
+- [x] Test keyboard navigation behavior and document shortcut coverage.
