@@ -97,7 +97,7 @@ export default function SettingsScreen() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <Text style={[styles.eyebrow, { color: colors.muted }]}>CONTROL CENTER</Text>
-          <Text style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Settings</Text>
+          <Text accessibilityRole="header" style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Settings</Text>
           <Text style={[styles.subtitle, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>Manage assistant preferences, local data, and connection boundaries in one place.</Text>
         </View>
 
@@ -168,7 +168,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowTitle, { color: colors.text }]}>Sync failure alerts</Text>
               <Text style={[styles.rowDescription, { color: colors.muted }]}>Receive an optional device alert if a verified connection hits a rate limit or needs reconnection.</Text>
             </View>
-            <Switch value={preferences.syncFailureAlerts} onValueChange={updateSyncFailureAlerts} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.syncFailureAlerts ? colors.tint : colors.background} />
+            <Switch accessibilityLabel="Sync failure alerts" accessibilityHint="When enabled, the app can show local alerts for verified rate-limit and expired-token sync failures." accessibilityRole="switch" accessibilityState={{ checked: preferences.syncFailureAlerts }} value={preferences.syncFailureAlerts} onValueChange={updateSyncFailureAlerts} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.syncFailureAlerts ? colors.tint : colors.background} />
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           <View style={styles.deviceRegistrationRow}>
@@ -177,7 +177,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowDescription, { color: colors.muted }]}>{pushTokenRegistration.detail ?? "Register this physical device to prepare it for future background alerts."}</Text>
               <Text style={[styles.deviceRegistrationStatus, { color: pushTokenRegistration.state === "PENDING_SERVER_REGISTRATION" ? colors.success : pushTokenRegistration.state === "ERROR" || pushTokenRegistration.state === "PERMISSION_DENIED" ? colors.error : colors.muted }]}>{pushTokenRegistration.state.replaceAll("_", " ")}</Text>
             </View>
-            <Pressable accessibilityLabel="Register this device for background sync-failure notifications" disabled={!preferences.syncFailureAlerts} onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
+            <Pressable accessibilityLabel="Register this device for background sync-failure notifications" accessibilityRole="button" accessibilityState={{ disabled: !preferences.syncFailureAlerts }} accessibilityHint={preferences.syncFailureAlerts ? "Requests a device token without storing or displaying the raw value." : "Enable sync failure alerts before registering this device."} disabled={!preferences.syncFailureAlerts} onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           <View style={styles.testNotificationRow}>
@@ -185,7 +185,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowTitle, { color: colors.text }]}>Verify local delivery</Text>
               <Text style={[styles.rowDescription, { color: colors.muted }]}>Sends one immediate alert through this device’s sync-failure channel. It does not use your push token or contact a server.</Text>
             </View>
-            <Pressable accessibilityLabel="Send a local test notification" disabled={!preferences.syncFailureAlerts} onPress={sendTestNotification} style={({ pressed }) => [styles.testNotificationButton, { borderColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={[styles.testNotificationText, { color: preferences.syncFailureAlerts ? colors.tint : colors.muted }]}>Send test</Text></Pressable>
+            <Pressable accessibilityLabel="Send a local test notification" accessibilityRole="button" accessibilityState={{ disabled: !preferences.syncFailureAlerts }} accessibilityHint={preferences.syncFailureAlerts ? "Sends one immediate local notification. It does not contact a server or use the push token." : "Enable sync failure alerts before sending a test notification."} disabled={!preferences.syncFailureAlerts} onPress={sendTestNotification} style={({ pressed }) => [styles.testNotificationButton, { borderColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={[styles.testNotificationText, { color: preferences.syncFailureAlerts ? colors.tint : colors.muted }]}>Send test</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           {syncFailureAlerts.length === 0 ? (
@@ -255,7 +255,7 @@ export default function SettingsScreen() {
           <View style={[styles.textScaleSegment, { backgroundColor: colors.background, borderColor: colors.border }]}>
             {TEXT_SCALE_OPTIONS.map((option) => {
               const selected = preferences.textScale === option;
-              return <Pressable key={option} accessibilityLabel={`Use ${textScaleLabel(option)} text size`} onPress={() => updatePreferences({ textScale: option })} style={({ pressed }) => [styles.textScaleButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.textScaleButtonText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(option === "STANDARD" ? 10 : option === "LARGE" ? 11 : 12) }]}>{textScaleLabel(option)}</Text></Pressable>;
+              return <Pressable key={option} accessibilityLabel={`Use ${textScaleLabel(option)} text size`} accessibilityRole="tab" accessibilityState={{ selected }} accessibilityHint="Changes the app’s primary reading and control text size." onPress={() => updatePreferences({ textScale: option })} style={({ pressed }) => [styles.textScaleButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.textScaleButtonText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(option === "STANDARD" ? 10 : option === "LARGE" ? 11 : 12) }]}>{textScaleLabel(option)}</Text></Pressable>;
             })}
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
@@ -264,7 +264,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowTitle, { color: colors.text, fontSize: scaleText(15), lineHeight: scaleText(20) }]}>High-contrast colours</Text>
               <Text style={[styles.rowDescription, { color: colors.muted, fontSize: scaleText(12), lineHeight: scaleText(18) }]}>Use stronger text, surface, border, and status-colour separation throughout the app.</Text>
             </View>
-            <Switch value={preferences.highContrast} onValueChange={(highContrast) => updatePreferences({ highContrast })} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.highContrast ? colors.tint : colors.background} />
+            <Switch accessibilityLabel="High-contrast colours" accessibilityRole="switch" accessibilityState={{ checked: preferences.highContrast }} accessibilityHint="Uses stronger text, surface, border, and status colour separation throughout the app." value={preferences.highContrast} onValueChange={(highContrast) => updatePreferences({ highContrast })} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.highContrast ? colors.tint : colors.background} />
           </View>
         </View>
 

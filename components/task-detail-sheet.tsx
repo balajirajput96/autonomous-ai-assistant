@@ -24,19 +24,21 @@ export function TaskDetailSheet({ task, visible, onDismiss }: TaskDetailSheetPro
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onDismiss}>
       <View style={styles.backdrop}>
         <Pressable accessibilityLabel="Close task details" style={StyleSheet.absoluteFill} onPress={onDismiss} />
-        <View style={[styles.sheet, { backgroundColor: colors.background, borderColor: colors.border }]}>
+        <View accessibilityViewIsModal accessible={false} style={[styles.sheet, { backgroundColor: colors.background, borderColor: colors.border }]}>
           <View style={styles.handleRow}>
             <View style={[styles.handle, { backgroundColor: colors.border }]} />
           </View>
           <View style={styles.header}>
             <View style={styles.headerText}>
-              <Text style={[styles.eyebrow, { color: colors.muted }]}>TASK DETAIL</Text>
-              <Text style={[styles.title, { color: colors.text }]} numberOfLines={2}>
+              <Text accessibilityRole="header" style={[styles.eyebrow, { color: colors.muted }]}>TASK DETAIL</Text>
+              <Text accessibilityRole="header" style={[styles.title, { color: colors.text }]} numberOfLines={2}>
                 {task.title}
               </Text>
             </View>
             <Pressable
               accessibilityLabel="Close task details"
+              accessibilityRole="button"
+              accessibilityHint="Dismisses this task trace and returns to the previous screen."
               onPress={onDismiss}
               style={({ pressed }) => [styles.closeButton, { borderColor: colors.border }, pressed && styles.pressed]}
             >
@@ -62,7 +64,7 @@ export function TaskDetailSheet({ task, visible, onDismiss }: TaskDetailSheetPro
             <Text style={[styles.sectionTitle, { color: colors.text }]}>Execution trace</Text>
             <View style={styles.stepList}>
               {task.steps.map((step) => (
-                <View key={step.id} style={styles.stepRow}>
+                <View key={step.id} accessible accessibilityLabel={`${step.label}. ${taskStateLabel(step.state)}. ${step.detail ?? "No additional detail."}`} style={styles.stepRow}>
                   <View style={[styles.stepDot, { backgroundColor: stateColor(step.state, colors) }]} />
                   <View style={styles.stepText}>
                     <Text style={[styles.stepLabel, { color: colors.text }]}>{step.label}</Text>
@@ -75,7 +77,7 @@ export function TaskDetailSheet({ task, visible, onDismiss }: TaskDetailSheetPro
             </View>
 
             {task.approvalRequired ? (
-              <View style={[styles.notice, { backgroundColor: `${colors.warning}14`, borderColor: `${colors.warning}50` }]}>
+              <View accessible accessibilityLiveRegion="polite" accessibilityLabel="Approval required. This task is paused. No external or consequential action has been performed." style={[styles.notice, { backgroundColor: `${colors.warning}14`, borderColor: `${colors.warning}50` }]}>
                 <Text style={[styles.noticeTitle, { color: colors.warning }]}>Approval required</Text>
                 <Text style={[styles.noticeBody, { color: colors.text }]}>This task is paused. No external or consequential action has been performed.</Text>
               </View>

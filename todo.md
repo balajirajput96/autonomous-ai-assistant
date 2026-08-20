@@ -43,3 +43,6 @@
 - [x] Implement persistent accessibility settings and shared preference tokens.
 - [x] Apply accessible text sizing and high-contrast mode to core screens.
 - [x] Test accessibility preference persistence and document the implemented accessibility boundary.
+- [x] Define screen-reader semantic patterns and priority control coverage.
+- [x] Add dedicated accessibility labels, roles, state descriptions, and hints to core interactions.
+- [x] Validate screen-reader semantics and document the accessibility coverage.

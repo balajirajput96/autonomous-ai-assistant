@@ -136,16 +136,19 @@ export default function HomeScreen() {
     <ScreenContainer>
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={styles.flex}>
         <View style={[styles.header, { borderColor: colors.border }]}>
-          <View style={styles.brandRow}>
+          <View accessible accessibilityRole="header" accessibilityLabel="Autonomous, your deliberate AI workspace" style={styles.brandRow}>
             <View style={[styles.brandMark, { backgroundColor: colors.tint }]}><Text style={styles.brandMarkText}>A</Text></View>
             <View>
               <Text style={[styles.brandTitle, { color: colors.text, fontSize: scaleText(16) }]}>Autonomous</Text>
               <Text style={[styles.brandSubtitle, { color: colors.muted, fontSize: scaleText(11) }]}>Your deliberate AI workspace</Text>
             </View>
           </View>
-          <Pressable
-            accessibilityLabel="Open active task details"
-            disabled={!activeTask}
+            <Pressable
+              accessibilityLabel="Open active task details"
+              accessibilityRole="button"
+              accessibilityHint={activeTask ? "Opens the visible execution trace for the current task." : "No active task is available."}
+              accessibilityState={{ disabled: !activeTask, busy: Boolean(isTaskRunning) }}
+              disabled={!activeTask}
             onPress={() => setShowTaskDetail(true)}
             style={({ pressed }) => [styles.statusButton, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && activeTask && styles.pressed, !activeTask && styles.dimmed]}
           >
@@ -163,6 +166,9 @@ export default function HomeScreen() {
                 <Pressable
                   key={mode}
                   accessibilityLabel={`Use ${mode === "ASSISTED" ? "assisted" : "agent"} mode`}
+                  accessibilityRole="tab"
+                  accessibilityState={{ selected }}
+                  accessibilityHint={mode === "ASSISTED" ? "Use conversational help with visible safeguards." : "Plan work more deliberately; sensitive actions still pause for approval."}
                   onPress={() => setMode(mode)}
                   style={({ pressed }) => [styles.modeButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}
                 >
@@ -178,17 +184,18 @@ export default function HomeScreen() {
           keyExtractor={(message) => message.id}
           renderItem={renderMessage}
           style={styles.messageList}
+          accessibilityLabel="Assistant conversation"
           contentContainerStyle={styles.messageContent}
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={
             tasks.length === 0 ? (
-              <View style={[styles.starterCard, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}35` }]}>
+              <View accessible accessibilityLabel="Starter prompts. Choose one to prefill the message composer without sending it." style={[styles.starterCard, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}35` }]}>
                 <Text style={[styles.starterEyebrow, { color: colors.tint }]}>START HERE</Text>
                 <Text style={[styles.starterTitle, { color: colors.text, fontSize: scaleText(16), lineHeight: scaleText(22) }]}>Choose a starting point</Text>
                 <Text style={[styles.starterBody, { color: colors.muted, fontSize: scaleText(12), lineHeight: scaleText(18) }]}>Tap a suggestion to prefill the composer. You can edit it before sending.</Text>
                 <View style={styles.starterList}>
                   {STARTER_PROMPTS.map((starterPrompt) => (
-                    <Pressable key={starterPrompt} accessibilityLabel={`Use starter prompt: ${starterPrompt}`} onPress={() => chooseStarterPrompt(starterPrompt)} style={({ pressed }) => [styles.starterPrompt, { backgroundColor: colors.background, borderColor: colors.border }, pressed && styles.pressed]}>
+                    <Pressable key={starterPrompt} accessibilityLabel={`Use starter prompt: ${starterPrompt}`} accessibilityRole="button" accessibilityHint="Prefills the composer so you can review and edit the request before sending." onPress={() => chooseStarterPrompt(starterPrompt)} style={({ pressed }) => [styles.starterPrompt, { backgroundColor: colors.background, borderColor: colors.border }, pressed && styles.pressed]}>
                       <Text style={[styles.starterPromptText, { color: colors.text, fontSize: scaleText(12), lineHeight: scaleText(17) }]}>{starterPrompt}</Text>
                       <Text style={[styles.starterPromptArrow, { color: colors.tint }]}>›</Text>
                     </Pressable>
@@ -199,7 +206,7 @@ export default function HomeScreen() {
           }
           ListFooterComponent={
             activeTask && isTaskRunning ? (
-              <View style={styles.activityNote}>
+              <View accessible accessibilityLiveRegion="polite" accessibilityLabel="Task status: checking the task policy" style={styles.activityNote}>
                 <View style={[styles.statusDot, { backgroundColor: colors.tint }]} />
                 <Text style={[styles.activityText, { color: colors.muted }]}>Checking the task policy…</Text>
               </View>
@@ -222,6 +229,8 @@ export default function HomeScreen() {
           <View style={[styles.composer, { backgroundColor: colors.surface, borderColor: colors.border }]}>
             <Pressable
               accessibilityLabel="Choose an attachment"
+              accessibilityRole="button"
+              accessibilityHint="Opens the document picker. Selected files remain local until secure upload is configured."
               onPress={() => void chooseAttachment()}
               style={({ pressed }) => [styles.iconAction, pressed && styles.pressed]}
             >
@@ -229,6 +238,7 @@ export default function HomeScreen() {
             </Pressable>
             <TextInput
               accessibilityLabel="Message the assistant"
+              accessibilityHint={isTaskRunning ? "The current task is still running; messaging is temporarily unavailable." : "Enter a request, then use Send message."}
               editable={isReady && !isTaskRunning}
               multiline
               onChangeText={setPrompt}
@@ -241,6 +251,9 @@ export default function HomeScreen() {
             />
             <Pressable
               accessibilityLabel={recorderState.isRecording ? "Stop voice recording" : "Start voice recording"}
+              accessibilityRole="button"
+              accessibilityState={{ selected: recorderState.isRecording }}
+              accessibilityHint={recorderState.isRecording ? "Stops the local recording." : "Starts a local voice recording; transcription is not enabled."}
               onPress={() => void toggleVoiceCapture()}
               style={({ pressed }) => [styles.iconAction, recorderState.isRecording && { backgroundColor: `${colors.error}12`, borderRadius: 14 }, pressed && styles.pressed]}
             >
@@ -248,6 +261,9 @@ export default function HomeScreen() {
             </Pressable>
             <Pressable
               accessibilityLabel="Send message"
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !prompt.trim() || Boolean(isTaskRunning) || !isReady }}
+              accessibilityHint="Sends the typed request to the assistant."
               disabled={!prompt.trim() || Boolean(isTaskRunning) || !isReady}
               onPress={handleSubmit}
               style={({ pressed }) => [styles.sendButton, { backgroundColor: colors.tint }, (!prompt.trim() || isTaskRunning || !isReady) && styles.disabledSend, pressed && styles.pressed]}

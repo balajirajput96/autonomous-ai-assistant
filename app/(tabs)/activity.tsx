@@ -41,12 +41,13 @@ export default function ActivityScreen() {
     <ScreenContainer>
       <View style={styles.header}>
         <Text style={[styles.eyebrow, { color: colors.muted }]}>TASK RECORD</Text>
-        <Text style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Activity</Text>
+        <Text accessibilityRole="header" style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Activity</Text>
         <Text style={[styles.subtitle, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>Every task has a visible state, risk label, and local trace.</Text>
       </View>
 
       <FlatList
         data={filteredTasks}
+        accessibilityLabel="Task activity history"
         keyExtractor={(task) => task.id}
         contentContainerStyle={[styles.listContent, filteredTasks.length === 0 && styles.emptyContent]}
         showsVerticalScrollIndicator={false}
@@ -55,7 +56,7 @@ export default function ActivityScreen() {
             {ACTIVITY_FILTERS.map((activityFilter) => {
               const selected = filter === activityFilter;
               const count = tasks.filter((task) => matchesActivityFilter(task, activityFilter)).length;
-              return <Pressable key={activityFilter} accessibilityLabel={`Show ${activityFilterLabel(activityFilter)} tasks`} onPress={() => setFilter(activityFilter)} style={({ pressed }) => [styles.filterButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.filterText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(10) }]}>{activityFilterLabel(activityFilter)}{count > 0 ? ` ${count}` : ""}</Text></Pressable>;
+              return <Pressable key={activityFilter} accessibilityLabel={`Show ${activityFilterLabel(activityFilter)} tasks, ${count} available`} accessibilityRole="tab" accessibilityState={{ selected }} accessibilityHint="Filters the local task history." onPress={() => setFilter(activityFilter)} style={({ pressed }) => [styles.filterButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.filterText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(10) }]}>{activityFilterLabel(activityFilter)}{count > 0 ? ` ${count}` : ""}</Text></Pressable>;
             })}
           </View>
         }
@@ -64,6 +65,8 @@ export default function ActivityScreen() {
           return (
             <Pressable
               accessibilityLabel={`Open task ${item.title}`}
+              accessibilityRole="button"
+              accessibilityHint={`Opens the task trace. Current state: ${taskStateLabel(item.state)}. Risk: ${riskLevelLabel(item.riskLevel)}.`}
               onPress={() => setSelectedTask(item)}
               style={({ pressed }) => [styles.taskCard, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && styles.pressed]}
             >
@@ -81,7 +84,7 @@ export default function ActivityScreen() {
           );
         }}
         ListEmptyComponent={
-          <View style={[styles.emptyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <View accessible accessibilityLiveRegion="polite" accessibilityLabel={tasks.length === 0 ? "No tasks yet. Start a conversation to create a visible task record." : `No ${activityFilterLabel(filter).toLowerCase()} tasks. Try a different filter.`} style={[styles.emptyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
             <Text style={[styles.emptyTitle, { color: colors.text, fontSize: scaleText(18) }]}>{tasks.length === 0 ? "No tasks yet" : `No ${activityFilterLabel(filter).toLowerCase()} tasks`}</Text>
             <Text style={[styles.emptyBody, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>{tasks.length === 0 ? "Start a conversation to create your first visible task record." : "Try a different filter to review the rest of your local task history."}</Text>
           </View>
