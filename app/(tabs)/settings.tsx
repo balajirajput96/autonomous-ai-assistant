@@ -4,6 +4,7 @@ import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { useAssistant } from "@/lib/assistant-context";
 import { CONNECTOR_CATALOG, connectorStateDescription, connectorStateLabel, connectorSyncStateLabel, type ConnectorProviderId, type ConnectorState } from "@/shared/connectors";
+import { syncFailureKindLabel } from "@/shared/sync-failure-alerts";
 
 function connectorColor(state: ConnectorState, colors: ReturnType<typeof useColors>): string {
   if (state === "CONNECTED") return colors.success;
@@ -20,9 +21,16 @@ function formatDate(value?: string): string | undefined {
   return date.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
 }
 
+function formatDateTime(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Unknown time";
+  return date.toLocaleString(undefined, { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+}
+
 export default function SettingsScreen() {
   const colors = useColors();
-  const { connectorRecords, preferences, removeConnectorApproval, updatePreferences } = useAssistant();
+  const { connectorRecords, markSyncFailureAlertRead, preferences, removeConnectorApproval, setSyncFailureAlertsEnabled, syncFailureAlerts, updatePreferences } = useAssistant();
+  const unreadSyncFailureCount = syncFailureAlerts.filter((syncAlert) => !syncAlert.readAt).length;
 
   const confirmRemoveApproval = (providerId: ConnectorProviderId, title: string) => {
     Alert.alert(
@@ -49,6 +57,18 @@ export default function SettingsScreen() {
       `${title} cannot be refreshed from this build because no verified provider token or server-side sync service is configured. Last Synced will update only after a secure backend refresh succeeds.`,
       [{ text: "Understood" }],
     );
+  };
+
+  const updateSyncFailureAlerts = (enabled: boolean) => {
+    void setSyncFailureAlertsEnabled(enabled).then((granted) => {
+      if (enabled && !granted) {
+        Alert.alert(
+          "Alert permission not enabled",
+          "You can still review sync issues in this screen. To receive device alerts, allow notifications for Autonomous in your device settings.",
+          [{ text: "Understood" }],
+        );
+      }
+    });
   };
 
   return (
@@ -118,6 +138,50 @@ export default function SettingsScreen() {
               </View>
             );
           })}
+        </View>
+
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>SYNC FAILURE ALERTS</Text>
+        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <View style={styles.switchRow}>
+            <View style={styles.rowCopy}>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>Sync failure alerts</Text>
+              <Text style={[styles.rowDescription, { color: colors.muted }]}>Receive an optional device alert if a verified connection hits a rate limit or needs reconnection.</Text>
+            </View>
+            <Switch value={preferences.syncFailureAlerts} onValueChange={updateSyncFailureAlerts} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.syncFailureAlerts ? colors.tint : colors.background} />
+          </View>
+          <View style={[styles.rule, { backgroundColor: colors.border }]} />
+          {syncFailureAlerts.length === 0 ? (
+            <View style={styles.alertEmptyState}>
+              <Text style={[styles.alertEmptyTitle, { color: colors.text }]}>No sync issues recorded</Text>
+              <Text style={[styles.rowDescription, { color: colors.muted }]}>Rate-limit and expired-token failures will appear here only after a verified server-side sync reports them.</Text>
+            </View>
+          ) : (
+            <View style={styles.alertList}>
+              <Text style={[styles.alertSummary, { color: colors.muted }]}>{unreadSyncFailureCount > 0 ? `${unreadSyncFailureCount} unread connection alert${unreadSyncFailureCount === 1 ? "" : "s"}` : "All connection alerts reviewed"}</Text>
+              {syncFailureAlerts.map((syncAlert) => {
+                const isRateLimit = syncAlert.kind === "RATE_LIMIT";
+                const alertColor = isRateLimit ? colors.warning : colors.error;
+                return (
+                  <View key={syncAlert.id} style={[styles.syncAlertCard, { backgroundColor: `${alertColor}0D`, borderColor: `${alertColor}55` }]}>
+                    <View style={styles.syncAlertHeader}>
+                      <View style={styles.syncAlertTitleCopy}>
+                        <Text style={[styles.syncAlertTitle, { color: colors.text }]}>{syncAlert.title}</Text>
+                        <Text style={[styles.syncAlertKind, { color: alertColor }]}>{syncFailureKindLabel(syncAlert.kind)}</Text>
+                      </View>
+                      {!syncAlert.readAt ? <View style={[styles.unreadDot, { backgroundColor: alertColor }]} /> : null}
+                    </View>
+                    <Text style={[styles.rowDescription, { color: colors.muted }]}>{syncAlert.message}</Text>
+                    <Text style={[styles.syncAlertRecovery, { color: colors.text }]}>{syncAlert.recovery}</Text>
+                    {syncAlert.retryAt ? <Text style={[styles.syncAlertRetry, { color: colors.warning }]}>Retry after {formatDateTime(syncAlert.retryAt)}</Text> : null}
+                    <View style={styles.syncAlertFooter}>
+                      <Text style={[styles.syncAlertTime, { color: colors.muted }]}>{formatDateTime(syncAlert.createdAt)}{syncAlert.deliveredLocally ? " · Device alert sent" : ""}</Text>
+                      {!syncAlert.readAt ? <Pressable accessibilityLabel={`Mark ${syncAlert.title} as read`} onPress={() => markSyncFailureAlertRead(syncAlert.id)} style={({ pressed }) => [styles.markReadButton, { borderColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.markReadText, { color: colors.tint }]}>Mark read</Text></Pressable> : null}
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+          )}
         </View>
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>ASSISTANT BEHAVIOUR</Text>
@@ -198,5 +262,21 @@ const styles = StyleSheet.create({
   modeText: { fontSize: 11, fontWeight: "800" },
   switchRow: { alignItems: "center", flexDirection: "row", gap: 14 },
   rule: { height: StyleSheet.hairlineWidth, width: "100%" },
+  alertEmptyState: { gap: 4 },
+  alertEmptyTitle: { fontSize: 13, fontWeight: "800" },
+  alertList: { gap: 10 },
+  alertSummary: { fontSize: 11, fontWeight: "700" },
+  syncAlertCard: { borderRadius: 14, borderWidth: 1, gap: 7, padding: 11 },
+  syncAlertHeader: { alignItems: "flex-start", flexDirection: "row", gap: 8, justifyContent: "space-between" },
+  syncAlertTitleCopy: { flex: 1, gap: 2 },
+  syncAlertTitle: { fontSize: 13, fontWeight: "800", lineHeight: 18 },
+  syncAlertKind: { fontSize: 10, fontWeight: "800" },
+  unreadDot: { borderRadius: 4, height: 8, marginTop: 4, width: 8 },
+  syncAlertRecovery: { fontSize: 12, fontWeight: "700", lineHeight: 18 },
+  syncAlertRetry: { fontSize: 11, fontWeight: "700", lineHeight: 16 },
+  syncAlertFooter: { alignItems: "center", flexDirection: "row", gap: 8, justifyContent: "space-between" },
+  syncAlertTime: { flex: 1, fontSize: 10, fontWeight: "600", lineHeight: 14 },
+  markReadButton: { borderRadius: 10, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 6 },
+  markReadText: { fontSize: 10, fontWeight: "800" },
   pressed: { opacity: 0.7, transform: [{ scale: 0.97 }] },
 });

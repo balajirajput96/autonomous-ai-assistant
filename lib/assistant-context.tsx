@@ -13,12 +13,15 @@ import {
 } from "@/shared/assistant";
 import { trpc } from "@/lib/trpc";
 import type { ConnectorApprovalRequest, ConnectorProviderId, ConnectorRecord } from "@/shared/connectors";
+import { presentSyncFailureNotification, requestSyncFailureNotificationPermission } from "@/lib/sync-failure-notifications";
+import { createSyncFailureAlert, type SyncFailureAlert, type SyncFailureKind } from "@/shared/sync-failure-alerts";
 
 const STORAGE_KEYS = {
   messages: "autonomous-ai-assistant/messages-v1",
   tasks: "autonomous-ai-assistant/tasks-v1",
   preferences: "autonomous-ai-assistant/preferences-v1",
   connectors: "autonomous-ai-assistant/connectors-v1",
+  syncFailureAlerts: "autonomous-ai-assistant/sync-failure-alerts-v1",
 } as const;
 
 const STARTER_MESSAGE: ChatMessage = {
@@ -41,6 +44,10 @@ type AssistantContextValue = {
   connectorRecords: ConnectorRecord[];
   recordConnectorApproval: (request: ConnectorApprovalRequest) => void;
   removeConnectorApproval: (providerId: ConnectorProviderId) => void;
+  syncFailureAlerts: SyncFailureAlert[];
+  setSyncFailureAlertsEnabled: (enabled: boolean) => Promise<boolean>;
+  recordSyncFailure: (providerId: ConnectorProviderId, kind: SyncFailureKind, retryAt?: string) => void;
+  markSyncFailureAlertRead: (alertId: string) => void;
 };
 
 const AssistantContext = createContext<AssistantContextValue | null>(null);
@@ -84,6 +91,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const [tasks, setTasks] = useState<AssistantTask[]>([]);
   const [preferences, setPreferences] = useState<AssistantPreferences>(DEFAULT_PREFERENCES);
   const [connectorRecords, setConnectorRecords] = useState<ConnectorRecord[]>([]);
+  const [syncFailureAlerts, setSyncFailureAlerts] = useState<SyncFailureAlert[]>([]);
   const { mutateAsync: requestAssistantReply } = trpc.assistant.respond.useMutation();
 
   useEffect(() => {
@@ -98,6 +106,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
         const storedTasks = values.find(([key]) => key === STORAGE_KEYS.tasks)?.[1];
         const storedPreferences = values.find(([key]) => key === STORAGE_KEYS.preferences)?.[1];
         const storedConnectors = values.find(([key]) => key === STORAGE_KEYS.connectors)?.[1];
+        const storedSyncFailureAlerts = values.find(([key]) => key === STORAGE_KEYS.syncFailureAlerts)?.[1];
 
         if (storedMessages) {
           const parsed = JSON.parse(storedMessages) as ChatMessage[];
@@ -114,6 +123,10 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
         if (storedConnectors) {
           const parsed = JSON.parse(storedConnectors) as ConnectorRecord[];
           if (Array.isArray(parsed)) setConnectorRecords(parsed);
+        }
+        if (storedSyncFailureAlerts) {
+          const parsed = JSON.parse(storedSyncFailureAlerts) as SyncFailureAlert[];
+          if (Array.isArray(parsed)) setSyncFailureAlerts(parsed);
         }
       } catch {
         // The assistant remains usable with its in-memory defaults when local storage is unavailable.
@@ -132,14 +145,15 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
     if (!isReady) return;
     const preferenceWrite = AsyncStorage.setItem(STORAGE_KEYS.preferences, JSON.stringify(preferences));
     const connectorWrite = AsyncStorage.setItem(STORAGE_KEYS.connectors, JSON.stringify(connectorRecords));
+    const syncFailureAlertWrite = AsyncStorage.setItem(STORAGE_KEYS.syncFailureAlerts, JSON.stringify(syncFailureAlerts));
     const workspaceWrite = preferences.saveTaskHistory
       ? AsyncStorage.multiSet([
           [STORAGE_KEYS.messages, JSON.stringify(messages)],
           [STORAGE_KEYS.tasks, JSON.stringify(tasks)],
         ])
       : AsyncStorage.multiRemove([STORAGE_KEYS.messages, STORAGE_KEYS.tasks]);
-    void Promise.all([preferenceWrite, connectorWrite, workspaceWrite]);
-  }, [connectorRecords, isReady, messages, preferences, tasks]);
+    void Promise.all([preferenceWrite, connectorWrite, syncFailureAlertWrite, workspaceWrite]);
+  }, [connectorRecords, isReady, messages, preferences, syncFailureAlerts, tasks]);
 
   const setMode = useCallback((mode: AssistantMode) => {
     setPreferences((current) => ({ ...current, mode }));
@@ -169,6 +183,35 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
 
   const removeConnectorApproval = useCallback((providerId: ConnectorProviderId) => {
     setConnectorRecords((current) => current.filter((record) => record.providerId !== providerId || record.state !== "APPROVAL_RECORDED"));
+  }, []);
+
+  const setSyncFailureAlertsEnabled = useCallback(async (enabled: boolean): Promise<boolean> => {
+    if (!enabled) {
+      setPreferences((current) => ({ ...current, syncFailureAlerts: false }));
+      return true;
+    }
+
+    const granted = await requestSyncFailureNotificationPermission();
+    setPreferences((current) => ({ ...current, syncFailureAlerts: granted }));
+    return granted;
+  }, []);
+
+  const recordSyncFailure = useCallback(
+    (providerId: ConnectorProviderId, kind: SyncFailureKind, retryAt?: string) => {
+      const alert = createSyncFailureAlert(providerId, kind, retryAt);
+      setSyncFailureAlerts((current) => [alert, ...current]);
+      if (preferences.syncFailureAlerts) {
+        void presentSyncFailureNotification(alert).then((deliveredLocally) => {
+          if (!deliveredLocally) return;
+          setSyncFailureAlerts((current) => current.map((item) => (item.id === alert.id ? { ...item, deliveredLocally } : item)));
+        });
+      }
+    },
+    [preferences.syncFailureAlerts],
+  );
+
+  const markSyncFailureAlertRead = useCallback((alertId: string) => {
+    setSyncFailureAlerts((current) => current.map((alert) => (alert.id === alertId ? { ...alert, readAt: new Date().toISOString() } : alert)));
   }, []);
 
   const submitPrompt = useCallback(
@@ -288,8 +331,8 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval, removeConnectorApproval }),
-    [clearLocalWorkspace, connectorRecords, isReady, messages, preferences, recordConnectorApproval, removeConnectorApproval, setMode, submitPrompt, tasks, updatePreferences],
+    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval, removeConnectorApproval, syncFailureAlerts, setSyncFailureAlertsEnabled, recordSyncFailure, markSyncFailureAlertRead }),
+    [clearLocalWorkspace, connectorRecords, isReady, markSyncFailureAlertRead, messages, preferences, recordConnectorApproval, recordSyncFailure, removeConnectorApproval, setMode, setSyncFailureAlertsEnabled, submitPrompt, syncFailureAlerts, tasks, updatePreferences],
   );
 
   return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;

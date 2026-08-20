@@ -24,3 +24,6 @@
 - [x] Define active-connection sync metadata and manual-refresh safety boundaries.
 - [x] Implement Last Synced status and Sync Now controls for active OAuth connection records.
 - [x] Test sync-state controls and document the secure backend requirement for provider refreshes.
+- [x] Define rate-limit and expired-token notification events, recovery actions, and delivery boundaries.
+- [x] Implement local sync-failure notifications and connection recovery controls.
+- [x] Test notification state handling and document the production push-notification requirements.

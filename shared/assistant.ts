@@ -65,6 +65,7 @@ export interface AssistantPreferences {
   mode: AssistantMode;
   speechEnabled: boolean;
   saveTaskHistory: boolean;
+  syncFailureAlerts: boolean;
   colourScheme: "system" | "light" | "dark";
 }
 
@@ -80,6 +81,7 @@ export const DEFAULT_PREFERENCES: AssistantPreferences = {
   mode: "ASSISTED",
   speechEnabled: false,
   saveTaskHistory: true,
+  syncFailureAlerts: false,
   colourScheme: "system",
 };
 
