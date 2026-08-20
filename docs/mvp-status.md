@@ -14,6 +14,7 @@ The current mobile MVP provides a functional AI workspace rather than a simulate
 | **Connected tools and schedules** | The application clearly displays these as planned capabilities. | There are no hidden connector credentials, background workers, or unaudited external actions. |
 | **Connector approval foundation** | GitHub, Google Calendar, and Gmail cards present provider boundaries and one-time local approval sheets. A server preflight returns `CONFIGURATION_REQUIRED` without provider credentials and a callback domain. | No provider page is opened, scope is granted, account is connected, or token is collected in this MVP. |
 | **Connection management settings** | Settings lists every configured provider record with an explicit lifecycle status, account field, access summary, and appropriate management control. Local approvals can be removed with confirmation. | The current build cannot falsely revoke active OAuth tokens: actual revocation stays unavailable until a verified server token and provider transaction exist. |
+| **Active connection sync controls** | Future active records show **Last Synced**, sync status, and **Sync Now**. | The button explains that no provider refresh can run until an authenticated server-side token and sync service are configured; it never invents a sync timestamp. |
 
 ## Intentional MVP Boundaries
 

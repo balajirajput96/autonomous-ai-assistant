@@ -21,3 +21,6 @@
 - [x] Define active-connection, expiry, and revocation lifecycle boundaries for OAuth settings.
 - [x] Implement a dedicated settings interface for viewing, managing, and revoking connector records.
 - [x] Add revocation safeguards, tests, and connection-management documentation.
+- [x] Define active-connection sync metadata and manual-refresh safety boundaries.
+- [x] Implement Last Synced status and Sync Now controls for active OAuth connection records.
+- [x] Test sync-state controls and document the secure backend requirement for provider refreshes.

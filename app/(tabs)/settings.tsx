@@ -3,7 +3,7 @@ import { Alert, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "re
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { useAssistant } from "@/lib/assistant-context";
-import { CONNECTOR_CATALOG, connectorStateDescription, connectorStateLabel, type ConnectorProviderId, type ConnectorState } from "@/shared/connectors";
+import { CONNECTOR_CATALOG, connectorStateDescription, connectorStateLabel, connectorSyncStateLabel, type ConnectorProviderId, type ConnectorState } from "@/shared/connectors";
 
 function connectorColor(state: ConnectorState, colors: ReturnType<typeof useColors>): string {
   if (state === "CONNECTED") return colors.success;
@@ -43,6 +43,14 @@ export default function SettingsScreen() {
     );
   };
 
+  const explainSyncBoundary = (title: string) => {
+    Alert.alert(
+      "Secure sync backend required",
+      `${title} cannot be refreshed from this build because no verified provider token or server-side sync service is configured. Last Synced will update only after a secure backend refresh succeeds.`,
+      [{ text: "Understood" }],
+    );
+  };
+
   return (
     <ScreenContainer>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -65,8 +73,11 @@ export default function SettingsScreen() {
             const color = connectorColor(state, colors);
             const connectedDate = formatDate(record?.connectedAt);
             const expiryDate = formatDate(record?.expiresAt);
+            const lastSyncedDate = formatDate(record?.lastSyncedAt);
+            const syncStatus = record?.lastSyncStatus ?? "IDLE";
             const isLocalApproval = state === "APPROVAL_RECORDED";
             const canRequestRevocation = state === "CONNECTED" || state === "EXPIRED";
+            const canRequestSync = state === "CONNECTED";
 
             return (
               <View key={connector.id} style={[styles.connectionCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
@@ -84,6 +95,18 @@ export default function SettingsScreen() {
                 <View style={styles.detailRow}><Text style={[styles.detailLabel, { color: colors.muted }]}>Access</Text><Text style={[styles.detailValue, { color: colors.text }]}>{record?.scopeLabels?.join(", ") ?? connector.scopeSummary}</Text></View>
                 {connectedDate ? <View style={styles.detailRow}><Text style={[styles.detailLabel, { color: colors.muted }]}>Connected</Text><Text style={[styles.detailValue, { color: colors.text }]}>{connectedDate}</Text></View> : null}
                 {expiryDate ? <View style={styles.detailRow}><Text style={[styles.detailLabel, { color: colors.muted }]}>Expiry</Text><Text style={[styles.detailValue, { color: colors.warning }]}>{expiryDate}</Text></View> : null}
+
+                {canRequestSync ? (
+                  <View style={[styles.syncPanel, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}45` }]}>
+                    <View style={styles.syncCopy}>
+                      <Text style={[styles.syncLabel, { color: colors.muted }]}>LAST SYNCED</Text>
+                      <Text style={[styles.syncValue, { color: colors.text }]}>{lastSyncedDate ?? "Not synced yet"}</Text>
+                      <Text style={[styles.syncStatus, { color: colors.muted }]}>{connectorSyncStateLabel(syncStatus)}</Text>
+                      {record?.lastSyncError ? <Text style={[styles.syncError, { color: colors.error }]}>{record.lastSyncError}</Text> : null}
+                    </View>
+                    <Pressable accessibilityLabel={`Sync ${connector.title} now`} onPress={() => explainSyncBoundary(connector.title)} style={({ pressed }) => [styles.syncButton, { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={styles.syncButtonText}>Sync Now</Text></Pressable>
+                  </View>
+                ) : null}
 
                 {isLocalApproval ? (
                   <Pressable accessibilityLabel={`Remove local ${connector.title} approval`} onPress={() => confirmRemoveApproval(connector.id, connector.title)} style={({ pressed }) => [styles.destructiveButton, { borderColor: colors.error }, pressed && styles.pressed]}><Text style={[styles.destructiveButtonText, { color: colors.error }]}>Remove local approval</Text></Pressable>
@@ -159,6 +182,14 @@ const styles = StyleSheet.create({
   detailRow: { alignItems: "flex-start", flexDirection: "row", gap: 12 },
   detailLabel: { fontSize: 11, fontWeight: "700", width: 62 },
   detailValue: { flex: 1, fontSize: 11, fontWeight: "600", lineHeight: 16 },
+  syncPanel: { alignItems: "center", borderRadius: 14, borderWidth: 1, flexDirection: "row", gap: 12, padding: 11 },
+  syncCopy: { flex: 1, gap: 2 },
+  syncLabel: { fontSize: 9, fontWeight: "800", letterSpacing: 0.8 },
+  syncValue: { fontSize: 13, fontWeight: "800", lineHeight: 18 },
+  syncStatus: { fontSize: 11, fontWeight: "600", lineHeight: 16 },
+  syncError: { fontSize: 11, fontWeight: "700", lineHeight: 16 },
+  syncButton: { borderRadius: 12, paddingHorizontal: 12, paddingVertical: 9 },
+  syncButtonText: { color: "#FFFFFF", fontSize: 12, fontWeight: "800" },
   destructiveButton: { alignSelf: "flex-start", borderRadius: 13, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 8 },
   destructiveButtonText: { fontSize: 12, fontWeight: "800" },
   configurationHint: { fontSize: 11, fontWeight: "700", lineHeight: 16 },

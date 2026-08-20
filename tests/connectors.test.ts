@@ -6,6 +6,7 @@ import {
   connectorOperationLabel,
   connectorStateDescription,
   connectorStateLabel,
+  connectorSyncStateLabel,
   getConnectorAction,
 } from "../shared/connectors";
 
@@ -29,5 +30,7 @@ describe("connector approval domain", () => {
     expect(connectorStateLabel("APPROVAL_RECORDED")).toBe("Approval Recorded");
     expect(connectorStateDescription("APPROVAL_RECORDED")).toContain("no OAuth consent");
     expect(connectorStateDescription("REVOKED")).toContain("server-side flow");
+    expect(connectorSyncStateLabel("IDLE")).toBe("Ready to sync");
+    expect(connectorSyncStateLabel("SUCCESS")).toBe("Synced");
   });
 });

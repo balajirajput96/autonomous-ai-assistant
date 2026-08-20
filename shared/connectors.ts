@@ -16,6 +16,9 @@ export type ConnectorState = (typeof CONNECTOR_STATES)[number];
 export const CONNECTOR_OPERATION_TYPES = ["CONNECT", "READ", "WRITE", "PUBLISH", "DESTRUCTIVE"] as const;
 export type ConnectorOperationType = (typeof CONNECTOR_OPERATION_TYPES)[number];
 
+export const CONNECTOR_SYNC_STATES = ["IDLE", "SYNCING", "SUCCESS", "ERROR"] as const;
+export type ConnectorSyncState = (typeof CONNECTOR_SYNC_STATES)[number];
+
 export type ConnectorAction = {
   id: string;
   label: string;
@@ -46,6 +49,9 @@ export type ConnectorRecord = {
   accountLabel?: string;
   expiresAt?: string;
   scopeLabels?: string[];
+  lastSyncedAt?: string;
+  lastSyncStatus?: ConnectorSyncState;
+  lastSyncError?: string;
 };
 
 export type ConnectorApprovalRequest = {
@@ -203,4 +209,14 @@ export function connectorStateDescription(state: ConnectorState): string {
 
 export function connectorOperationLabel(operation: ConnectorOperationType): string {
   return operation.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export function connectorSyncStateLabel(state: ConnectorSyncState): string {
+  const labels: Record<ConnectorSyncState, string> = {
+    IDLE: "Ready to sync",
+    SYNCING: "Syncing",
+    SUCCESS: "Synced",
+    ERROR: "Sync needs attention",
+  };
+  return labels[state];
 }
