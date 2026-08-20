@@ -7,6 +7,7 @@ import { RecordingPresets, requestRecordingPermissionsAsync, setAudioModeAsync, 
 import { ScreenContainer } from "@/components/screen-container";
 import { TaskDetailSheet } from "@/components/task-detail-sheet";
 import { useAssistant } from "@/lib/assistant-context";
+import { useAccessibility } from "@/hooks/use-accessibility";
 import { useColors } from "@/hooks/use-colors";
 import { taskStateLabel, type AssistantTask, type ChatMessage } from "@/shared/assistant";
 
@@ -30,6 +31,7 @@ const STARTER_PROMPTS = [
  */
 export default function HomeScreen() {
   const colors = useColors();
+  const { scaleText } = useAccessibility();
   const { isReady, messages, preferences, setMode, submitPrompt, tasks } = useAssistant();
   const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
   const recorderState = useAudioRecorderState(audioRecorder);
@@ -119,7 +121,7 @@ export default function HomeScreen() {
       <View style={[styles.messageRow, isUser ? styles.messageRowUser : styles.messageRowAssistant]}>
         {!isUser ? <View style={[styles.messageAvatar, { backgroundColor: colors.tint }]}><Text style={styles.avatarText}>A</Text></View> : null}
         <View style={[styles.messageBubble, isUser ? [styles.userBubble, { backgroundColor: colors.tint }] : [styles.assistantBubble, { backgroundColor: colors.surface, borderColor: colors.border }]]}>
-          <Text style={[styles.messageText, { color: isUser ? "#FFFFFF" : colors.text }]}>{item.content}</Text>
+          <Text style={[styles.messageText, { color: isUser ? "#FFFFFF" : colors.text, fontSize: scaleText(15), lineHeight: scaleText(22) }]}>{item.content}</Text>
           {!isUser && preferences.speechEnabled ? (
             <Pressable accessibilityLabel="Read this response aloud" onPress={() => void speakResponse(item.content)} style={({ pressed }) => [styles.listenButton, { borderColor: colors.border }, pressed && styles.pressed]}>
               <Text style={[styles.listenText, { color: colors.muted }]}>Listen</Text>
@@ -137,8 +139,8 @@ export default function HomeScreen() {
           <View style={styles.brandRow}>
             <View style={[styles.brandMark, { backgroundColor: colors.tint }]}><Text style={styles.brandMarkText}>A</Text></View>
             <View>
-              <Text style={[styles.brandTitle, { color: colors.text }]}>Autonomous</Text>
-              <Text style={[styles.brandSubtitle, { color: colors.muted }]}>Your deliberate AI workspace</Text>
+              <Text style={[styles.brandTitle, { color: colors.text, fontSize: scaleText(16) }]}>Autonomous</Text>
+              <Text style={[styles.brandSubtitle, { color: colors.muted, fontSize: scaleText(11) }]}>Your deliberate AI workspace</Text>
             </View>
           </View>
           <Pressable
@@ -148,12 +150,12 @@ export default function HomeScreen() {
             style={({ pressed }) => [styles.statusButton, { backgroundColor: colors.surface, borderColor: colors.border }, pressed && activeTask && styles.pressed, !activeTask && styles.dimmed]}
           >
             <View style={[styles.statusDot, { backgroundColor: activeTask ? colors.tint : colors.success }]} />
-            <Text style={[styles.statusText, { color: colors.text }]}>{activeTask ? taskStateLabel(activeTask.state) : "Ready"}</Text>
+            <Text style={[styles.statusText, { color: colors.text, fontSize: scaleText(11) }]}>{activeTask ? taskStateLabel(activeTask.state) : "Ready"}</Text>
           </Pressable>
         </View>
 
         <View style={[styles.modeRow, { borderBottomColor: colors.border }]}>
-          <Text style={[styles.modeCaption, { color: colors.muted }]}>EXECUTION MODE</Text>
+          <Text style={[styles.modeCaption, { color: colors.muted, fontSize: scaleText(10) }]}>EXECUTION MODE</Text>
           <View style={[styles.modeSegment, { backgroundColor: colors.surface, borderColor: colors.border }]}>
             {(["ASSISTED", "AGENT"] as const).map((mode) => {
               const selected = preferences.mode === mode;
@@ -164,7 +166,7 @@ export default function HomeScreen() {
                   onPress={() => setMode(mode)}
                   style={({ pressed }) => [styles.modeButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}
                 >
-                  <Text style={[styles.modeText, { color: selected ? "#FFFFFF" : colors.muted }]}>{mode === "ASSISTED" ? "Assisted" : "Agent"}</Text>
+                  <Text style={[styles.modeText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(11) }]}>{mode === "ASSISTED" ? "Assisted" : "Agent"}</Text>
                 </Pressable>
               );
             })}
@@ -182,12 +184,12 @@ export default function HomeScreen() {
             tasks.length === 0 ? (
               <View style={[styles.starterCard, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}35` }]}>
                 <Text style={[styles.starterEyebrow, { color: colors.tint }]}>START HERE</Text>
-                <Text style={[styles.starterTitle, { color: colors.text }]}>Choose a starting point</Text>
-                <Text style={[styles.starterBody, { color: colors.muted }]}>Tap a suggestion to prefill the composer. You can edit it before sending.</Text>
+                <Text style={[styles.starterTitle, { color: colors.text, fontSize: scaleText(16), lineHeight: scaleText(22) }]}>Choose a starting point</Text>
+                <Text style={[styles.starterBody, { color: colors.muted, fontSize: scaleText(12), lineHeight: scaleText(18) }]}>Tap a suggestion to prefill the composer. You can edit it before sending.</Text>
                 <View style={styles.starterList}>
                   {STARTER_PROMPTS.map((starterPrompt) => (
                     <Pressable key={starterPrompt} accessibilityLabel={`Use starter prompt: ${starterPrompt}`} onPress={() => chooseStarterPrompt(starterPrompt)} style={({ pressed }) => [styles.starterPrompt, { backgroundColor: colors.background, borderColor: colors.border }, pressed && styles.pressed]}>
-                      <Text style={[styles.starterPromptText, { color: colors.text }]}>{starterPrompt}</Text>
+                      <Text style={[styles.starterPromptText, { color: colors.text, fontSize: scaleText(12), lineHeight: scaleText(17) }]}>{starterPrompt}</Text>
                       <Text style={[styles.starterPromptArrow, { color: colors.tint }]}>›</Text>
                     </Pressable>
                   ))}
@@ -234,7 +236,7 @@ export default function HomeScreen() {
               placeholder={preferences.mode === "AGENT" ? "Describe a task to plan…" : "Ask anything…"}
               placeholderTextColor={colors.muted}
               returnKeyType="send"
-              style={[styles.input, { color: colors.text }]}
+              style={[styles.input, { color: colors.text, fontSize: scaleText(15), lineHeight: scaleText(21) }]}
               value={prompt}
             />
             <Pressable
@@ -253,7 +255,7 @@ export default function HomeScreen() {
               <Text style={styles.sendText}>↑</Text>
             </Pressable>
           </View>
-          <Text style={[styles.privacyHint, { color: colors.muted }]}>{recorderState.isRecording ? "Recording locally · tap the square to stop" : "Local attachments and external actions require a verified approval flow"}</Text>
+          <Text style={[styles.privacyHint, { color: colors.muted, fontSize: scaleText(10), lineHeight: scaleText(14) }]}>{recorderState.isRecording ? "Recording locally · tap the square to stop" : "Local attachments and external actions require a verified approval flow"}</Text>
         </View>
       </KeyboardAvoidingView>
       <TaskDetailSheet task={activeTask as AssistantTask | undefined} visible={showTaskDetail} onDismiss={() => setShowTaskDetail(false)} />

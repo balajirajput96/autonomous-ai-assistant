@@ -1,12 +1,14 @@
 import { Alert, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 
 import { ScreenContainer } from "@/components/screen-container";
+import { useAccessibility } from "@/hooks/use-accessibility";
 import { useColors } from "@/hooks/use-colors";
 import { useAssistant } from "@/lib/assistant-context";
 import { sendLocalTestNotification } from "@/lib/sync-failure-notifications";
 import { CONNECTOR_CATALOG, connectorStateDescription, connectorStateLabel, connectorSyncStateLabel, type ConnectorProviderId, type ConnectorState } from "@/shared/connectors";
 import { syncFailureKindLabel } from "@/shared/sync-failure-alerts";
 import { localTestNotificationResultMessage } from "@/shared/test-notification";
+import { TEXT_SCALE_OPTIONS, textScaleLabel } from "@/shared/accessibility";
 
 function connectorColor(state: ConnectorState, colors: ReturnType<typeof useColors>): string {
   if (state === "CONNECTED") return colors.success;
@@ -31,6 +33,7 @@ function formatDateTime(value: string): string {
 
 export default function SettingsScreen() {
   const colors = useColors();
+  const { scaleText } = useAccessibility();
   const { connectorRecords, markSyncFailureAlertRead, preferences, pushTokenRegistration, registerDevicePushToken, removeConnectorApproval, setSyncFailureAlertsEnabled, syncFailureAlerts, updatePreferences } = useAssistant();
   const unreadSyncFailureCount = syncFailureAlerts.filter((syncAlert) => !syncAlert.readAt).length;
 
@@ -94,8 +97,8 @@ export default function SettingsScreen() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <Text style={[styles.eyebrow, { color: colors.muted }]}>CONTROL CENTER</Text>
-          <Text style={[styles.title, { color: colors.text }]}>Settings</Text>
-          <Text style={[styles.subtitle, { color: colors.muted }]}>Manage assistant preferences, local data, and connection boundaries in one place.</Text>
+          <Text style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Settings</Text>
+          <Text style={[styles.subtitle, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>Manage assistant preferences, local data, and connection boundaries in one place.</Text>
         </View>
 
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>CONNECTIONS</Text>
@@ -243,6 +246,28 @@ export default function SettingsScreen() {
           </View>
         </View>
 
+        <Text style={[styles.sectionLabel, { color: colors.muted }]}>ACCESSIBILITY</Text>
+        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}> 
+          <View style={styles.rowCopy}>
+            <Text style={[styles.rowTitle, { color: colors.text, fontSize: scaleText(15), lineHeight: scaleText(20) }]}>Text size</Text>
+            <Text style={[styles.rowDescription, { color: colors.muted, fontSize: scaleText(12), lineHeight: scaleText(18) }]}>Adjust primary reading and control text in Chat, Activity, and Settings.</Text>
+          </View>
+          <View style={[styles.textScaleSegment, { backgroundColor: colors.background, borderColor: colors.border }]}>
+            {TEXT_SCALE_OPTIONS.map((option) => {
+              const selected = preferences.textScale === option;
+              return <Pressable key={option} accessibilityLabel={`Use ${textScaleLabel(option)} text size`} onPress={() => updatePreferences({ textScale: option })} style={({ pressed }) => [styles.textScaleButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.textScaleButtonText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(option === "STANDARD" ? 10 : option === "LARGE" ? 11 : 12) }]}>{textScaleLabel(option)}</Text></Pressable>;
+            })}
+          </View>
+          <View style={[styles.rule, { backgroundColor: colors.border }]} />
+          <View style={styles.switchRow}>
+            <View style={styles.rowCopy}>
+              <Text style={[styles.rowTitle, { color: colors.text, fontSize: scaleText(15), lineHeight: scaleText(20) }]}>High-contrast colours</Text>
+              <Text style={[styles.rowDescription, { color: colors.muted, fontSize: scaleText(12), lineHeight: scaleText(18) }]}>Use stronger text, surface, border, and status-colour separation throughout the app.</Text>
+            </View>
+            <Switch value={preferences.highContrast} onValueChange={(highContrast) => updatePreferences({ highContrast })} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.highContrast ? colors.tint : colors.background} />
+          </View>
+        </View>
+
         <Text style={[styles.sectionLabel, { color: colors.muted }]}>SECURITY & PRIVACY</Text>
         <View style={[styles.connectionNotice, { backgroundColor: `${colors.tint}10`, borderColor: `${colors.tint}55` }]}>
           <Text style={[styles.noticeTitle, { color: colors.text }]}>No credentials are stored in this app</Text>
@@ -295,6 +320,9 @@ const styles = StyleSheet.create({
   modeSegment: { alignSelf: "flex-start", borderRadius: 10, borderWidth: 1, flexDirection: "row", padding: 2 },
   modeButton: { borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
   modeText: { fontSize: 11, fontWeight: "800" },
+  textScaleSegment: { alignSelf: "stretch", borderRadius: 10, borderWidth: 1, flexDirection: "row", padding: 2 },
+  textScaleButton: { alignItems: "center", borderRadius: 8, flex: 1, paddingHorizontal: 6, paddingVertical: 8 },
+  textScaleButtonText: { fontWeight: "800", lineHeight: 16 },
   switchRow: { alignItems: "center", flexDirection: "row", gap: 14 },
   deviceRegistrationRow: { alignItems: "center", flexDirection: "row", gap: 12 },
   deviceRegistrationStatus: { fontSize: 10, fontWeight: "800", marginTop: 3 },

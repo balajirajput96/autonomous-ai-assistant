@@ -39,3 +39,7 @@
 - [x] Add editable starter prompts and clear guidance to the empty Chat flow.
 - [x] Add Activity filters for status-driven task review.
 - [x] Improve disabled-state affordances for notification and device-registration controls.
+- [x] Define accessible text-size levels and high-contrast colour rules.
+- [x] Implement persistent accessibility settings and shared preference tokens.
+- [x] Apply accessible text sizing and high-contrast mode to core screens.
+- [x] Test accessibility preference persistence and document the implemented accessibility boundary.

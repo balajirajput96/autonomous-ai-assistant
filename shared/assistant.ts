@@ -26,6 +26,7 @@ export type RiskLevel = (typeof RISK_LEVELS)[number];
 export type AssistantMode = "ASSISTED" | "AGENT";
 export type MessageRole = "user" | "assistant" | "system";
 export type CapabilityState = "AVAILABLE" | "CONFIGURATION_REQUIRED" | "PLANNED";
+import type { TextScaleOption } from "@/shared/accessibility";
 
 export interface ChatMessage {
   id: string;
@@ -66,6 +67,8 @@ export interface AssistantPreferences {
   speechEnabled: boolean;
   saveTaskHistory: boolean;
   syncFailureAlerts: boolean;
+  textScale: TextScaleOption;
+  highContrast: boolean;
   colourScheme: "system" | "light" | "dark";
 }
 
@@ -82,6 +85,8 @@ export const DEFAULT_PREFERENCES: AssistantPreferences = {
   speechEnabled: false,
   saveTaskHistory: true,
   syncFailureAlerts: false,
+  textScale: "STANDARD",
+  highContrast: false,
   colourScheme: "system",
 };
 

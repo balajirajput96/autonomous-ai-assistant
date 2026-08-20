@@ -3,6 +3,7 @@ import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { TaskDetailSheet } from "@/components/task-detail-sheet";
 import { ScreenContainer } from "@/components/screen-container";
+import { useAccessibility } from "@/hooks/use-accessibility";
 import { useColors } from "@/hooks/use-colors";
 import { useAssistant } from "@/lib/assistant-context";
 import { riskLevelLabel, taskStateLabel, type AssistantTask, type TaskState } from "@/shared/assistant";
@@ -30,6 +31,7 @@ function stateColor(state: TaskState, colors: ReturnType<typeof useColors>): str
 
 export default function ActivityScreen() {
   const colors = useColors();
+  const { scaleText } = useAccessibility();
   const { tasks } = useAssistant();
   const [selectedTask, setSelectedTask] = useState<AssistantTask>();
   const [filter, setFilter] = useState<ActivityFilter>("ALL");
@@ -39,8 +41,8 @@ export default function ActivityScreen() {
     <ScreenContainer>
       <View style={styles.header}>
         <Text style={[styles.eyebrow, { color: colors.muted }]}>TASK RECORD</Text>
-        <Text style={[styles.title, { color: colors.text }]}>Activity</Text>
-        <Text style={[styles.subtitle, { color: colors.muted }]}>Every task has a visible state, risk label, and local trace.</Text>
+        <Text style={[styles.title, { color: colors.text, fontSize: scaleText(30), lineHeight: scaleText(37) }]}>Activity</Text>
+        <Text style={[styles.subtitle, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>Every task has a visible state, risk label, and local trace.</Text>
       </View>
 
       <FlatList
@@ -53,7 +55,7 @@ export default function ActivityScreen() {
             {ACTIVITY_FILTERS.map((activityFilter) => {
               const selected = filter === activityFilter;
               const count = tasks.filter((task) => matchesActivityFilter(task, activityFilter)).length;
-              return <Pressable key={activityFilter} accessibilityLabel={`Show ${activityFilterLabel(activityFilter)} tasks`} onPress={() => setFilter(activityFilter)} style={({ pressed }) => [styles.filterButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.filterText, { color: selected ? "#FFFFFF" : colors.muted }]}>{activityFilterLabel(activityFilter)}{count > 0 ? ` ${count}` : ""}</Text></Pressable>;
+              return <Pressable key={activityFilter} accessibilityLabel={`Show ${activityFilterLabel(activityFilter)} tasks`} onPress={() => setFilter(activityFilter)} style={({ pressed }) => [styles.filterButton, selected && { backgroundColor: colors.tint }, pressed && styles.pressed]}><Text style={[styles.filterText, { color: selected ? "#FFFFFF" : colors.muted, fontSize: scaleText(10) }]}>{activityFilterLabel(activityFilter)}{count > 0 ? ` ${count}` : ""}</Text></Pressable>;
             })}
           </View>
         }
@@ -69,7 +71,7 @@ export default function ActivityScreen() {
                 <View style={[styles.stateMark, { backgroundColor: `${color}1A` }]}><View style={[styles.stateDot, { backgroundColor: color }]} /></View>
                 <Text style={[styles.timestamp, { color: colors.muted }]}>{new Date(item.updatedAt).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</Text>
               </View>
-              <Text numberOfLines={2} style={[styles.taskTitle, { color: colors.text }]}>{item.title}</Text>
+              <Text numberOfLines={2} style={[styles.taskTitle, { color: colors.text, fontSize: scaleText(16), lineHeight: scaleText(22) }]}>{item.title}</Text>
               <View style={styles.tagRow}>
                 <View style={[styles.tag, { backgroundColor: `${color}16` }]}><Text style={[styles.tagText, { color }]}>{taskStateLabel(item.state)}</Text></View>
                 <View style={[styles.tag, { backgroundColor: `${colors.warning}16` }]}><Text style={[styles.tagText, { color: colors.warning }]}>{riskLevelLabel(item.riskLevel)}</Text></View>
@@ -80,8 +82,8 @@ export default function ActivityScreen() {
         }}
         ListEmptyComponent={
           <View style={[styles.emptyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-            <Text style={[styles.emptyTitle, { color: colors.text }]}>{tasks.length === 0 ? "No tasks yet" : `No ${activityFilterLabel(filter).toLowerCase()} tasks`}</Text>
-            <Text style={[styles.emptyBody, { color: colors.muted }]}>{tasks.length === 0 ? "Start a conversation to create your first visible task record." : "Try a different filter to review the rest of your local task history."}</Text>
+            <Text style={[styles.emptyTitle, { color: colors.text, fontSize: scaleText(18) }]}>{tasks.length === 0 ? "No tasks yet" : `No ${activityFilterLabel(filter).toLowerCase()} tasks`}</Text>
+            <Text style={[styles.emptyBody, { color: colors.muted, fontSize: scaleText(14), lineHeight: scaleText(20) }]}>{tasks.length === 0 ? "Start a conversation to create your first visible task record." : "Try a different filter to review the rest of your local task history."}</Text>
           </View>
         }
       />
