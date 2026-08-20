@@ -12,9 +12,10 @@ The current mobile MVP provides a functional AI workspace rather than a simulate
 | **Attachments** | A system document picker accepts supported documents and images and displays a local queue state. | No selected file is uploaded or sent to a model in this MVP. |
 | **Voice interaction** | Microphone capture requests permission only after a user tap; device text-to-speech is optional. | Audio is not uploaded or transcribed in this MVP. |
 | **Connected tools and schedules** | The application clearly displays these as planned capabilities. | There are no hidden connector credentials, background workers, or unaudited external actions. |
+| **Connector approval foundation** | GitHub, Google Calendar, and Gmail cards present provider boundaries and one-time local approval sheets. A server preflight returns `CONFIGURATION_REQUIRED` without provider credentials and a callback domain. | No provider page is opened, scope is granted, account is connected, or token is collected in this MVP. |
 
 ## Intentional MVP Boundaries
 
-The assistant does not claim to execute external actions, connect private accounts, publish content, alter third-party data, perform financial transactions, or retain uploaded files. Tool execution, scheduled workflows, OAuth, document intelligence, and speech transcription require the independent security, retention, approval, and operational work described in the release plan.
+The assistant does not claim to execute external actions, connect private accounts, publish content, alter third-party data, perform financial transactions, or retain uploaded files. Tool execution, scheduled workflows, production OAuth, document intelligence, and speech transcription require the independent security, retention, approval, and operational work described in the release plan.
 
 The current validation evidence consists of TypeScript checking, three deterministic domain tests, linting, a successful Expo configuration resolution, an icon asset review, and a server-side AI endpoint smoke test. Device-level permission and lifecycle tests remain required before any store submission.

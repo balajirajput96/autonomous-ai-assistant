@@ -12,7 +12,8 @@ The product will collect and process only the information required to provide th
 | Task metadata | Show history and diagnostic state. | Device-local in MVP; optional authenticated server later. | None in local mode. | View, clear, export when implemented. |
 | Uploaded file | Analyse a document, image, or audio item only when user requests it. | Server object storage only after feature activation. | Model provider only if processing requires it. | Remove reference and explain current deletion boundary. |
 | Voice recording | Convert speech to text only after microphone permission and user action. | Temporary upload only when transcription is activated. | Transcription provider when enabled. | Decline permission, delete task record, or use typed input. |
-| Connector token | Perform explicitly approved connected-service actions. | Server-side encrypted secret store. | Only the authorised connected service. | Review scopes and revoke. |
+| Connector approval record | Preserve a one-time local record that the user reviewed a proposed provider action. | Device-local MVP state. | None. It does not trigger an authorization request or provider call. | Clear application data; formal approval-history deletion is required before production release. |
+| Connector token | Perform explicitly approved connected-service actions. | Not collected or stored in the current MVP. Future: server-side encrypted secret store. | Only the authorised connected service after a completed OAuth flow. | Review scopes and revoke. |
 
 ## Disclosure and Consent
 
@@ -20,7 +21,7 @@ Google Play requires transparent disclosure of user-data access, collection, use
 
 ## Retention and Deletion
 
-The MVP defaults to local task state and does not promise cross-device persistence. Remote file, memory, workflow, or connector capabilities remain unavailable until their retention and deletion implementation is verified. Future storage categories will receive a specified purpose, retention trigger, deletion path, and export scope before release.
+The MVP defaults to local task state and does not promise cross-device persistence. A recorded connector approval is a local user-interface record only; it does not constitute OAuth consent, does not identify an external account, and cannot be used to access a provider. Remote file, memory, workflow, token, or connector capabilities remain unavailable until their retention and deletion implementation is verified. Future storage categories will receive a specified purpose, retention trigger, deletion path, and export scope before release.
 
 ## References
 

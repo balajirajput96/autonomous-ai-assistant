@@ -11,7 +11,10 @@
 - [ ] Add voice capture, transcription, and speech output with permission-aware fallbacks.
 - [x] Implement local microphone capture and opt-in device text-to-speech with permission-aware fallbacks.
 - [ ] Add server-side transcription and document intelligence only after authenticated storage, retention, and consent controls are verified.
-- [ ] Add verified connector and automation architecture without exposing unauthenticated tools.
+- [x] Add verified connector and automation architecture without exposing unauthenticated tools.
 - [x] Create a custom app icon and update application branding configuration.
 - [x] Add unit tests and validate core interaction flows.
 - [x] Document current limitations, future work, and release readiness.
+- [x] Define OAuth connector provider boundaries, consent copy, scopes, and approval policy.
+- [x] Implement connector status cards, OAuth configuration boundaries, and approval-first action sheets.
+- [x] Add connector policy tests and update security, privacy, and release documentation.

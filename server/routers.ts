@@ -11,6 +11,26 @@ const assistantInput = z.object({
   mode: z.enum(["ASSISTED", "AGENT"]),
 });
 
+const connectorProviderInput = z.object({
+  providerId: z.enum(["github", "google-calendar", "gmail"]),
+});
+
+function oauthConfigurationState(providerId: z.infer<typeof connectorProviderInput>["providerId"]) {
+  const configured =
+    providerId === "github"
+      ? Boolean(process.env.GITHUB_OAUTH_CLIENT_ID && process.env.GITHUB_OAUTH_CLIENT_SECRET && process.env.EXTERNAL_OAUTH_REDIRECT_URI)
+      : Boolean(process.env.GOOGLE_OAUTH_CLIENT_ID && process.env.GOOGLE_OAUTH_CLIENT_SECRET && process.env.EXTERNAL_OAUTH_REDIRECT_URI);
+
+  return {
+    providerId,
+    state: configured ? "DISCONNECTED" : "CONFIGURATION_REQUIRED",
+    canStartAuthorization: false,
+    message: configured
+      ? "OAuth credentials are present, but the production callback, state store, encrypted token persistence, and provider sandbox verification must be enabled before authorization can start."
+      : "OAuth credentials and a fixed production HTTPS callback are not configured for this provider. No authorization page can be opened.",
+  } as const;
+}
+
 function safeProviderError(error: unknown): string {
   const message = error instanceof Error ? error.message.toLowerCase() : "";
   if (message.includes("429") || message.includes("rate")) return "The assistant is temporarily rate-limited. Please try again shortly.";
@@ -78,6 +98,9 @@ export const appRouter = router({
         throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: safeProviderError(error), cause: error });
       }
     }),
+  }),
+  connectors: router({
+    preflight: publicProcedure.input(connectorProviderInput).query(({ input }) => oauthConfigurationState(input.providerId)),
   }),
 
   // TODO: add feature routers here, e.g.

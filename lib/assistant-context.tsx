@@ -12,11 +12,13 @@ import {
   type TaskStep,
 } from "@/shared/assistant";
 import { trpc } from "@/lib/trpc";
+import type { ConnectorApprovalRequest, ConnectorProviderId, ConnectorRecord } from "@/shared/connectors";
 
 const STORAGE_KEYS = {
   messages: "autonomous-ai-assistant/messages-v1",
   tasks: "autonomous-ai-assistant/tasks-v1",
   preferences: "autonomous-ai-assistant/preferences-v1",
+  connectors: "autonomous-ai-assistant/connectors-v1",
 } as const;
 
 const STARTER_MESSAGE: ChatMessage = {
@@ -36,6 +38,8 @@ type AssistantContextValue = {
   setMode: (mode: AssistantMode) => void;
   updatePreferences: (update: Partial<AssistantPreferences>) => void;
   clearLocalWorkspace: () => void;
+  connectorRecords: ConnectorRecord[];
+  recordConnectorApproval: (request: ConnectorApprovalRequest) => void;
 };
 
 const AssistantContext = createContext<AssistantContextValue | null>(null);
@@ -78,6 +82,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const [messages, setMessages] = useState<ChatMessage[]>([STARTER_MESSAGE]);
   const [tasks, setTasks] = useState<AssistantTask[]>([]);
   const [preferences, setPreferences] = useState<AssistantPreferences>(DEFAULT_PREFERENCES);
+  const [connectorRecords, setConnectorRecords] = useState<ConnectorRecord[]>([]);
   const { mutateAsync: requestAssistantReply } = trpc.assistant.respond.useMutation();
 
   useEffect(() => {
@@ -91,6 +96,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
         const storedMessages = values.find(([key]) => key === STORAGE_KEYS.messages)?.[1];
         const storedTasks = values.find(([key]) => key === STORAGE_KEYS.tasks)?.[1];
         const storedPreferences = values.find(([key]) => key === STORAGE_KEYS.preferences)?.[1];
+        const storedConnectors = values.find(([key]) => key === STORAGE_KEYS.connectors)?.[1];
 
         if (storedMessages) {
           const parsed = JSON.parse(storedMessages) as ChatMessage[];
@@ -103,6 +109,10 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
         if (storedPreferences) {
           const parsed = JSON.parse(storedPreferences) as Partial<AssistantPreferences>;
           setPreferences({ ...DEFAULT_PREFERENCES, ...parsed });
+        }
+        if (storedConnectors) {
+          const parsed = JSON.parse(storedConnectors) as ConnectorRecord[];
+          if (Array.isArray(parsed)) setConnectorRecords(parsed);
         }
       } catch {
         // The assistant remains usable with its in-memory defaults when local storage is unavailable.
@@ -120,14 +130,15 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isReady) return;
     const preferenceWrite = AsyncStorage.setItem(STORAGE_KEYS.preferences, JSON.stringify(preferences));
+    const connectorWrite = AsyncStorage.setItem(STORAGE_KEYS.connectors, JSON.stringify(connectorRecords));
     const workspaceWrite = preferences.saveTaskHistory
       ? AsyncStorage.multiSet([
           [STORAGE_KEYS.messages, JSON.stringify(messages)],
           [STORAGE_KEYS.tasks, JSON.stringify(tasks)],
         ])
       : AsyncStorage.multiRemove([STORAGE_KEYS.messages, STORAGE_KEYS.tasks]);
-    void Promise.all([preferenceWrite, workspaceWrite]);
-  }, [isReady, messages, preferences, tasks]);
+    void Promise.all([preferenceWrite, connectorWrite, workspaceWrite]);
+  }, [connectorRecords, isReady, messages, preferences, tasks]);
 
   const setMode = useCallback((mode: AssistantMode) => {
     setPreferences((current) => ({ ...current, mode }));
@@ -140,6 +151,19 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const clearLocalWorkspace = useCallback(() => {
     setMessages([{ ...STARTER_MESSAGE, createdAt: new Date().toISOString() }]);
     setTasks([]);
+  }, []);
+
+  const recordConnectorApproval = useCallback((request: ConnectorApprovalRequest) => {
+    const approvalRecordedAt = new Date().toISOString();
+    setConnectorRecords((current) => {
+      const next: ConnectorRecord = {
+        providerId: request.providerId as ConnectorProviderId,
+        state: "APPROVAL_RECORDED",
+        approvalRecordedAt,
+        lastRequestedActionId: request.actionId,
+      };
+      return [...current.filter((record) => record.providerId !== request.providerId), next];
+    });
   }, []);
 
   const submitPrompt = useCallback(
@@ -259,8 +283,8 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace }),
-    [clearLocalWorkspace, isReady, messages, preferences, setMode, submitPrompt, tasks, updatePreferences],
+    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval }),
+    [clearLocalWorkspace, connectorRecords, isReady, messages, preferences, recordConnectorApproval, setMode, submitPrompt, tasks, updatePreferences],
   );
 
   return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;
