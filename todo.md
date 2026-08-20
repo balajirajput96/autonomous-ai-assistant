@@ -33,3 +33,9 @@
 - [x] Define local test-notification conditions, feedback states, and non-remote delivery boundary.
 - [x] Implement a Send Test Notification control in settings with permission-aware local delivery feedback.
 - [x] Test test-notification states and document the local-versus-remote verification boundary.
+- [x] Review current app flows and prioritize high-impact UX and reliability improvements.
+- [x] Implement selected usability improvements across chat, tasks, settings, and notification feedback.
+- [x] Validate the improved flows and document the resulting usability changes.
+- [x] Add editable starter prompts and clear guidance to the empty Chat flow.
+- [x] Add Activity filters for status-driven task review.
+- [x] Improve disabled-state affordances for notification and device-registration controls.

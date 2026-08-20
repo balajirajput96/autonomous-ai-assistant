@@ -10,6 +10,12 @@ import { useAssistant } from "@/lib/assistant-context";
 import { useColors } from "@/hooks/use-colors";
 import { taskStateLabel, type AssistantTask, type ChatMessage } from "@/shared/assistant";
 
+const STARTER_PROMPTS = [
+  "Plan the next steps for a personal project",
+  "Research a topic and separate facts from assumptions",
+  "Turn my rough notes into a clear action plan",
+] as const;
+
 /**
  * Home Screen - NativeWind Example
  *
@@ -48,6 +54,11 @@ export default function HomeScreen() {
     }
     submitPrompt(prompt);
     setPrompt("");
+  };
+
+  const chooseStarterPrompt = (starterPrompt: string) => {
+    if (isTaskRunning) return;
+    setPrompt(starterPrompt);
   };
 
   const chooseAttachment = async () => {
@@ -167,6 +178,23 @@ export default function HomeScreen() {
           style={styles.messageList}
           contentContainerStyle={styles.messageContent}
           showsVerticalScrollIndicator={false}
+          ListHeaderComponent={
+            tasks.length === 0 ? (
+              <View style={[styles.starterCard, { backgroundColor: `${colors.tint}0D`, borderColor: `${colors.tint}35` }]}>
+                <Text style={[styles.starterEyebrow, { color: colors.tint }]}>START HERE</Text>
+                <Text style={[styles.starterTitle, { color: colors.text }]}>Choose a starting point</Text>
+                <Text style={[styles.starterBody, { color: colors.muted }]}>Tap a suggestion to prefill the composer. You can edit it before sending.</Text>
+                <View style={styles.starterList}>
+                  {STARTER_PROMPTS.map((starterPrompt) => (
+                    <Pressable key={starterPrompt} accessibilityLabel={`Use starter prompt: ${starterPrompt}`} onPress={() => chooseStarterPrompt(starterPrompt)} style={({ pressed }) => [styles.starterPrompt, { backgroundColor: colors.background, borderColor: colors.border }, pressed && styles.pressed]}>
+                      <Text style={[styles.starterPromptText, { color: colors.text }]}>{starterPrompt}</Text>
+                      <Text style={[styles.starterPromptArrow, { color: colors.tint }]}>›</Text>
+                    </Pressable>
+                  ))}
+                </View>
+              </View>
+            ) : null
+          }
           ListFooterComponent={
             activeTask && isTaskRunning ? (
               <View style={styles.activityNote}>
@@ -252,6 +280,14 @@ const styles = StyleSheet.create({
   modeText: { fontSize: 11, fontWeight: "700" },
   messageList: { flex: 1 },
   messageContent: { gap: 14, paddingHorizontal: 18, paddingTop: 18, paddingBottom: 20 },
+  starterCard: { borderRadius: 18, borderWidth: 1, gap: 8, marginBottom: 4, padding: 14 },
+  starterEyebrow: { fontSize: 10, fontWeight: "800", letterSpacing: 0.9 },
+  starterTitle: { fontSize: 16, fontWeight: "800", lineHeight: 22 },
+  starterBody: { fontSize: 12, lineHeight: 18 },
+  starterList: { gap: 7, marginTop: 2 },
+  starterPrompt: { alignItems: "center", borderRadius: 12, borderWidth: 1, flexDirection: "row", gap: 9, paddingHorizontal: 11, paddingVertical: 10 },
+  starterPromptText: { flex: 1, fontSize: 12, fontWeight: "700", lineHeight: 17 },
+  starterPromptArrow: { fontSize: 21, fontWeight: "500", lineHeight: 21 },
   messageRow: { alignItems: "flex-end", flexDirection: "row", gap: 8, maxWidth: "94%" },
   messageRowAssistant: { alignSelf: "flex-start" },
   messageRowUser: { alignSelf: "flex-end" },

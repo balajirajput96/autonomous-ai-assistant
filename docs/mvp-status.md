@@ -18,6 +18,7 @@ The current mobile MVP provides a functional AI workspace rather than a simulate
 | **Sync-failure alerts** | Rate-limit and expired-token failure records have distinct recovery guidance, persist locally, can be marked read, and may send an opt-in local device alert. | No failure is fabricated. Remote push delivery requires a production build, permission, device token registration, and a verified server-side sync event. |
 | **Device push-token registration** | Settings can request notification permission and acquire a native token on a physical device, then display only a redacted readiness state. Token rotation is observed while alerts are enabled. | The raw token is neither displayed, locally persisted, logged, nor uploaded. Background remote delivery remains pending until an authenticated server-registration and deletion path exist. |
 | **Local test notification** | Settings can send an immediate test alert through the device’s sync-failure notification channel and report permission, native-environment, or scheduling failures. | This checks only local delivery. It does not use a push token, contact a push provider, or prove that background remote delivery is configured. |
+| **Focused usability pass** | Chat offers editable starter prompts, Activity provides status filters, and notification controls show clearer disabled states when alerts are not enabled. | Starter prompts do not send automatically, activity filters do not alter history, and notification controls remain unavailable until the user opts in. |
 
 ## Intentional MVP Boundaries
 

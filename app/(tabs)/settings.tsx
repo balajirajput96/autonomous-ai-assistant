@@ -174,7 +174,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowDescription, { color: colors.muted }]}>{pushTokenRegistration.detail ?? "Register this physical device to prepare it for future background alerts."}</Text>
               <Text style={[styles.deviceRegistrationStatus, { color: pushTokenRegistration.state === "PENDING_SERVER_REGISTRATION" ? colors.success : pushTokenRegistration.state === "ERROR" || pushTokenRegistration.state === "PERMISSION_DENIED" ? colors.error : colors.muted }]}>{pushTokenRegistration.state.replaceAll("_", " ")}</Text>
             </View>
-            <Pressable accessibilityLabel="Register this device for background sync-failure notifications" onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
+            <Pressable accessibilityLabel="Register this device for background sync-failure notifications" disabled={!preferences.syncFailureAlerts} onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           <View style={styles.testNotificationRow}>
@@ -182,7 +182,7 @@ export default function SettingsScreen() {
               <Text style={[styles.rowTitle, { color: colors.text }]}>Verify local delivery</Text>
               <Text style={[styles.rowDescription, { color: colors.muted }]}>Sends one immediate alert through this device’s sync-failure channel. It does not use your push token or contact a server.</Text>
             </View>
-            <Pressable accessibilityLabel="Send a local test notification" onPress={sendTestNotification} style={({ pressed }) => [styles.testNotificationButton, { borderColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={[styles.testNotificationText, { color: preferences.syncFailureAlerts ? colors.tint : colors.muted }]}>Send test</Text></Pressable>
+            <Pressable accessibilityLabel="Send a local test notification" disabled={!preferences.syncFailureAlerts} onPress={sendTestNotification} style={({ pressed }) => [styles.testNotificationButton, { borderColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, !preferences.syncFailureAlerts && styles.disabledControl, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={[styles.testNotificationText, { color: preferences.syncFailureAlerts ? colors.tint : colors.muted }]}>Send test</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           {syncFailureAlerts.length === 0 ? (
@@ -303,6 +303,7 @@ const styles = StyleSheet.create({
   testNotificationRow: { alignItems: "center", flexDirection: "row", gap: 12 },
   testNotificationButton: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 10, paddingVertical: 9 },
   testNotificationText: { fontSize: 11, fontWeight: "800" },
+  disabledControl: { opacity: 0.48 },
   rule: { height: StyleSheet.hairlineWidth, width: "100%" },
   alertEmptyState: { gap: 4 },
   alertEmptyTitle: { fontSize: 13, fontWeight: "800" },
