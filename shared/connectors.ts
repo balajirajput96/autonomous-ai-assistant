@@ -42,6 +42,10 @@ export type ConnectorRecord = {
   state: ConnectorState;
   approvalRecordedAt?: string;
   lastRequestedActionId?: string;
+  connectedAt?: string;
+  accountLabel?: string;
+  expiresAt?: string;
+  scopeLabels?: string[];
 };
 
 export type ConnectorApprovalRequest = {
@@ -183,6 +187,18 @@ export function getConnectorAction(providerId: ConnectorProviderId, actionId: st
 
 export function connectorStateLabel(state: ConnectorState): string {
   return state.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export function connectorStateDescription(state: ConnectorState): string {
+  const descriptions: Record<ConnectorState, string> = {
+    CONFIGURATION_REQUIRED: "Provider credentials and the secure callback flow have not been configured.",
+    DISCONNECTED: "No active provider account is connected.",
+    APPROVAL_RECORDED: "A local review was recorded, but no OAuth consent or provider connection exists.",
+    CONNECTED: "A future server-verified OAuth connection is active for this provider.",
+    EXPIRED: "A stored connection exists but must be reauthorized before it can be used.",
+    REVOKED: "The provider connection was revoked by a verified server-side flow.",
+  };
+  return descriptions[state];
 }
 
 export function connectorOperationLabel(operation: ConnectorOperationType): string {

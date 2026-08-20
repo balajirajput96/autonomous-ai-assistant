@@ -18,3 +18,6 @@
 - [x] Define OAuth connector provider boundaries, consent copy, scopes, and approval policy.
 - [x] Implement connector status cards, OAuth configuration boundaries, and approval-first action sheets.
 - [x] Add connector policy tests and update security, privacy, and release documentation.
+- [x] Define active-connection, expiry, and revocation lifecycle boundaries for OAuth settings.
+- [x] Implement a dedicated settings interface for viewing, managing, and revoking connector records.
+- [x] Add revocation safeguards, tests, and connection-management documentation.

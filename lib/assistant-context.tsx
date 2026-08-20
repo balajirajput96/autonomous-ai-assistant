@@ -40,6 +40,7 @@ type AssistantContextValue = {
   clearLocalWorkspace: () => void;
   connectorRecords: ConnectorRecord[];
   recordConnectorApproval: (request: ConnectorApprovalRequest) => void;
+  removeConnectorApproval: (providerId: ConnectorProviderId) => void;
 };
 
 const AssistantContext = createContext<AssistantContextValue | null>(null);
@@ -166,6 +167,10 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const removeConnectorApproval = useCallback((providerId: ConnectorProviderId) => {
+    setConnectorRecords((current) => current.filter((record) => record.providerId !== providerId || record.state !== "APPROVAL_RECORDED"));
+  }, []);
+
   const submitPrompt = useCallback(
     (rawPrompt: string) => {
       const prompt = rawPrompt.trim();
@@ -283,8 +288,8 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval }),
-    [clearLocalWorkspace, connectorRecords, isReady, messages, preferences, recordConnectorApproval, setMode, submitPrompt, tasks, updatePreferences],
+    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval, removeConnectorApproval }),
+    [clearLocalWorkspace, connectorRecords, isReady, messages, preferences, recordConnectorApproval, removeConnectorApproval, setMode, submitPrompt, tasks, updatePreferences],
   );
 
   return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;
