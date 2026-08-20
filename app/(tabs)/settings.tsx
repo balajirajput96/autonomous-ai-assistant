@@ -29,7 +29,7 @@ function formatDateTime(value: string): string {
 
 export default function SettingsScreen() {
   const colors = useColors();
-  const { connectorRecords, markSyncFailureAlertRead, preferences, removeConnectorApproval, setSyncFailureAlertsEnabled, syncFailureAlerts, updatePreferences } = useAssistant();
+  const { connectorRecords, markSyncFailureAlertRead, preferences, pushTokenRegistration, registerDevicePushToken, removeConnectorApproval, setSyncFailureAlertsEnabled, syncFailureAlerts, updatePreferences } = useAssistant();
   const unreadSyncFailureCount = syncFailureAlerts.filter((syncAlert) => !syncAlert.readAt).length;
 
   const confirmRemoveApproval = (providerId: ConnectorProviderId, title: string) => {
@@ -67,6 +67,16 @@ export default function SettingsScreen() {
           "You can still review sync issues in this screen. To receive device alerts, allow notifications for Autonomous in your device settings.",
           [{ text: "Understood" }],
         );
+      }
+    });
+  };
+
+  const registerThisDevice = () => {
+    void registerDevicePushToken().then((registration) => {
+      if (registration.state === "PENDING_SERVER_REGISTRATION") {
+        Alert.alert("Device token registered", "This device is ready for future background delivery. A secure server registration endpoint is still required before remote notifications can be sent.", [{ text: "Understood" }]);
+      } else if (registration.state !== "REGISTERING") {
+        Alert.alert("Device registration unavailable", registration.detail ?? "This device could not be registered for background delivery.", [{ text: "Understood" }]);
       }
     });
   };
@@ -148,6 +158,15 @@ export default function SettingsScreen() {
               <Text style={[styles.rowDescription, { color: colors.muted }]}>Receive an optional device alert if a verified connection hits a rate limit or needs reconnection.</Text>
             </View>
             <Switch value={preferences.syncFailureAlerts} onValueChange={updateSyncFailureAlerts} trackColor={{ false: colors.border, true: `${colors.tint}80` }} thumbColor={preferences.syncFailureAlerts ? colors.tint : colors.background} />
+          </View>
+          <View style={[styles.rule, { backgroundColor: colors.border }]} />
+          <View style={styles.deviceRegistrationRow}>
+            <View style={styles.rowCopy}>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>Background delivery device</Text>
+              <Text style={[styles.rowDescription, { color: colors.muted }]}>{pushTokenRegistration.detail ?? "Register this physical device to prepare it for future background alerts."}</Text>
+              <Text style={[styles.deviceRegistrationStatus, { color: pushTokenRegistration.state === "PENDING_SERVER_REGISTRATION" ? colors.success : pushTokenRegistration.state === "ERROR" || pushTokenRegistration.state === "PERMISSION_DENIED" ? colors.error : colors.muted }]}>{pushTokenRegistration.state.replaceAll("_", " ")}</Text>
+            </View>
+            <Pressable accessibilityLabel="Register this device for background sync-failure notifications" onPress={registerThisDevice} style={({ pressed }) => [styles.registerDeviceButton, { backgroundColor: preferences.syncFailureAlerts ? colors.tint : colors.border }, pressed && preferences.syncFailureAlerts && styles.pressed]}><Text style={styles.registerDeviceText}>Register device</Text></Pressable>
           </View>
           <View style={[styles.rule, { backgroundColor: colors.border }]} />
           {syncFailureAlerts.length === 0 ? (
@@ -261,6 +280,10 @@ const styles = StyleSheet.create({
   modeButton: { borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
   modeText: { fontSize: 11, fontWeight: "800" },
   switchRow: { alignItems: "center", flexDirection: "row", gap: 14 },
+  deviceRegistrationRow: { alignItems: "center", flexDirection: "row", gap: 12 },
+  deviceRegistrationStatus: { fontSize: 10, fontWeight: "800", marginTop: 3 },
+  registerDeviceButton: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 9 },
+  registerDeviceText: { color: "#FFFFFF", fontSize: 11, fontWeight: "800" },
   rule: { height: StyleSheet.hairlineWidth, width: "100%" },
   alertEmptyState: { gap: 4 },
   alertEmptyTitle: { fontSize: 13, fontWeight: "800" },

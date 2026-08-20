@@ -1,9 +1,13 @@
 import * as Notifications from "expo-notifications";
+import * as Device from "expo-device";
 import { Platform } from "react-native";
 
+import { createRedactedPushTokenRegistration, type DevicePushTokenRegistration } from "@/shared/push-token-registration";
 import type { SyncFailureAlert } from "@/shared/sync-failure-alerts";
 
 const SYNC_FAILURE_CHANNEL = "sync-failures";
+
+export type { DevicePushTokenRegistration } from "@/shared/push-token-registration";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -36,6 +40,39 @@ export async function requestSyncFailureNotificationPermission(): Promise<boolea
   } catch {
     return false;
   }
+}
+
+function pendingServerRegistration(token: string): DevicePushTokenRegistration {
+  return createRedactedPushTokenRegistration(token);
+}
+
+export async function registerDevicePushToken(): Promise<DevicePushTokenRegistration> {
+  const updatedAt = new Date().toISOString();
+  if (Platform.OS === "web") {
+    return { state: "UNAVAILABLE", updatedAt, detail: "Device push tokens require a native mobile build." };
+  }
+  if (!Device.isDevice) {
+    return { state: "UNAVAILABLE", updatedAt, detail: "Device push tokens can be registered only on a physical device." };
+  }
+
+  try {
+    const granted = await requestSyncFailureNotificationPermission();
+    if (!granted) {
+      return { state: "PERMISSION_DENIED", updatedAt, detail: "Notification permission is required before a device token can be registered." };
+    }
+    const token = await Notifications.getDevicePushTokenAsync();
+    const tokenValue = typeof token.data === "string" ? token.data : JSON.stringify(token.data);
+    return pendingServerRegistration(tokenValue);
+  } catch {
+    return { state: "ERROR", updatedAt, detail: "The device token could not be acquired. Check connectivity and retry later." };
+  }
+}
+
+export function subscribeToDevicePushTokenChanges(onTokenChange: (registration: DevicePushTokenRegistration) => void): { remove: () => void } {
+  return Notifications.addPushTokenListener((token) => {
+    const tokenValue = typeof token.data === "string" ? token.data : JSON.stringify(token.data);
+    onTokenChange(createRedactedPushTokenRegistration(tokenValue, "A refreshed device token is ready for a future authenticated server registration. Its full value is not stored on this device."));
+  });
 }
 
 export async function presentSyncFailureNotification(alert: SyncFailureAlert): Promise<boolean> {

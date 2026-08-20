@@ -27,3 +27,6 @@
 - [x] Define rate-limit and expired-token notification events, recovery actions, and delivery boundaries.
 - [x] Implement local sync-failure notifications and connection recovery controls.
 - [x] Test notification state handling and document the production push-notification requirements.
+- [x] Define device push-token consent, storage, rotation, and server-registration boundaries.
+- [x] Implement permission-aware device push-token registration in notification settings.
+- [x] Test device-token state handling and document authenticated backend registration requirements.

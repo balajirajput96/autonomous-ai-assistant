@@ -14,7 +14,9 @@ import {
 import { trpc } from "@/lib/trpc";
 import type { ConnectorApprovalRequest, ConnectorProviderId, ConnectorRecord } from "@/shared/connectors";
 import { presentSyncFailureNotification, requestSyncFailureNotificationPermission } from "@/lib/sync-failure-notifications";
+import { registerDevicePushToken, subscribeToDevicePushTokenChanges } from "@/lib/sync-failure-notifications";
 import { createSyncFailureAlert, type SyncFailureAlert, type SyncFailureKind } from "@/shared/sync-failure-alerts";
+import type { DevicePushTokenRegistration } from "@/shared/push-token-registration";
 
 const STORAGE_KEYS = {
   messages: "autonomous-ai-assistant/messages-v1",
@@ -22,6 +24,7 @@ const STORAGE_KEYS = {
   preferences: "autonomous-ai-assistant/preferences-v1",
   connectors: "autonomous-ai-assistant/connectors-v1",
   syncFailureAlerts: "autonomous-ai-assistant/sync-failure-alerts-v1",
+  pushTokenRegistration: "autonomous-ai-assistant/push-token-registration-v1",
 } as const;
 
 const STARTER_MESSAGE: ChatMessage = {
@@ -48,6 +51,8 @@ type AssistantContextValue = {
   setSyncFailureAlertsEnabled: (enabled: boolean) => Promise<boolean>;
   recordSyncFailure: (providerId: ConnectorProviderId, kind: SyncFailureKind, retryAt?: string) => void;
   markSyncFailureAlertRead: (alertId: string) => void;
+  pushTokenRegistration: DevicePushTokenRegistration;
+  registerDevicePushToken: () => Promise<DevicePushTokenRegistration>;
 };
 
 const AssistantContext = createContext<AssistantContextValue | null>(null);
@@ -92,6 +97,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const [preferences, setPreferences] = useState<AssistantPreferences>(DEFAULT_PREFERENCES);
   const [connectorRecords, setConnectorRecords] = useState<ConnectorRecord[]>([]);
   const [syncFailureAlerts, setSyncFailureAlerts] = useState<SyncFailureAlert[]>([]);
+  const [pushTokenRegistration, setPushTokenRegistration] = useState<DevicePushTokenRegistration>({ state: "NOT_REGISTERED", updatedAt: new Date().toISOString() });
   const { mutateAsync: requestAssistantReply } = trpc.assistant.respond.useMutation();
 
   useEffect(() => {
@@ -107,6 +113,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
         const storedPreferences = values.find(([key]) => key === STORAGE_KEYS.preferences)?.[1];
         const storedConnectors = values.find(([key]) => key === STORAGE_KEYS.connectors)?.[1];
         const storedSyncFailureAlerts = values.find(([key]) => key === STORAGE_KEYS.syncFailureAlerts)?.[1];
+        const storedPushTokenRegistration = values.find(([key]) => key === STORAGE_KEYS.pushTokenRegistration)?.[1];
 
         if (storedMessages) {
           const parsed = JSON.parse(storedMessages) as ChatMessage[];
@@ -128,6 +135,10 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
           const parsed = JSON.parse(storedSyncFailureAlerts) as SyncFailureAlert[];
           if (Array.isArray(parsed)) setSyncFailureAlerts(parsed);
         }
+        if (storedPushTokenRegistration) {
+          const parsed = JSON.parse(storedPushTokenRegistration) as DevicePushTokenRegistration;
+          if (parsed && typeof parsed.state === "string") setPushTokenRegistration(parsed);
+        }
       } catch {
         // The assistant remains usable with its in-memory defaults when local storage is unavailable.
       } finally {
@@ -146,14 +157,15 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
     const preferenceWrite = AsyncStorage.setItem(STORAGE_KEYS.preferences, JSON.stringify(preferences));
     const connectorWrite = AsyncStorage.setItem(STORAGE_KEYS.connectors, JSON.stringify(connectorRecords));
     const syncFailureAlertWrite = AsyncStorage.setItem(STORAGE_KEYS.syncFailureAlerts, JSON.stringify(syncFailureAlerts));
+    const pushTokenRegistrationWrite = AsyncStorage.setItem(STORAGE_KEYS.pushTokenRegistration, JSON.stringify(pushTokenRegistration));
     const workspaceWrite = preferences.saveTaskHistory
       ? AsyncStorage.multiSet([
           [STORAGE_KEYS.messages, JSON.stringify(messages)],
           [STORAGE_KEYS.tasks, JSON.stringify(tasks)],
         ])
       : AsyncStorage.multiRemove([STORAGE_KEYS.messages, STORAGE_KEYS.tasks]);
-    void Promise.all([preferenceWrite, connectorWrite, syncFailureAlertWrite, workspaceWrite]);
-  }, [connectorRecords, isReady, messages, preferences, syncFailureAlerts, tasks]);
+    void Promise.all([preferenceWrite, connectorWrite, syncFailureAlertWrite, pushTokenRegistrationWrite, workspaceWrite]);
+  }, [connectorRecords, isReady, messages, preferences, pushTokenRegistration, syncFailureAlerts, tasks]);
 
   const setMode = useCallback((mode: AssistantMode) => {
     setPreferences((current) => ({ ...current, mode }));
@@ -188,6 +200,7 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const setSyncFailureAlertsEnabled = useCallback(async (enabled: boolean): Promise<boolean> => {
     if (!enabled) {
       setPreferences((current) => ({ ...current, syncFailureAlerts: false }));
+      setPushTokenRegistration({ state: "NOT_REGISTERED", updatedAt: new Date().toISOString(), detail: "Device-token registration was cleared locally when sync-failure alerts were disabled." });
       return true;
     }
 
@@ -213,6 +226,28 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   const markSyncFailureAlertRead = useCallback((alertId: string) => {
     setSyncFailureAlerts((current) => current.map((alert) => (alert.id === alertId ? { ...alert, readAt: new Date().toISOString() } : alert)));
   }, []);
+
+  const registerCurrentDevicePushToken = useCallback(async (): Promise<DevicePushTokenRegistration> => {
+    if (!preferences.syncFailureAlerts) {
+      const registration: DevicePushTokenRegistration = {
+        state: "NOT_REGISTERED",
+        updatedAt: new Date().toISOString(),
+        detail: "Enable sync-failure alerts before registering this device for background delivery.",
+      };
+      setPushTokenRegistration(registration);
+      return registration;
+    }
+    setPushTokenRegistration({ state: "REGISTERING", updatedAt: new Date().toISOString(), detail: "Requesting device token…" });
+    const registration = await registerDevicePushToken();
+    setPushTokenRegistration(registration);
+    return registration;
+  }, [preferences.syncFailureAlerts]);
+
+  useEffect(() => {
+    if (!preferences.syncFailureAlerts) return;
+    const subscription = subscribeToDevicePushTokenChanges(setPushTokenRegistration);
+    return () => subscription.remove();
+  }, [preferences.syncFailureAlerts]);
 
   const submitPrompt = useCallback(
     (rawPrompt: string) => {
@@ -331,8 +366,8 @@ export function AssistantProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval, removeConnectorApproval, syncFailureAlerts, setSyncFailureAlertsEnabled, recordSyncFailure, markSyncFailureAlertRead }),
-    [clearLocalWorkspace, connectorRecords, isReady, markSyncFailureAlertRead, messages, preferences, recordConnectorApproval, recordSyncFailure, removeConnectorApproval, setMode, setSyncFailureAlertsEnabled, submitPrompt, syncFailureAlerts, tasks, updatePreferences],
+    () => ({ isReady, messages, tasks, preferences, submitPrompt, setMode, updatePreferences, clearLocalWorkspace, connectorRecords, recordConnectorApproval, removeConnectorApproval, syncFailureAlerts, setSyncFailureAlertsEnabled, recordSyncFailure, markSyncFailureAlertRead, pushTokenRegistration, registerDevicePushToken: registerCurrentDevicePushToken }),
+    [clearLocalWorkspace, connectorRecords, isReady, markSyncFailureAlertRead, messages, preferences, pushTokenRegistration, recordConnectorApproval, recordSyncFailure, registerCurrentDevicePushToken, removeConnectorApproval, setMode, setSyncFailureAlertsEnabled, submitPrompt, syncFailureAlerts, tasks, updatePreferences],
   );
 
   return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;

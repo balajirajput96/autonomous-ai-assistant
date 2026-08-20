@@ -16,6 +16,7 @@ The current mobile MVP provides a functional AI workspace rather than a simulate
 | **Connection management settings** | Settings lists every configured provider record with an explicit lifecycle status, account field, access summary, and appropriate management control. Local approvals can be removed with confirmation. | The current build cannot falsely revoke active OAuth tokens: actual revocation stays unavailable until a verified server token and provider transaction exist. |
 | **Active connection sync controls** | Future active records show **Last Synced**, sync status, and **Sync Now**. | The button explains that no provider refresh can run until an authenticated server-side token and sync service are configured; it never invents a sync timestamp. |
 | **Sync-failure alerts** | Rate-limit and expired-token failure records have distinct recovery guidance, persist locally, can be marked read, and may send an opt-in local device alert. | No failure is fabricated. Remote push delivery requires a production build, permission, device token registration, and a verified server-side sync event. |
+| **Device push-token registration** | Settings can request notification permission and acquire a native token on a physical device, then display only a redacted readiness state. Token rotation is observed while alerts are enabled. | The raw token is neither displayed, locally persisted, logged, nor uploaded. Background remote delivery remains pending until an authenticated server-registration and deletion path exist. |
 
 ## Intentional MVP Boundaries
 
