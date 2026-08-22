@@ -1,0 +1,58 @@
+{
+  "reel_id": "Reel_0005",
+  "batch_id": "Batch_001",
+  "title_hi": "सीखते समय overload क्यों मायने रखता है?",
+  "topic_hi": "cognitive load theory की उपयोगिता और सीमा",
+  "language": "hi-IN",
+  "claim_classification": "theory_plus_meta_analytic_evidence_plus_conceptual_critique",
+  "video_spec": {
+    "target_aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "voiceover_duration_seconds": 59.96,
+    "captions": "captions/voiceover_hi_final.srt",
+    "visual_format": "documented_existing_asset_image_led_motion_fallback"
+  },
+  "research": {
+    "source_record": "../../../../research/Reel_0005_sources.md",
+    "central_claim": "Cognitive load theory instructional design में working-memory constraints पर विचार करने का framework है; cueing evidence specific multimedia contexts में small-to-medium learning effects report करता है।",
+    "limitations": [
+      "Meta-analytic result selected cueing studies और their measures तक सीमित है।",
+      "Theory के load categories को empirically अलग मापने पर conceptual/methodological debate बनी हुई है।",
+      "रील universal learning prescription, diagnosis या fixed memory-capacity claim नहीं है।"
+    ]
+  },
+  "visual_provenance": {
+    "fresh_ai_image_generation": "not_available_due_to_daily_quota_20_of_20",
+    "fresh_ai_video_generation": "not_available_due_to_daily_quota_1_of_1",
+    "fallback_reason": "Existing approved educational visual assets used after current daily media-generation quotas were exhausted.",
+    "source_assets": [
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_01_reference.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_02_v2.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_03_v2.png",
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_01.png",
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_02.png"
+    ]
+  },
+  "artifacts": {
+    "script": "scripts/voiceover_hi.md",
+    "storyboard": "scripts/storyboard.md",
+    "voiceover": "voice/Reel_0005_hi_final_60s.wav",
+    "transcription": "voice/Reel_0005_hi_final_60s_transcription_20260822_054247.json",
+    "video": "video/Reel_0005_final_1080x1920.mp4",
+    "technical_qc": "qc/technical_qc.json",
+    "drive_folder_id": "160mvh_gMCU4MVIVnGt4PA1kc63iz-5f7",
+    "drive_batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "drive_file_id": "1cKY9yWm87oGlTTL8bVOOHsi9rkyYDSFf",
+    "drive_file_ids": {
+      "sources": "1xgpoj6_AhacaohSgLXh6SBD_GPQpVOQt",
+      "script": "1MgnnDjTgXYQnUW_8NpD0XOk6ajGdqEEU",
+      "captions": "1gVaYjA5MBfPTvA00ACF-FgcOOg5a-Xs7",
+      "technical_qc": "1ogZxhkpfINKOWtpxdxjSVZgxBTfJad4m",
+      "metadata": "1dm8xTQlTx1F9GX1SlaGIPyDtaICbS24s",
+      "manifest": "1FlC0KLb7oYnVFCWvo-bFKVSXuuz0J39H"
+    }
+  },
+  "status": "complete",
+  "created_at_utc": "2026-08-22T05:40:52Z",
+  "updated_at_utc": "2026-08-22T05:46:02Z"
+}

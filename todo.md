@@ -68,8 +68,12 @@
 - [x] Research, produce, quality-check, and store Reel 0002 with source metadata using the available image-led motion fallback.
 - [x] Research, produce, quality-check, and store Reel 0003 with source metadata and a documented existing-asset fallback after the fresh image-generation quota limit.
 - [x] Research, produce, quality-check, and store Reel 0004 with source metadata and a documented existing-asset fallback after the fresh image-generation quota limit.
+- [x] Research, produce, quality-check, and store Reel 0005 with source metadata and a documented existing-asset fallback after the fresh image/video quota limits.
 - [x] Audit existing Reel 0001–0002 manifests, Google Drive records, source files, and production scripts without replacing completed work.
 - [x] Inspect available local and connected automation capabilities; recurring schedule creation is deferred because the project is not yet deployed.
 - [ ] Re-attempt recurring continuation schedule creation after the user completes the managed project publish flow.
 - [x] Extend the source-governed catalog and failure log for the remaining 2,998 reels.
 - [ ] Produce, QC, upload, and verify the next distinct Batch_001 reels using the best available visual pipeline.
+- [x] Re-audit Reel 0001–0004 completion records and current Drive inventory before creating the next Reel ID.
+- [x] Re-check current media-generation availability and supported recurring continuation paths without forcing disconnected tools; fresh media quotas remain exhausted, no schedule is active, and requested Gemini/Antigravity/Jules CLIs are unavailable.
+- [ ] Prepare the next distinct Batch_001 source-backed reels while preserving the documented fresh-visual quota boundary.

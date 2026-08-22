@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0005",
+  "batch_id": "Batch_001",
+  "title": "सीखते समय overload क्यों मायने रखता है?",
+  "topic": "cognitive load theory की उपयोगिता और सीमा",
+  "claim_type": "Theory plus meta-analytic evidence",
+  "status": "complete",
+  "created_at_utc": "2026-08-22T05:41:10Z",
+  "updated_at_utc": "2026-08-22T05:45:44Z",
+  "source_record": "reels-production/research/Reel_0005_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "160mvh_gMCU4MVIVnGt4PA1kc63iz-5f7",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-22T05:45:44Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/video/Reel_0005_final_1080x1920.mp4",
+        "sha256": "ca09143d143fc0cefab489c2c68b05e165859e308adcce14cc939cfdde0c4bb3",
+        "drive_file_id": "1cKY9yWm87oGlTTL8bVOOHsi9rkyYDSFf",
+        "drive_parent_id": "160mvh_gMCU4MVIVnGt4PA1kc63iz-5f7",
+        "drive_web_view_link": "https://drive.google.com/file/d/1cKY9yWm87oGlTTL8bVOOHsi9rkyYDSFf/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/voice/Reel_0005_hi_final_60s.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/captions/voiceover_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/video/Reel_0005_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0005/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-22T05:41:10Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-22T05:41:10Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Peer-reviewed review और meta-analysis का claim-level record तैयार किया गया।"
+    },
+    {
+      "at_utc": "2026-08-22T05:41:10Z",
+      "event": "status_transition",
+      "detail": "researched → verified. Framework, cueing evidence और conceptual measurement limitations स्रोत-record से सत्यापित हैं।"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0005_hi_final_60s.wav"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "artifact_recorded",
+      "detail": "captions: voiceover_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Verified Hindi script और captions artifact दर्ज किए गए।"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. 59.960-second Hindi voiceover और transcript-aligned captions तैयार हैं।"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. Documented existing-asset fallback MP4 rendered हुआ।"
+    },
+    {
+      "at_utc": "2026-08-22T05:44:46Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. तकनीकी QC pass: 9:16, audio stream, duration और SHA-256 दर्ज।"
+    },
+    {
+      "at_utc": "2026-08-22T05:45:44Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0005_final_1080x1920.mp4 → 1cKY9yWm87oGlTTL8bVOOHsi9rkyYDSFf"
+    },
+    {
+      "at_utc": "2026-08-22T05:45:44Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4, research source record, captions और QC companion files verified Google Drive folder में अपलोड हुए।"
+    },
+    {
+      "at_utc": "2026-08-22T05:45:44Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Reel 0005 theory, meta-analytic evidence, limits, Hindi voiceover, captions, technical QC और quota-limited fallback provenance सहित पूर्ण हुआ।"
+    }
+  ]
+}

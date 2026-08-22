@@ -1,10 +1,10 @@
 {
   "mission": "3000 Hindi Research Reels",
   "schema_version": 1,
-  "last_updated_utc": "2026-08-22T05:26:14Z",
+  "last_updated_utc": "2026-08-22T05:45:44Z",
   "completion": {
     "target_reels": 3000,
-    "completed_reels": 4,
+    "completed_reels": 5,
     "failed_reels": 0,
     "needs_review_reels": 0
   },
@@ -64,12 +64,18 @@
           "title": "भरोसा और सही याद: एक ही बात नहीं",
           "updated_at_utc": "2026-08-22T05:26:14Z",
           "attempt_count": 0
+        },
+        "Reel_0005": {
+          "status": "complete",
+          "title": "सीखते समय overload क्यों मायने रखता है?",
+          "updated_at_utc": "2026-08-22T05:45:44Z",
+          "attempt_count": 0
         }
       }
     }
   ],
-  "last_successful_reel_id": "Reel_0004",
-  "next_reel_id": "Reel_0005",
+  "last_successful_reel_id": "Reel_0005",
+  "next_reel_id": "Reel_0006",
   "blocking_issues": [
     {
       "code": "SCHEDULE_REQUIRES_DEPLOYED_PROJECT",
