@@ -1,10 +1,10 @@
 {
   "mission": "3000 Hindi Research Reels",
   "schema_version": 1,
-  "last_updated_utc": "2026-08-22T04:56:51Z",
+  "last_updated_utc": "2026-08-22T05:26:14Z",
   "completion": {
     "target_reels": 3000,
-    "completed_reels": 2,
+    "completed_reels": 4,
     "failed_reels": 0,
     "needs_review_reels": 0
   },
@@ -34,7 +34,8 @@
       "gemini-3.1-pro-preview"
     ],
     "production_schedule_present": false,
-    "known_constraint": "The task requires 3,000 generated videos, but current-session video generation is quota-limited and the default sandbox cannot run continuously after the session ends."
+    "schedule_create_error": "failed_precondition: project not deployed yet — recurring schedules cannot be created until the project is deployed through the managed publish flow.",
+    "known_constraint": "The task requires 3,000 generated videos, but current-session video generation is quota-limited, fresh image generation is also quota-limited, and the default sandbox cannot run continuously after the session ends."
   },
   "batches": [
     {
@@ -51,12 +52,37 @@
           "title": "सिर्फ पढ़ना नहीं: बिना देखे याद करना क्यों?",
           "updated_at_utc": "2026-08-22T04:56:51Z",
           "attempt_count": 0
+        },
+        "Reel_0003": {
+          "status": "complete",
+          "title": "पुरानी और नई जानकारी कब उलझती है?",
+          "updated_at_utc": "2026-08-22T05:18:57Z",
+          "attempt_count": 1
+        },
+        "Reel_0004": {
+          "status": "complete",
+          "title": "भरोसा और सही याद: एक ही बात नहीं",
+          "updated_at_utc": "2026-08-22T05:26:14Z",
+          "attempt_count": 0
         }
       }
     }
   ],
-  "last_successful_reel_id": "Reel_0002",
-  "next_reel_id": "Reel_0003",
-  "blocking_issues": [],
-  "notes": "A reel is complete only after source metadata, QC evidence, and a verified Google Drive upload are recorded."
+  "last_successful_reel_id": "Reel_0004",
+  "next_reel_id": "Reel_0005",
+  "blocking_issues": [
+    {
+      "code": "SCHEDULE_REQUIRES_DEPLOYED_PROJECT",
+      "severity": "non_blocking_for_current_session",
+      "recorded_at_utc": "2026-08-22T05:09:30Z",
+      "detail": "Recurring continuation schedule creation was rejected because the current project is not deployed. Continue current-session production; re-attempt only after the user completes the managed publish flow."
+    },
+    {
+      "code": "MEDIA_GENERATION_DAILY_QUOTAS_REACHED",
+      "severity": "non_blocking_when_existing_asset_fallback_is_suitable",
+      "recorded_at_utc": "2026-08-22T05:19:30Z",
+      "detail": "Fresh AI video generation was limited at 1/1 and fresh AI image generation was limited at 20/20. Reel 0003 retained its failure/recovery event and used only documented existing approved visual assets. Future reels requiring fresh visuals must wait for quota reset or use an explicitly recorded non-fresh fallback."
+    }
+  ],
+  "notes": "A reel is complete only after source metadata, QC evidence, and a verified Google Drive upload are recorded. The daily schedule is deferred until the project is deployed through the managed publish flow."
 }

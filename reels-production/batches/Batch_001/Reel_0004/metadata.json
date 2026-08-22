@@ -1,0 +1,56 @@
+{
+  "reel_id": "Reel_0004",
+  "batch_id": "Batch_001",
+  "title_hi": "भरोसा और सही याद: एक ही बात नहीं",
+  "topic_hi": "memory confidence और accuracy की सीमा",
+  "language": "hi-IN",
+  "claim_classification": "empirical_metamemory_research",
+  "video_spec": {
+    "target_aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "voiceover_duration_seconds": 59.966,
+    "captions": "captions/voiceover_hi_final.srt",
+    "visual_format": "documented_existing_asset_image_led_motion_fallback"
+  },
+  "research": {
+    "source_record": "../../../../research/Reel_0004_sources.md",
+    "central_claim": "Confidence और accuracy अलग measures हैं; confidence timing और test context evidence की interpretation बदल सकते हैं।",
+    "limitations": [
+      "Evidence eyewitness-memory experiments की stated conditions तक सीमित है।",
+      "रील legal advice, lie detection या universal memory evaluation नहीं है।"
+    ]
+  },
+  "visual_provenance": {
+    "fresh_ai_image_generation": "not_available_due_to_daily_quota_20_of_20",
+    "fallback_reason": "Existing approved educational visual assets used after fresh AI image generation quota was reached.",
+    "source_assets": [
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_02.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_03_v2.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_01_reference.png",
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_01.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_02_v2.png"
+    ]
+  },
+  "artifacts": {
+    "script": "scripts/voiceover_hi.md",
+    "storyboard": "scripts/storyboard.md",
+    "voiceover": "voice/Reel_0004_hi_final_60s.wav",
+    "transcription": "voice/Reel_0004_hi_final_60s_transcription_20260822_052326.json",
+    "video": "video/Reel_0004_final_1080x1920.mp4",
+    "technical_qc": "qc/technical_qc.json",
+    "drive_folder_id": "10X-fJN0YFWkpZLkMaMdRWdvmUR3TYvGW",
+    "drive_batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "drive_file_id": "10gDh8OX0Aaq41rj05BYZnV7EZRGhz2We",
+    "drive_file_ids": {
+      "sources": "1nNR9KCHJdEKfU-fyiv2Y6Zthk_cLgqwL",
+      "script": "1jQMEchI-EAsqB-qrVUA-ESxdpKv6DuR_",
+      "captions": "1RYVZEJ3aTvLsu5aPVimryzD0CL_ieW3R",
+      "technical_qc": "1QQG0SSHKN6VSQqb4oUSO-STdYRH-GRRt",
+      "metadata": "1TZgCR5xdHdoVxbdpar_IPNXOYeV-TPnl",
+      "manifest": "16QD3uiQ2ARG8xz3iZV6jN0NpjoBz1_Gu"
+    }
+  },
+  "status": "complete",
+  "created_at_utc": "2026-08-22T05:20:30Z",
+  "updated_at_utc": "2026-08-22T05:26:18Z"
+}

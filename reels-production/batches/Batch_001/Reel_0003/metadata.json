@@ -1,0 +1,59 @@
+{
+  "reel_id": "Reel_0003",
+  "batch_id": "Batch_001",
+  "title_hi": "पुरानी और नई जानकारी कब उलझती है?",
+  "topic_hi": "स्मृति interference की सीमाएँ",
+  "language": "hi-IN",
+  "claim_classification": "cognitive_model_plus_empirical_evidence",
+  "video_spec": {
+    "target_aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "target_duration_seconds": 60,
+    "voiceover_duration_seconds": 59.964,
+    "captions": "captions/voiceover_hi_final.srt",
+    "visual_format": "documented_existing_asset_image_led_motion_fallback"
+  },
+  "research": {
+    "source_record": "../../../../research/Reel_0003_sources.md",
+    "central_claim": "Interference memory recall को बाधित करने वाला एक research-supported factor है; proactive और retroactive directions experimental literature में अलग वर्णित हैं।",
+    "limitations": [
+      "Interference को forgetting की पूरी explanation या memory-erasure claim के रूप में प्रस्तुत नहीं किया गया है।",
+      "रील किसी clinical diagnosis, age-related prediction या intervention guarantee का दावा नहीं करती।"
+    ],
+    "source_ids": ["C1", "C2", "C3", "C4"]
+  },
+  "visual_provenance": {
+    "fresh_ai_image_generation": "not_available_due_to_daily_quota_20_of_20",
+    "fallback_reason": "Fresh AI image generation was attempted and rejected by quota; only existing approved educational visual assets were used for image-led motion.",
+    "source_assets": [
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_01_reference.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_02_v2.png",
+      "/home/ubuntu/webdev-static-assets/reel_0001_scene_03_v2.png",
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_01.png",
+      "/home/ubuntu/webdev-static-assets/reel_0002_scene_02.png"
+    ],
+    "failure_logged_in_manifest": true
+  },
+  "artifacts": {
+    "script": "scripts/voiceover_hi.md",
+    "storyboard": "scripts/storyboard.md",
+    "voiceover": "voice/Reel_0003_hi_final_60s.wav",
+    "transcription": "voice/Reel_0003_hi_final_60s_transcription_20260822_051433.json",
+    "video": "video/Reel_0003_final_1080x1920.mp4",
+    "technical_qc": "qc/technical_qc.json",
+    "drive_folder_id": "1h6gZkTWOlUl7X6X68gd8lEIQwDPiDcMd",
+    "drive_batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "drive_file_id": "1zYLFI0dw12UGB14jEC28HzIwRW3Ztaeg",
+    "drive_file_ids": {
+      "sources": "1LAZgXUyLGZU_JW06u_vDPT3EG8RdQEtr",
+      "script": "1osrowRjw3xiiRI031JI3gk0jwlzzGoNM",
+      "captions": "1sqqsek0tpMuKhFgPvNM1cyr3-Stqqq4P",
+      "technical_qc": "1L_mq9f8XSz5ZXvIeUtY_2wrbwlUysIOU",
+      "metadata": "15ohz6elq_jfPWupWCDtnGm_j4nyj9dId",
+      "manifest": "1cDL9ewBo366E3ehj-JoLEjXSgrmgQ2-f"
+    }
+  },
+  "status": "complete",
+  "created_at_utc": "2026-08-22T05:11:00Z",
+  "updated_at_utc": "2026-08-22T05:19:12Z"
+}

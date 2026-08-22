@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Render Reel 0003 with documented existing-asset motion fallback.
+
+New AI images were not generated because the daily image quota was exhausted.
+This renderer preserves that boundary by using only the listed existing assets,
+slow motion, and the source-verified Hindi captions/voiceover.
+"""
+
+from __future__ import annotations
+
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+
+PROJECT = Path("/home/ubuntu/autonomous-ai-assistant")
+REEL = PROJECT / "reels-production/batches/Batch_001/Reel_0003"
+SOURCE_IMAGES = [
+    Path("/home/ubuntu/webdev-static-assets/reel_0001_scene_01_reference.png"),
+    Path("/home/ubuntu/webdev-static-assets/reel_0001_scene_02_v2.png"),
+    Path("/home/ubuntu/webdev-static-assets/reel_0001_scene_03_v2.png"),
+    Path("/home/ubuntu/webdev-static-assets/reel_0002_scene_01.png"),
+    Path("/home/ubuntu/webdev-static-assets/reel_0002_scene_02.png"),
+]
+ASSET_DIR = REEL / "assets"
+TEMP_DIR = REEL / "video" / "render_tmp"
+CAPTIONS = REEL / "captions" / "voiceover_hi_final.srt"
+AUDIO = REEL / "voice" / "Reel_0003_hi_final_60s.wav"
+OUTPUT = REEL / "video" / "Reel_0003_final_1080x1920.mp4"
+
+
+def run(command: list[str]) -> None:
+    subprocess.run(command, check=True)
+
+
+def main() -> int:
+    missing = [str(path) for path in SOURCE_IMAGES + [CAPTIONS, AUDIO] if not path.exists() or path.stat().st_size == 0]
+    if missing:
+        print("Render blocked; required artifacts unavailable:", *missing, sep="\n", file=sys.stderr)
+        return 2
+    ASSET_DIR.mkdir(parents=True, exist_ok=True)
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+
+    for index, source in enumerate(SOURCE_IMAGES, start=1):
+        target = ASSET_DIR / f"fallback_source_{index:02d}{source.suffix}"
+        shutil.copy2(source, target)
+        clip = TEMP_DIR / f"scene_{index:02d}.mp4"
+        zoom = "min(zoom+0.000045,1.070)" if index % 2 else "max(zoom-0.000035,1.0)"
+        tone = "eq=contrast=1.05:saturation=0.92:brightness=-0.015" if index % 2 else "eq=contrast=1.03:saturation=0.86:brightness=-0.01"
+        vf = (
+            "scale=1200:2134:force_original_aspect_ratio=increase,"
+            "crop=1200:2134,"
+            f"zoompan=z='{zoom}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,"
+            f"{tone},format=yuv420p"
+        )
+        run([
+            "ffmpeg", "-y", "-loop", "1", "-framerate", "30", "-t", "10", "-i", str(target),
+            "-vf", vf, "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+            "-pix_fmt", "yuv420p", "-an", str(clip),
+        ])
+
+    sequence = [1, 2, 3, 4, 5, 3]
+    list_file = TEMP_DIR / "scenes.txt"
+    list_file.write_text("".join(f"file '{TEMP_DIR / f'scene_{idx:02d}.mp4'}'\n" for idx in sequence), encoding="utf-8")
+    subtitle_path = CAPTIONS.as_posix().replace("'", r"\'")
+    subtitle_filter = (
+        f"subtitles='{subtitle_path}':charenc=UTF-8:"
+        "force_style='FontName=Noto Sans Devanagari,FontSize=50,PrimaryColour=&H00FFFFFF,"
+        "OutlineColour=&H0010141F,BackColour=&H8010141F,BorderStyle=1,Outline=2,Shadow=0,"
+        "Alignment=2,MarginV=210'"
+    )
+    run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_file), "-i", str(AUDIO),
+        "-vf", subtitle_filter, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264", "-preset", "medium",
+        "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest", str(OUTPUT),
+    ])
+    print(OUTPUT)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

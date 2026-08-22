@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0003",
+  "batch_id": "Batch_001",
+  "title": "पुरानी और नई जानकारी कब उलझती है?",
+  "topic": "स्मृति interference की सीमाएँ",
+  "claim_type": "Cognitive model + empirical evidence",
+  "status": "complete",
+  "created_at_utc": "2026-08-22T05:12:25Z",
+  "updated_at_utc": "2026-08-22T05:18:57Z",
+  "source_record": "reels-production/research/Reel_0003_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1h6gZkTWOlUl7X6X68gd8lEIQwDPiDcMd",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-22T05:18:57Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/video/Reel_0003_final_1080x1920.mp4",
+        "sha256": "a568be0a81394d0cf0ba83972768692c06e797dc8cd3827366a8856afcb79c60",
+        "drive_file_id": "1zYLFI0dw12UGB14jEC28HzIwRW3Ztaeg",
+        "drive_parent_id": "1h6gZkTWOlUl7X6X68gd8lEIQwDPiDcMd",
+        "drive_web_view_link": "https://drive.google.com/file/d/1zYLFI0dw12UGB14jEC28HzIwRW3Ztaeg/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/voice/Reel_0003_hi_final_60s.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/captions/voiceover_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/video/Reel_0003_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0003/qc/technical_qc.json"
+  },
+  "attempts": [
+    {
+      "at_utc": "2026-08-22T05:15:32Z",
+      "stage": "visuals",
+      "error": "AI image generation rejected: today free plan limit reached (20/20); no new Reel 0003 images generated.",
+      "next_action": "Use documented local image-led motion fallback from existing approved visual assets, then retain the quota limit in metadata and retry fresh AI visuals after quota reset."
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-08-22T05:12:25Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-22T05:12:25Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Peer-reviewed review और primary experimental source record तैयार किया गया।"
+    },
+    {
+      "at_utc": "2026-08-22T05:12:25Z",
+      "event": "status_transition",
+      "detail": "researched → verified. Proactive/retroactive distinction, alternative factors और scope limitations source record से सत्यापित किए गए।"
+    },
+    {
+      "at_utc": "2026-08-22T05:15:32Z",
+      "event": "failure_recorded",
+      "detail": "visuals: AI image generation rejected: today free plan limit reached (20/20); no new Reel 0003 images generated."
+    },
+    {
+      "at_utc": "2026-08-22T05:16:09Z",
+      "event": "recovery_resumed",
+      "detail": "failed → verified. Research record और verified claim boundaries सुरक्षित हैं; AI-image quota failure logged रहा। Existing approved visual assets के documented image-led fallback से visuals आगे बनाए जाएँगे।"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0003_hi_final_60s.wav"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "artifact_recorded",
+      "detail": "captions: voiceover_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Verified Hindi script और captions artifact दर्ज किए गए।"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. 59.964-second Hindi voiceover तैयार और transcript-aligned captions सुरक्षित हैं।"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:47Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:55Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. 60-second image-led fallback MP4 render पूर्ण हुआ; fresh AI image quota failure manifest में preserved है।"
+    },
+    {
+      "at_utc": "2026-08-22T05:17:55Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. तकनीकी QC पास: 59.964 seconds, 1080x1920, audio stream और SHA-256 दर्ज।"
+    },
+    {
+      "at_utc": "2026-08-22T05:18:57Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0003_final_1080x1920.mp4 → 1zYLFI0dw12UGB14jEC28HzIwRW3Ztaeg"
+    },
+    {
+      "at_utc": "2026-08-22T05:18:57Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4, peer-reviewed source record, captions और QC metadata verified Google Drive folder में अपलोड हुए।"
+    },
+    {
+      "at_utc": "2026-08-22T05:18:57Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Source evidence, Hindi voiceover, captions, technical QC, quota/recovery events और verified Drive upload दर्ज हैं।"
+    }
+  ]
+}

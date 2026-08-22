@@ -199,6 +199,26 @@ def record_failure(args: argparse.Namespace) -> int:
     return 0
 
 
+def resume_after_failure(args: argparse.Namespace) -> int:
+    """Resume a recoverable failed reel at an explicitly chosen prior valid stage.
+
+    This records a recovery event; it never removes the original failure attempt.
+    """
+    reel_id = valid_reel_id(args.reel_id)
+    manifest = load_manifest(reel_id)
+    if manifest["status"] not in {"failed", "needs_review"}:
+        raise ValueError("resume केवल failed या needs_review रील के लिए उपलब्ध है।")
+    if args.to not in VALID_STATUSES:
+        raise ValueError("resume का लक्ष्य वैध production status होना चाहिए।")
+    previous = manifest["status"]
+    manifest["status"] = args.to
+    add_event(manifest, "recovery_resumed", f"{previous} → {args.to}. {args.note}")
+    save_manifest(reel_id, manifest)
+    update_progress(manifest)
+    print(json.dumps({"result": "resumed", "reel_id": reel_id, "status": args.to}, ensure_ascii=False))
+    return 0
+
+
 def record_artifact(args: argparse.Namespace) -> int:
     reel_id = valid_reel_id(args.reel_id)
     manifest = load_manifest(reel_id)
@@ -334,6 +354,12 @@ def main() -> int:
     failure.add_argument("--next-action", required=True)
     failure.add_argument("--needs-review", action="store_true")
     failure.set_defaults(handler=record_failure)
+
+    resume = commands.add_parser("resume", help="recoverable failure के बाद prior valid stage से resume करें")
+    resume.add_argument("reel_id")
+    resume.add_argument("--to", required=True)
+    resume.add_argument("--note", required=True)
+    resume.set_defaults(handler=resume_after_failure)
 
     artifact = commands.add_parser("artifact", help="मौजूद local artifact को manifest में दर्ज करें")
     artifact.add_argument("reel_id")

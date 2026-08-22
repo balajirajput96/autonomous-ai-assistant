@@ -1,0 +1,30 @@
+{
+  "reel_id": "Reel_0004",
+  "generated_at_utc": "2026-08-22T05:25:15Z",
+  "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0004/video/Reel_0004_final_1080x1920.mp4",
+  "sha256": "5659d596780fa4536cef4e52e9941ff2cbe91dc2c1ff850b09a2822d0d9b0e3d",
+  "duration_seconds": 59.966,
+  "passed": true,
+  "checks": [
+    {
+      "name": "file_exists",
+      "passed": true,
+      "detail": "8494887 bytes"
+    },
+    {
+      "name": "vertical_9_16",
+      "passed": true,
+      "detail": "1080x1920"
+    },
+    {
+      "name": "audio_stream",
+      "passed": true,
+      "detail": "audio streams: 1"
+    },
+    {
+      "name": "duration_55_to_65_seconds",
+      "passed": true,
+      "detail": "59.966 seconds"
+    }
+  ]
+}
