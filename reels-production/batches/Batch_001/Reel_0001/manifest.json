@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0001",
+  "batch_id": "Batch_001",
+  "title": "रटने से ज़्यादा असरदार क्या है?",
+  "topic": "वितरित अभ्यास और दीर्घकालिक स्मृति",
+  "claim_type": "अनुभवजन्य सीखने अनुसंधान",
+  "status": "complete",
+  "created_at_utc": "2026-08-22T04:30:25Z",
+  "updated_at_utc": "2026-08-22T04:49:32Z",
+  "source_record": "reels-production/research/Reel_0001_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1GzhB_kjIX47Jg6zD4fNM6GC7foodw-rK",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-22T04:49:31Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/video/Reel_0001_final_1080x1920.mp4",
+        "sha256": "05fb3841fb7ca1ef877c24c51ac10b3bf86a2ecd20b267aa44cfb2a191499dd4",
+        "drive_file_id": "18YJoVkumS7YNejg8_pFr8OWkHV_VYZAi",
+        "drive_parent_id": "1GzhB_kjIX47Jg6zD4fNM6GC7foodw-rK",
+        "drive_web_view_link": "https://drive.google.com/file/d/18YJoVkumS7YNejg8_pFr8OWkHV_VYZAi/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/voice/Reel_0001_hi_final_60s.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/captions/voiceover_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/video/Reel_0001_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0001/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-22T04:30:25Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-22T04:30:26Z",
+      "event": "status_transition",
+      "detail": "planned → researched. स्रोत रिकॉर्ड तैयार और संरक्षित किया गया।"
+    },
+    {
+      "at_utc": "2026-08-22T04:30:26Z",
+      "event": "status_transition",
+      "detail": "researched → verified. मुख्य दावे, सीमाएँ और दावा-प्रकार स्रोत रिकॉर्ड से जाँचे गए।"
+    },
+    {
+      "at_utc": "2026-08-22T04:31:16Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-22T04:31:16Z",
+      "event": "artifact_recorded",
+      "detail": "captions: voiceover_hi_draft.srt"
+    },
+    {
+      "at_utc": "2026-08-22T04:31:16Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. हिंदी voiceover draft और caption draft दर्ज किए गए; audio duration से caption timing बाद में सत्यापित होगी।"
+    },
+    {
+      "at_utc": "2026-08-22T04:35:07Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0001_hi_final_60s.wav"
+    },
+    {
+      "at_utc": "2026-08-22T04:35:07Z",
+      "event": "artifact_recorded",
+      "detail": "captions: voiceover_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-22T04:35:07Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. Hindi (India) voiceover 59.983 seconds का है; स्वचालित प्रतिलेख से captions तैयार किए गए।"
+    },
+    {
+      "at_utc": "2026-08-22T04:48:03Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-22T04:48:12Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. 1080x1920 MP4 render पूर्ण; image-led motion fallback और hook b-roll शामिल है।"
+    },
+    {
+      "at_utc": "2026-08-22T04:48:12Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. तकनीकी QC पास: 59.983 seconds, 1080x1920, video और audio streams, SHA-256 दर्ज।"
+    },
+    {
+      "at_utc": "2026-08-22T04:49:32Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0001_final_1080x1920.mp4 → 18YJoVkumS7YNejg8_pFr8OWkHV_VYZAi"
+    },
+    {
+      "at_utc": "2026-08-22T04:49:32Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 और शोध/QC metadata verified Google Drive folder में मौजूद हैं।"
+    },
+    {
+      "at_utc": "2026-08-22T04:49:32Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Source record, Hindi voiceover, captions, technical QC और Drive upload सभी दर्ज और सत्यापित हैं।"
+    }
+  ]
+}

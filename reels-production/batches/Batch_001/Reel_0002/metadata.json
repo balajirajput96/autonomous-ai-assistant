@@ -1,0 +1,47 @@
+{
+  "reel_id": "Reel_0002",
+  "batch_id": "Batch_001",
+  "title_hi": "सिर्फ पढ़ना नहीं: बिना देखे याद करना क्यों?",
+  "topic_hi": "पुनर्प्राप्ति अभ्यास और कक्षा-अधिगम",
+  "language": "hi-IN",
+  "claim_classification": "empirical_learning_research",
+  "video_spec": {
+    "target_aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "target_duration_seconds": 60,
+    "voiceover_duration_seconds": 59.957,
+    "captions": "captions/voiceover_hi_final.srt",
+    "visual_format": "image_led_motion_fallback"
+  },
+  "research": {
+    "source_record": "../../../../research/Reel_0002_sources.md",
+    "central_claim": "कक्षा-संदर्भ की systematic/meta-analytic evidence में quizzing/testing को औसतन बेहतर उपलब्धि से जोड़ा गया है।",
+    "limitations": [
+      "हर quiz, हर व्यक्ति या हर विषय में समान असर का दावा नहीं किया गया है।",
+      "रील में परीक्षा-भय उपचार, grade guarantee, IQ परिवर्तन या neural mechanism का दावा नहीं है।"
+    ],
+    "source_ids": ["C1", "C2"]
+  },
+  "artifacts": {
+    "script": "scripts/voiceover_hi.md",
+    "storyboard": "scripts/storyboard.md",
+    "voiceover": "voice/Reel_0002_hi_final_60s.wav",
+    "transcription": "voice/Reel_0002_hi_final_60s_transcription_20260822_045305.json",
+    "video": "video/Reel_0002_final_1080x1920.mp4",
+    "technical_qc": "qc/technical_qc.json",
+    "drive_folder_id": "1RiIHiEDZkf6DTt3uNUY0sZeDKkFp4Uvb",
+    "drive_batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "drive_file_id": "1qsEWA6ThY9Qs5Va-v5o3GV0XFAnwoi-H",
+    "drive_file_ids": {
+      "sources": "1gTCp9vBxNiraNd9QKcUlrMvg4Dpug08f",
+      "script": "1_TLcHbQREbdtZezes8dI5JHVNW4xals1",
+      "captions": "1bcfw_R0X0TzpgP84aPDbG2hjIs488LP1",
+      "technical_qc": "1-JtajMNZfe0J5DX7MP-v7V4LA9jE-4OB",
+      "metadata": "1Zmtljo3KSJf87z5qRvdw_rvF7RGrb0fo",
+      "manifest": "1TfKtiM1Q7XR_UH-LRljMOtkYwOWUIC45"
+    }
+  },
+  "status": "complete",
+  "created_at_utc": "2026-08-22T04:50:58Z",
+  "updated_at_utc": "2026-08-22T04:57:08Z"
+}

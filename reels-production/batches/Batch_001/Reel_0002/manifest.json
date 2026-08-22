@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0002",
+  "batch_id": "Batch_001",
+  "title": "सिर्फ पढ़ना नहीं: बिना देखे याद करना क्यों?",
+  "topic": "पुनर्प्राप्ति अभ्यास और कक्षा-अधिगम",
+  "claim_type": "अनुभवजन्य सीखने अनुसंधान",
+  "status": "complete",
+  "created_at_utc": "2026-08-22T04:51:30Z",
+  "updated_at_utc": "2026-08-22T04:56:51Z",
+  "source_record": "reels-production/research/Reel_0002_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1RiIHiEDZkf6DTt3uNUY0sZeDKkFp4Uvb",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-22T04:56:51Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/video/Reel_0002_final_1080x1920.mp4",
+        "sha256": "798476ff928595dd962fe03265e66d11c29ec7f2f1e8d24a41099f1c7e6ccbda",
+        "drive_file_id": "1qsEWA6ThY9Qs5Va-v5o3GV0XFAnwoi-H",
+        "drive_parent_id": "1RiIHiEDZkf6DTt3uNUY0sZeDKkFp4Uvb",
+        "drive_web_view_link": "https://drive.google.com/file/d/1qsEWA6ThY9Qs5Va-v5o3GV0XFAnwoi-H/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/voice/Reel_0002_hi_final_60s.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/captions/voiceover_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/video/Reel_0002_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0002/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-22T04:51:30Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-22T04:51:30Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Systematic review और learning review के आधार पर स्रोत रिकॉर्ड तैयार किया गया।"
+    },
+    {
+      "at_utc": "2026-08-22T04:51:30Z",
+      "event": "status_transition",
+      "detail": "researched → verified. अनुमत दावे, प्रभाव अनुमान और सीमाएँ स्रोत रिकॉर्ड से जाँचे गए।"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:50Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:50Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0002_hi_final_60s.wav"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:51Z",
+      "event": "artifact_recorded",
+      "detail": "captions: voiceover_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:51Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Hindi voiceover script और caption artifact दर्ज किए गए।"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:51Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. 59.957-second Hindi voiceover और time-segmented transcript तैयार है।"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:51Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:58Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. 1080x1920 image-led motion MP4 render पूर्ण हुआ।"
+    },
+    {
+      "at_utc": "2026-08-22T04:55:58Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. तकनीकी QC पास: 59.957 seconds, 1080x1920, audio stream और SHA-256 दर्ज।"
+    },
+    {
+      "at_utc": "2026-08-22T04:56:51Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0002_final_1080x1920.mp4 → 1qsEWA6ThY9Qs5Va-v5o3GV0XFAnwoi-H"
+    },
+    {
+      "at_utc": "2026-08-22T04:56:51Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 तथा शोध और QC metadata verified Google Drive folder में मौजूद हैं।"
+    },
+    {
+      "at_utc": "2026-08-22T04:56:51Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Source record, Hindi voiceover, captions, technical QC और Drive upload सभी दर्ज और सत्यापित हैं।"
+    }
+  ]
+}

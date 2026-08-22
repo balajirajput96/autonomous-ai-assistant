@@ -1,0 +1,48 @@
+{
+  "reel_id": "Reel_0001",
+  "batch_id": "Batch_001",
+  "title_hi": "रटने से ज़्यादा असरदार क्या है?",
+  "topic_hi": "वितरित अभ्यास और दीर्घकालिक स्मृति",
+  "language": "hi-IN",
+  "claim_classification": "empirical_learning_research",
+  "video_spec": {
+    "target_aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "target_duration_seconds": 60,
+    "voiceover_duration_seconds": 59.983,
+    "captions": "captions/voiceover_hi_final.srt"
+  },
+  "research": {
+    "source_record": "../../../../research/Reel_0001_sources.md",
+    "central_claim": "अंतराल रखकर की गई पुनरावृत्तियाँ, लगातार सटे हुए दोहराव की तुलना में दीर्घकालिक स्मृति के लिए लाभकारी पाई गई हैं।",
+    "limitations": [
+      "कोई सार्वभौमिक सही gap नहीं बताया गया है।",
+      "स्रोतों से जैविक mechanism या guaranteed outcome का दावा नहीं किया गया है।",
+      "व्यावहारिक उदाहरण सामान्य शैक्षिक सुझाव है, व्यक्तिगत निदान या उपचार नहीं।"
+    ],
+    "source_ids": ["C1", "C2", "C3", "C4"]
+  },
+  "artifacts": {
+    "script": "scripts/voiceover_hi.md",
+    "storyboard": "scripts/storyboard.md",
+    "voiceover": "voice/Reel_0001_hi_final_60s.wav",
+    "transcription": "voice/Reel_0001_hi_final_60s_transcription_20260822_043433.json",
+    "video": "video/Reel_0001_final_1080x1920.mp4",
+    "technical_qc": "qc/technical_qc.json",
+    "drive_file_id": "18YJoVkumS7YNejg8_pFr8OWkHV_VYZAi",
+    "drive_folder_id": "1GzhB_kjIX47Jg6zD4fNM6GC7foodw-rK",
+    "drive_root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "drive_batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "drive_file_ids": {
+      "sources": "14AWDgctJGMwjwcho-Yv9cUOzIZnaaV5Z",
+      "script": "1ZHfNClwk92Tx9iQk_0TnEQULWbt03HMc",
+      "captions": "1EvT0EQznlvNoKWSoRkGQFp61QxtJn-Lr",
+      "technical_qc": "1f04QHDMmYYHvRhc_Oe0NNmK8hf6HwWlr",
+      "metadata": "1Uki_mEd38WFu-EOnQnu-9oAO_qUsavrX",
+      "manifest": "1z88as_BuwIATzGJdNdpSXetdDa-D1P56"
+    }
+  },
+  "status": "complete",
+  "created_at_utc": "2026-08-22T04:27:44Z",
+  "updated_at_utc": "2026-08-22T04:49:30Z"
+}

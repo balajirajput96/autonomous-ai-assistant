@@ -1,0 +1,62 @@
+{
+  "mission": "3000 Hindi Research Reels",
+  "schema_version": 1,
+  "last_updated_utc": "2026-08-22T04:56:51Z",
+  "completion": {
+    "target_reels": 3000,
+    "completed_reels": 2,
+    "failed_reels": 0,
+    "needs_review_reels": 0
+  },
+  "storage": {
+    "provider": "Google Drive",
+    "account": "balajirajput968@gmail.com",
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "root_folder_url": "https://drive.google.com/drive/folders/1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "storage_limit_bytes": 5497558138880,
+    "storage_used_bytes": 1517816078,
+    "max_upload_bytes": 5242880000000
+  },
+  "runtime_capabilities": {
+    "ffmpeg_available": true,
+    "ffmpeg_version": "6.1.1-3ubuntu5",
+    "live_llm_catalog_checked": true,
+    "supported_research_and_script_models": [
+      "gpt-5-nano",
+      "gpt-5-mini",
+      "gpt-5",
+      "gpt-5.5",
+      "claude-haiku-4-5",
+      "claude-sonnet-4-6",
+      "claude-opus-4-6",
+      "claude-opus-4-7",
+      "gemini-3-flash-preview",
+      "gemini-3.1-pro-preview"
+    ],
+    "production_schedule_present": false,
+    "known_constraint": "The task requires 3,000 generated videos, but current-session video generation is quota-limited and the default sandbox cannot run continuously after the session ends."
+  },
+  "batches": [
+    {
+      "batch_id": "Batch_001",
+      "reels": {
+        "Reel_0001": {
+          "status": "complete",
+          "title": "रटने से ज़्यादा असरदार क्या है?",
+          "updated_at_utc": "2026-08-22T04:49:32Z",
+          "attempt_count": 0
+        },
+        "Reel_0002": {
+          "status": "complete",
+          "title": "सिर्फ पढ़ना नहीं: बिना देखे याद करना क्यों?",
+          "updated_at_utc": "2026-08-22T04:56:51Z",
+          "attempt_count": 0
+        }
+      }
+    }
+  ],
+  "last_successful_reel_id": "Reel_0002",
+  "next_reel_id": "Reel_0003",
+  "blocking_issues": [],
+  "notes": "A reel is complete only after source metadata, QC evidence, and a verified Google Drive upload are recorded."
+}
