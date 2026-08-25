@@ -77,3 +77,8 @@
 - [x] Re-audit Reel 0001–0004 completion records and current Drive inventory before creating the next Reel ID.
 - [x] Re-check current media-generation availability and supported recurring continuation paths without forcing disconnected tools; fresh media quotas remain exhausted, no schedule is active, and requested Gemini/Antigravity/Jules CLIs are unavailable.
 - [ ] Prepare the next distinct Batch_001 source-backed reels while preserving the documented fresh-visual quota boundary.
+- [x] Audit current Git remotes, branch topology, working tree, recent commits, GitHub status, build and test state before synchronization; `main` is three verified checkpoints ahead of GitHub, with 18 passing tests and clean type/lint checks.
+- [x] Inventory incomplete code paths, TODO/FIXME markers, workflows, connectors, environment references and declared external integrations; identified a skipped authentication test, a template-only dev screen, no repository CI workflow, and no reachable Gemini/Antigravity/Datadog implementation or CLI.
+- [x] Repair reachable repository failures: activated and fixed logout coverage, made cookie-domain resolution resilient to missing host metadata, added repository CI, and removed the unreferenced production-exported Theme Lab route.
+- [x] Validate repaired repository locally: SDK compatibility passes, Expo config resolves, typecheck/lint/build/web export pass, 19 tests pass, API health and connector preflight respond safely, GitHub CLI and Google Drive checks succeed.
+- [ ] Verify CI/workflow state and perform only the safe Git synchronization needed after fixes are validated.
