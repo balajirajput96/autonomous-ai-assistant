@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0013",
+  "batch_id": "Batch_001",
+  "title": "Placebo effect: context कैसे experience बदलता है?",
+  "topic": "Placebo effects, expectations, and context",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://1QGaPTwcElKejlDPVwAefI8SkhMbwMhcs/reel_0013_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1JRxhNbSciYSSR03vWhqyCQfnVoOwciBN",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "1x_OcjBQDcRPBP65bzOfKzsaQ24DZeh1K",
+        "drive_parent_id": "1JRxhNbSciYSSR03vWhqyCQfnVoOwciBN",
+        "drive_web_view_link": "https://drive.google.com/file/d/1x_OcjBQDcRPBP65bzOfKzsaQ24DZeh1K/view?usp=drivesdk",
+        "drive_md5_checksum": "f9677c7cb1ebe5279e03ff24bc58708d",
+        "drive_size_bytes": 6782871
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1C82vQBA-8r6mjLQBtrli2W49YwbXILSi/reel_0013_voiceover_hi.md",
+    "voiceover": "drive://1vTly2hoYxtfrCww6xqq_FxCXNTaEWfxo/reel_0013_voiceover_hi.wav",
+    "captions": "drive://1xIiNKSqoPJRHs7qBJCZm5VL5TJ8GjQkj/reel_0013_voiceover_hi_final.srt",
+    "video": "drive://1x_OcjBQDcRPBP65bzOfKzsaQ24DZeh1K/Reel_0013_final_1080x1920.mp4",
+    "qc_report": "drive://1uIWC7Ur8QjUsdDMC8Yo3EfuTjbUr-CLH/reel_0013_technical_qc.json",
+    "metadata_or_manifest": "drive://1Ebf5BxjmWbheWDbcIs06RLzLqhcrx6An/reel_0013_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Manifest and production log both record complete_verified_drive with complete readback."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

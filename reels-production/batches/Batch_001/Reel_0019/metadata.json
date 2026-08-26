@@ -1,0 +1,66 @@
+{
+  "reel_id": "Reel_0019",
+  "batch_id": "Batch_001",
+  "title_hi": "Feeling ko naam dena: kya research kehti hai?",
+  "topic": "Affect labelling: controlled-task emotion-regulation evidence and limits",
+  "claim_classification": "Controlled experimental evidence plus neuroimaging association; not a diagnostic or treatment claim",
+  "research": {
+    "central_claim": "In specific controlled laboratory tasks, putting an affective experience into words has been associated with lower reported distress relative to passive viewing; effects depend on experimental context.",
+    "limitations": [
+      "The cited evidence does not show that labelling always calms a person or replaces support or treatment.",
+      "The reported fMRI differences are associations in task-specific samples, not proof that a word switches off a brain region.",
+      "One 2022 study reported different results by stimulus intensity, including increased distress in its lower-intensity condition."
+    ],
+    "sources": [
+      {
+        "citation": "Burklund et al. (2014), The common and distinct neural bases of affect labeling and reappraisal in healthy adults",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3970015/"
+      },
+      {
+        "citation": "Levy-Gigi & Shamay-Tsoory (2022), Affect labeling: The role of timing and intensity",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9799301/"
+      },
+      {
+        "citation": "Lieberman et al. (2007), Putting Feelings Into Words",
+        "url": "https://journals.sagepub.com/doi/abs/10.1111/j.1467-9280.2007.01916.x"
+      }
+    ]
+  },
+  "video_spec": {
+    "filename": "Reel_0019_final_1080x1920.mp4",
+    "duration_seconds": 60.666667,
+    "geometry": "1080x1920",
+    "frame_rate": 15,
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "captions": "Reel_0019_hi_final.srt",
+    "technical_qc": "qc/technical_qc.json",
+    "sha256": "94bd0d3a40c2403784a8d071cb217620677bbeba8a198420bb575bf26b06ed98"
+  },
+  "visual_provenance": {
+    "master_visual": "/home/ubuntu/webdev-static-assets/reel_0019_affect_labelling_master.png",
+    "generation_request": "topic-specific 9:16 affect-labelling master visual",
+    "assembly": "original deterministic FFmpeg caption-led 2.5D/static-motion renderer",
+    "fresh_native_ai_video_claimed": false,
+    "disclosure": "The final MP4 uses a topic-specific generated master visual and deterministic assembly; it does not claim native AI video footage."
+  },
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "batch_folder_id": "1hz2gSOMAWzfG0_vasKunhxG8rhscD7U4",
+    "reel_folder_id": "1MHbbKK5ptJuQq_nWjgrgat9Gg-w6lrlW",
+    "final_video_id": "15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7",
+    "final_video_web_view_link": "https://drive.google.com/file/d/15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7/view?usp=drivesdk",
+    "final_video_md5_checksum": "2f68eeabd7b30ddd4526d9206cc4e6bb",
+    "final_video_size_bytes": 6489883,
+    "supporting_artifact_ids": {
+      "sources": "1c6pSAHA6--S7DBolinLVBS2w6dm03ZJm",
+      "script": "1TPuu7zWZW3u8lPDdLFR3vwl2H4vST03d",
+      "captions": "1xCw6070vlh2pyIKgSQpQ-xE58gGi46NM",
+      "voiceover": "1gKlf1wNX-wIg-ecVGhFKmniFp9-pi0s9",
+      "technical_qc": "1u95MQenmGSIOWvf0mr2tSQ0f1PSyma4V",
+      "visual_provenance": "1dRltqlO96vay6g3vOBR25pTGPDdfrlUa"
+    },
+    "readback_verified_artifact_count": 9,
+    "status": "complete_verified_drive_readback"
+  }
+}

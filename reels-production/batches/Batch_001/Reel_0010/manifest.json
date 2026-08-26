@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0010",
+  "batch_id": "Batch_001",
+  "title": "अधूरा काम ध्यान को क्यों खींचता है?",
+  "topic": "Unfinished tasks and attentional persistence",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://1sS5V2i2dvF1OP0VxpdhjTa35MlnAn5Qj/reel_0010_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1nU7IaTmjf46WEPV0nR1YDpBzCxIVJfZD",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "137OkVrLjdGTvK-ZIDGOLdpZ5VX0XCO-6",
+        "drive_parent_id": "1nU7IaTmjf46WEPV0nR1YDpBzCxIVJfZD",
+        "drive_web_view_link": "https://drive.google.com/file/d/137OkVrLjdGTvK-ZIDGOLdpZ5VX0XCO-6/view?usp=drivesdk",
+        "drive_md5_checksum": "28e660cb1e6ed6368b643c2544d49bd2",
+        "drive_size_bytes": 6500134
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1ULVda6HvPS4cZIm0N6kDu5Hdq5ioT4d8/reel_0010_voiceover_hi.md",
+    "voiceover": "drive://1tlueKyIZvgWWcQQ-DLmxBNi2o44n84ld/reel_0010_voiceover_hi.wav",
+    "captions": "drive://1fAkH7fWHqKF0xUYaeD187PV6ox6G15_J/reel_0010_voiceover_hi_final.srt",
+    "video": "drive://137OkVrLjdGTvK-ZIDGOLdpZ5VX0XCO-6/Reel_0010_final_1080x1920.mp4",
+    "qc_report": "drive://1_v9RbdeULI0SlPk4HFhHvSk311vlto9q/reel_0010_technical_qc.json",
+    "metadata_or_manifest": "drive://11F08AzEQqtedcPB3z0wDetFiviOIQBhd/reel_0010_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Producer log retained pending_no_folder_created_yet; this audit independently verified the complete package in the canonical Drive folder."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0019",
+  "batch_id": "Batch_001",
+  "title": "Feelings ko naam dena: kya research kehti hai?",
+  "topic": "Affect labelling: controlled-task emotion-regulation evidence and limits",
+  "claim_type": "Controlled experiment plus neuroimaging association",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:09:37Z",
+  "updated_at_utc": "2026-08-26T04:17:08Z",
+  "source_record": "reels-production/research/Reel_0019_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1MHbbKK5ptJuQq_nWjgrgat9Gg-w6lrlW",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:17:08Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/video/Reel_0019_final_1080x1920.mp4",
+        "sha256": "94bd0d3a40c2403784a8d071cb217620677bbeba8a198420bb575bf26b06ed98",
+        "drive_file_id": "15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7",
+        "drive_parent_id": "1MHbbKK5ptJuQq_nWjgrgat9Gg-w6lrlW",
+        "drive_web_view_link": "https://drive.google.com/file/d/15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/voice/Reel_0019_hi_draft.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/captions/Reel_0019_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/video/Reel_0019_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0019/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:09:37Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-26T04:09:46Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Affect-labelling source record includes controlled-task evidence, neuroimaging association, context moderation, and explicit prohibited overclaims."
+    },
+    {
+      "at_utc": "2026-08-26T04:09:46Z",
+      "event": "status_transition",
+      "detail": "researched → verified. Central claims are bounded to study conditions; no diagnostic, therapeutic, causal-brain-switch, or universal calming claim is permitted."
+    },
+    {
+      "at_utc": "2026-08-26T04:10:21Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-26T04:10:21Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Hindi voiceover draft uses only source-recorded controlled-task findings and explicit evidence limits."
+    },
+    {
+      "at_utc": "2026-08-26T04:12:25Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0019_hi_draft.wav"
+    },
+    {
+      "at_utc": "2026-08-26T04:12:25Z",
+      "event": "artifact_recorded",
+      "detail": "captions: Reel_0019_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-26T04:12:25Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. Hindi voiceover is 60.64 seconds; transcription readback informed six timed caption segments."
+    },
+    {
+      "at_utc": "2026-08-26T04:15:20Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. A 1080x1920 H.264/AAC MP4 was assembled from a topic-specific generated master visual, Hindi narration and burned-in captions using the documented 15fps deterministic fallback renderer."
+    },
+    {
+      "at_utc": "2026-08-26T04:15:20Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-26T04:15:20Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. Technical QC passed: non-empty MP4, 1080x1920 portrait geometry, audio stream, 60.667-second duration and SHA-256 recorded."
+    },
+    {
+      "at_utc": "2026-08-26T04:17:08Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0019_final_1080x1920.mp4 → 15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7"
+    },
+    {
+      "at_utc": "2026-08-26T04:17:08Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 plus eight supporting source, script, caption, narration, QC, metadata, manifest and visual-provenance artifacts were listed in the canonical Drive folder; final MP4 has a non-empty size and Drive MD5 checksum."
+    },
+    {
+      "at_utc": "2026-08-26T04:17:08Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Reel 0019 is source-backed, Hindi-voiced, captioned, technically QC-passed, and Drive-package readback verified. Visual provenance is disclosed as a generated master visual with deterministic caption-led assembly."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0011",
+  "batch_id": "Batch_001",
+  "title": "Mind wandering हमेशा बुरा नहीं होता",
+  "topic": "Mind wandering, task context, and cognitive trade-offs",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://18A0vsk_VUGNCyEDfyZ995zokk33nnWb9/reel_0011_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1ib27MtHw8cMT-JwOs1wlqjK9qnOBgdbj",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "1X9M4CPmZLT7upl2sIfJBQtIp7z44a7Fd",
+        "drive_parent_id": "1ib27MtHw8cMT-JwOs1wlqjK9qnOBgdbj",
+        "drive_web_view_link": "https://drive.google.com/file/d/1X9M4CPmZLT7upl2sIfJBQtIp7z44a7Fd/view?usp=drivesdk",
+        "drive_md5_checksum": "ea4862b92bf543e57d004e539ec147c0",
+        "drive_size_bytes": 7048554
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1Dc_R5KD0K6v8FDMSE0-Uiu1z2EaoYURD/reel_0011_voiceover_hi.md",
+    "voiceover": "drive://1jNPM5b3qe62hCuMr8oJi3Pp8rwioe9Cn/reel_0011_voiceover_hi.wav",
+    "captions": "drive://1ktmnZg3RZx776_7p0mgnDcImfl10Yjcn/reel_0011_voiceover_hi_final.srt",
+    "video": "drive://1X9M4CPmZLT7upl2sIfJBQtIp7z44a7Fd/Reel_0011_final_1080x1920.mp4",
+    "qc_report": "drive://1j4HSWhG3B0kSTahoVl6-aqwDPRfIsKTr/reel_0011_technical_qc.json",
+    "metadata_or_manifest": "drive://1Fm9xDQYhBW95TLevPUG40WDoiYPLvoFi/reel_0011_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Production log records complete_verified_drive with 10 verified artifacts."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

@@ -89,4 +89,5 @@
 - [ ] Continue the next source-backed Batch_001 reels with explicit media-quota and visual-provenance records.
 - [ ] Activate recurring continuation only after the managed mobile publishing prerequisite is satisfied.
 - [x] Recover the previously verified repository-repair history by safely rebasing the current checkout onto GitHub main, retaining the current backlog additions.
-- [ ] Reconcile Drive inventory beyond local progress records: audit Reel_0006–Reel_0018 folders and record only verified completion states before selecting the next Reel ID.
+- [x] Reconcile Drive inventory beyond local progress records: audited Reel_0006–Reel_0018 at file level and normalized 13 fully evidenced Drive packages without regenerating or overwriting media; verified progress is 18/3,000 with Reel_0019 next.
+- [x] Research, verify, script, QC, upload and reconcile Reel_0019 on affect labelling without overstating emotion-regulation or neuroimaging evidence; final 1080x1920 MP4, sources, script, captions, narration, technical QC, manifest and metadata are verified in Drive.

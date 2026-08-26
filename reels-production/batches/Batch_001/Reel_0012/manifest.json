@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0012",
+  "batch_id": "Batch_001",
+  "title": "Memory कोई magic edit button नहीं है",
+  "topic": "Memory updating, reconsolidation, and limits",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://1olIFvoh3TPGWe9fvEdBmPUkzGJAmFDBT/reel_0012_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1xt_BlgYVJAsv1bRGgWL0VfxjIt8fd5sJ",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "10lYo49lF4DoBLhiwFloY2GaNA_Ua3gFF",
+        "drive_parent_id": "1xt_BlgYVJAsv1bRGgWL0VfxjIt8fd5sJ",
+        "drive_web_view_link": "https://drive.google.com/file/d/10lYo49lF4DoBLhiwFloY2GaNA_Ua3gFF/view?usp=drivesdk",
+        "drive_md5_checksum": "8c2770d1e12d62aac5bf025de6b572b9",
+        "drive_size_bytes": 6720771
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1Mxi9FH1SFTTwC6cGnsRQomVwO6sgmCSH/reel_0012_voiceover_hi.md",
+    "voiceover": "drive://1JIzgyw5wCt2Vn-C4AVIKOt9LJd9fL1Tp/reel_0012_voiceover_hi.wav",
+    "captions": "drive://13q4R4-8xXDANYKOPIj13eFRVlzo7A9jB/reel_0012_voiceover_hi_final.srt",
+    "video": "drive://10lYo49lF4DoBLhiwFloY2GaNA_Ua3gFF/Reel_0012_final_1080x1920.mp4",
+    "qc_report": "drive://1oXtBgsr964CAOpo0zqfqV1juiTUKqfSo/reel_0012_technical_qc.json",
+    "metadata_or_manifest": "drive://1F7MFjZpkC37ykYquPNLi0gMygKp77rGs/reel_0012_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Production log records complete_verified_drive."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

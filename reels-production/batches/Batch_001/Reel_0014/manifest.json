@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0014",
+  "batch_id": "Batch_001",
+  "title": "नींद memory को कैसे consolidate करती है?",
+  "topic": "Sleep and memory consolidation",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://1EbYAfkG3mkJ4pN194As7bMttUMKyhfO1/reel_0014_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1_MD3fWEKHKUuMAi67FqzSC5zzmhzzMd8",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "141MHJgJ6mrNibxFEYxtr5JhGPLY4HqAX",
+        "drive_parent_id": "1_MD3fWEKHKUuMAi67FqzSC5zzmhzzMd8",
+        "drive_web_view_link": "https://drive.google.com/file/d/141MHJgJ6mrNibxFEYxtr5JhGPLY4HqAX/view?usp=drivesdk",
+        "drive_md5_checksum": "979722119bb032ebf6fbab6d6bf38ea6",
+        "drive_size_bytes": 6972167
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1m57Ypw9G1M3qfkAuiiadfQsPbDPKHXCb/reel_0014_voiceover_hi.md",
+    "voiceover": "drive://1LuH_aC17y9x8bB4dsd5wrx70KRKb1aGs/reel_0014_voiceover_hi.wav",
+    "captions": "drive://1lBG8EvY0F-sXQ6NNR-fMhXPj9ZF86evW/reel_0014_voiceover_hi_final.srt",
+    "video": "drive://141MHJgJ6mrNibxFEYxtr5JhGPLY4HqAX/Reel_0014_final_1080x1920.mp4",
+    "qc_report": "drive://1vdhhQp9xSsGxrPi-4oeZDrBkMoDcLcVz/reel_0014_technical_qc.json",
+    "metadata_or_manifest": "drive://1WMLfY7cT2Y3ZEh9eAPS-0jtw7sbPR94G/reel_0014_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Manifest and production log both record complete_verified_drive with complete readback."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

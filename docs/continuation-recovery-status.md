@@ -21,9 +21,11 @@ The local checkout initially ended at Reel 0005 while GitHub `main` had three la
 
 The GitHub Dependabot alerts endpoint was rechecked on 2026-08-26. The current authorized token again returned HTTP 403, `Resource not accessible by integration`. This prevents identifying the affected packages and advisory-specific patched versions. No further dependency upgrade, alert dismissal, or security claim should be made until alert-read access or an exported advisory list is available.
 
-## Reel-production reconciliation required
+## Reel-production reconciliation
 
-The local `progress.json` records five verified completed reels and `Reel_0006` as the next local reel. A fresh Google Drive folder listing shows later folders for `Reel_0006` through `Reel_0017`, plus `Reel_0018_tip_of_the_tongue_PARTIAL`. Folder presence alone is not evidence of completion. The next step is to inspect the contents of every newly discovered folder, verify final video, source record, script, captions, QC report, metadata and manifest, then update local progress only for fully evidenced completions. `Reel_0018` must remain partial unless those checks pass.
+The Drive folders for `Reel_0006` through `Reel_0018` were inspected at the file level. Every reconciled reel has a non-empty final MP4 with a Drive checksum, a research record, Hindi script, captions, technical-QC record and supporting metadata or manifest. Existing producer records that still said “pending” were not overwritten silently: the local manifests retain their discrepancy as a post-hoc reconciliation note. Reel 0018’s earlier quota blocker is preserved as history; its newer metadata, final MP4 and PASS technical-QC package establish that it was subsequently completed with a disclosed deterministic visual fallback.
+
+The local production state now records **18/3,000 complete**, `Reel_0018` as the last successful reel, and `Reel_0019` as the next valid ID. The audit JSON under `reels-production/audits/` retains the 13 folder IDs, final-video IDs, sizes, MD5 checksums and companion-record IDs used for this conclusion.
 
 ## Automation boundary
 

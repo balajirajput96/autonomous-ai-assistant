@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0008",
+  "batch_id": "Batch_001",
+  "title": "Decision fatigue: popular claim से आगे की science",
+  "topic": "Decision fatigue, mental effort, and choice overload",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://1-YZj2XTJFns7qFgfcRAm8WMbi6wAWuS1/reel_0008_research_notes.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1RrzDZfbLR0cSOIqiiZpls_gIfAGFLc1u",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "1NHDLdY2sEGVjK7DSftg-7hBd9rJ5bKqW",
+        "drive_parent_id": "1RrzDZfbLR0cSOIqiiZpls_gIfAGFLc1u",
+        "drive_web_view_link": "https://drive.google.com/file/d/1NHDLdY2sEGVjK7DSftg-7hBd9rJ5bKqW/view?usp=drivesdk",
+        "drive_md5_checksum": "85d0600b685a9dc6011e730003218f41",
+        "drive_size_bytes": 8111904
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1DhClj2J4qVRGg5B2GoWeWx5Jv8oeIP7e/reel_0008_voiceover_hi.md",
+    "voiceover": "drive://1QRrv7D03bVgud3xdKJ4Wl6yPnTEer7YQ/reel_0008_voiceover_hi.wav",
+    "captions": "drive://1cWcNRgEpkItJCVJMLMFQUd7ZEGfmGhLT/reel_0008_voiceover_hi_final.srt",
+    "video": "drive://1NHDLdY2sEGVjK7DSftg-7hBd9rJ5bKqW/Reel_0008_final_1080x1920.mp4",
+    "qc_report": "drive://1JJaFaOKauTo6PGdq7RwFQSJB7cCLHoeW/reel_0008_technical_qc.json",
+    "metadata_or_manifest": "drive://13iFZTyUKi_CTGZET01qT8DNrdL4KN9hZ/reel_0008_metadata.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Metadata retained pending_drive_auth_retry; this post-hoc audit independently verified the complete package in its canonical Drive folder."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0017",
+  "batch_id": "Batch_001",
+  "title": "शब्द बार-बार बोलने पर अजीब क्यों लगता है?",
+  "topic": "Semantic satiation: temporary strangeness after repeated word exposure",
+  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T04:07:40Z",
+  "updated_at_utc": "2026-08-26T04:07:40Z",
+  "source_record": "drive://16SKC4YRTJKSRUTblIAfHvfHoUh2oJrvr/R0017_RESEARCH_NOTES.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1OvDmCsqSgO18xRnjTchVjnag3e35O88d",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T04:07:40Z",
+        "source": "post_hoc_drive_reconciliation",
+        "drive_file_id": "1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia",
+        "drive_parent_id": "1OvDmCsqSgO18xRnjTchVjnag3e35O88d",
+        "drive_web_view_link": "https://drive.google.com/file/d/1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia/view?usp=drivesdk",
+        "drive_md5_checksum": "046fa30437395328f6f6b37e7614e9ff",
+        "drive_size_bytes": 4225178
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "drive://1G1t6rqzvJb7O9T9UqiLl6QFjPxPNeXEP/R0017_SCRIPT_HI.md",
+    "voiceover": "drive://1wjmJad31ICqZ-2rtSa6hU1vVe1gs5X9Y/R0017_voiceover_hi.wav",
+    "captions": "drive://1FfUc6j_n2tlxPhX9Qy943UKYmlIsme-1/R0017_captions_hi.srt",
+    "video": "drive://1TJcTTxncTbDVm332AW7Y-l0mNemoG7ia/Reel_0017_Word_Repetition_Semantic_Satiation_Hindi.mp4",
+    "qc_report": "drive://1p_qBbtvb7XmtIDlTUxFqJt7PSxdQJ_Xx/R0017_TECHNICAL_QC.json",
+    "metadata_or_manifest": "drive://1uUALKbaM7_llCHM-dqlY7QxrKSSRV-5G/R0017_MANIFEST_FINAL.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "drive_reconciliation",
+      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Final manifest records complete_verified_drive, full artifact readback, 60-second technical QC, and disclosed deterministic visual fallback."
+    },
+    {
+      "at_utc": "2026-08-26T04:07:40Z",
+      "event": "status_transition",
+      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+    }
+  ]
+}
