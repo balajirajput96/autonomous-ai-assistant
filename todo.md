@@ -84,3 +84,9 @@
 - [x] Verify CI/workflow state and perform safe Git synchronization: local `main` is synced with GitHub, rebase was a no-op because no remote commits were pending, and the corrected validation workflow passed remotely.
 - [x] Attempt dependency-alert triage without fabricating findings: Expo-compatible dependency upgrades reduced GitHub's reported total from 138 to 132; Dependabot alert API access is denied to the current token and pnpm production audit requires more memory than the sandbox permits.
 - [ ] Obtain read access to the repository's Dependabot alerts or a security-advisory export before selecting further precise dependency upgrades.
+- [x] Re-audit remaining backlog, GitHub security visibility, mobile-publish prerequisite and current reel-production capacity before continuing work.
+- [x] Complete every reachable dependency and repository remediation without speculative upgrades or security-control bypasses; recovered repair commits validate cleanly and exact Dependabot remediation remains blocked by GitHub alert-read permissions.
+- [ ] Continue the next source-backed Batch_001 reels with explicit media-quota and visual-provenance records.
+- [ ] Activate recurring continuation only after the managed mobile publishing prerequisite is satisfied.
+- [x] Recover the previously verified repository-repair history by safely rebasing the current checkout onto GitHub main, retaining the current backlog additions.
+- [ ] Reconcile Drive inventory beyond local progress records: audit Reel_0006–Reel_0018 folders and record only verified completion states before selecting the next Reel ID.
