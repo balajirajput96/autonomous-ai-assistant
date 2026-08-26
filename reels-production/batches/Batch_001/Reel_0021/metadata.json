@@ -1,0 +1,72 @@
+{
+  "reel_id": "Reel_0021",
+  "title": "Naya context, purani aadat: kya badal sakta hai?",
+  "topic": "Habit discontinuity after a major context change",
+  "language": "Hindi (India)",
+  "claim_classification": "Habit-theory evidence plus observational, field and intentional-habit findings; not a universal behaviour-change guarantee.",
+  "key_claim_boundaries": [
+    "A context change can make a previously cue-linked routine more open to deliberate reconsideration; it does not automatically remove a habit.",
+    "The home-move and commuting finding is limited to its travel context and observational/field evidence.",
+    "Stable context supported automaticity during intentional study-habit formation; this does not prove that every disrupted habit disappears.",
+    "A context change can also interrupt helpful routines."
+  ],
+  "sources": [
+    {
+      "title": "Habit Discontinuity, Self-Activation, and the Diminishing Influence of Context Change",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4847906/",
+      "type": "peer-reviewed open-access article"
+    },
+    {
+      "title": "Context Stability in Habit Building Increases Automaticity and Goal Attainment",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.883795/full",
+      "type": "peer-reviewed open-access article"
+    },
+    {
+      "title": "Context change and travel mode choice: Combining the habit discontinuity and self-activation hypotheses",
+      "url": "https://researchportal.bath.ac.uk/en/publications/context-change-and-travel-mode-choice-combining-the-habit-discont/",
+      "type": "peer-reviewed article record"
+    }
+  ],
+  "visual_provenance": {
+    "fresh_image_attempted": true,
+    "fresh_image_status": "blocked_by_free_plan_daily_limit_20_of_20_on_2026-08-26",
+    "fallback": "Original deterministic Pillow/FFmpeg three-scene cue-context visual assembly",
+    "not_claimed_as_ai_video": true
+  },
+  "narration": {
+    "file": "Reel_0021_hi.wav",
+    "voice": "Sulafat",
+    "duration_seconds_before_render_cap": 65.0,
+    "transcription_verified": true
+  },
+  "technical_qc": {
+    "status": "PASS",
+    "duration_seconds": 65.0,
+    "geometry": "1080x1920",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "sha256": "1350cf4388ffd76fffacaab909c442295e378c929ae2285b4955e2da699e4624"
+  },
+  "drive": {
+    "folder_id": "1BYGdwig6glRbUOeU8nd7wsI1eiD6dEVg",
+    "final_video_file_id": "12F5gawsLZGZOR8LjjuGKVpMBRWg8glpI",
+    "final_video_md5": "3962016e27b1a458e7d530542a995be1",
+    "final_video_bytes": 1689209,
+    "upload_status": "verified_by_folder_readback"
+  },
+  "completion": {
+    "status": "complete_verified_drive",
+    "verified_at_utc": "2026-08-26T11:51:00Z",
+    "required_package_evidence": [
+      "final MP4",
+      "source record",
+      "Hindi script",
+      "captions",
+      "Hindi narration",
+      "technical QC",
+      "visual provenance plan",
+      "deterministic renderer",
+      "production manifest"
+    ]
+  }
+}

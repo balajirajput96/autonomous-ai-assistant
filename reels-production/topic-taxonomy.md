@@ -33,22 +33,22 @@ The mission uses a constrained topic registry rather than a list of interchangea
 | 0003 | What is interference in memory, and what does it not explain? | Cognitive model + empirical evidence |
 | 0004 | Why can confidence and accuracy diverge in memory? | Empirical metacognition |
 | 0005 | What does cognitive load theory propose, and where are its application limits? | Theory + review |
-| 0006 | What does it mean to say working memory is limited? | Cognitive model + empirical evidence |
-| 0007 | Why can switching between tasks feel harder than expected? | Cognitive control evidence |
-| 0008 | What are “desirable difficulties,” and what are their limits? | Theory + review |
-| 0009 | How is sleep linked to memory consolidation, and what is not known? | Neuroscience review |
-| 0010 | When can feedback timing support learning? | Educational review |
-| 0011 | What is affect labelling, and how is it studied? | Affective-science evidence |
-| 0012 | What is cognitive reappraisal, and what should not be promised? | Emotion-regulation review |
-| 0013 | Why can stress appraisals differ between people? | Appraisal theory + evidence |
-| 0014 | What is emotion granularity? | Measurement + empirical evidence |
-| 0015 | What is rumination in psychological research? | Clinical-psychology evidence |
-| 0016 | How does uncertainty shape emotion and decision making? | Review evidence |
-| 0017 | What can self-compassion research say, and what can it not say? | Intervention review |
-| 0018 | Why are empathy and helping not identical? | Social-affective evidence |
-| 0019 | What is physiological arousal, and why is one body signal not one emotion? | Affective neuroscience literacy |
-| 0020 | What is the difference between mood, emotion and feeling in research? | Construct clarification |
-| 0021 | How do cues shape habitual responding? | Behavioural-learning evidence |
+| 0006 | Prospective memory and implementation intentions | Drive-verified empirical psychology package |
+| 0007 | Emotion, attention, and central versus peripheral memory details | Drive-verified empirical psychology package |
+| 0008 | Decision fatigue, mental effort, and choice overload | Drive-verified empirical psychology package |
+| 0009 | Misinformation effect, reconstructive memory, and false memories | Drive-verified empirical psychology package |
+| 0010 | Attention residue, unfinished tasks, and task transitions | Drive-verified empirical psychology package |
+| 0011 | Mind wandering, task performance, possible benefits, and default-mode network limits | Drive-verified empirical psychology package |
+| 0012 | Memory reconsolidation, conditional updating, and human-evidence limits | Drive-verified empirical psychology package |
+| 0013 | Placebo effects, expectation, conditioning, context, and evidence boundaries | Drive-verified empirical psychology package |
+| 0014 | Sleep-dependent memory consolidation | Drive-verified empirical psychology package |
+| 0015 | Habit automaticity, context cues, and behaviour repetition | Drive-verified empirical psychology package |
+| 0016 | Interoception, affect, and context-sensitive interpretation of body signals | Drive-verified empirical psychology package |
+| 0017 | Semantic satiation: the temporary strangeness of a heavily repeated word | Drive-verified empirical psychology package |
+| 0018 | Tip-of-the-tongue word retrieval state | Drive-verified empirical psychology package |
+| 0019 | Affect labelling: controlled-task emotion-regulation evidence and limits | Controlled experiment + neuroimaging association |
+| 0020 | Generation effect and corrective feedback | Drive-verified learning-research package |
+| 0021 | How can a major context change interrupt a habit? | Habit-discontinuity evidence |
 | 0022 | What is an implementation intention? | Meta-analytic behaviour-change evidence |
 | 0023 | What is reward prediction error in learning theory? | Computational model + evidence |
 | 0024 | How can friction change a behaviour without changing a person? | Behavioural-design evidence |
@@ -59,4 +59,4 @@ The mission uses a constrained topic registry rather than a list of interchangea
 | 0029 | What are identity-based behaviour claims: evidence, model or motivation? | Theory boundary |
 | 0030 | What does health-behaviour evidence say about small changes? | Systematic review |
 
-Reel 0001 and Reel 0002 are `complete` and Drive-verified. Reels 0003–0030 remain `planned` until each has its own source record, manifest, technical QC report and verified Drive upload.
+Reels 0001–0020 are `complete` and Drive-verified. Reel 0021 onward remain `planned` until each has its own source record, manifest, technical QC report and verified Drive upload. The actual output registry supersedes the older provisional order so completed subjects are never regenerated merely to match an initial slot plan.

@@ -1,36 +1,36 @@
 {
   "schema_version": 1,
-  "reel_id": "Reel_0019",
+  "reel_id": "Reel_0020",
   "batch_id": "Batch_001",
-  "title": "Drive-reconciled Reel_0019",
+  "title": "Drive-reconciled Reel_0020",
   "topic": "Use the verified Drive research record; local media cache was intentionally not restored.",
   "claim_type": "Drive-reconciled historical record",
   "status": "complete",
   "created_at_utc": "2026-08-26T11:39:38Z",
   "updated_at_utc": "2026-08-26T11:39:38Z",
-  "source_record": "drive://1c6pSAHA6--S7DBolinLVBS2w6dm03ZJm",
+  "source_record": "drive://1Qp4nt4D4PemzEboeEkZAC7wa3CEqMOHv",
   "drive": {
     "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
-    "reel_folder_id": "1MHbbKK5ptJuQq_nWjgrgat9Gg-w6lrlW",
+    "reel_folder_id": "1wOcMB7Q3ykZcHXGOGtyokplGdqUwnMGG",
     "upload_records": [
       {
         "at_utc": "2026-08-26T11:39:38Z",
         "local_file": null,
         "sha256": null,
-        "drive_file_id": "15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7",
-        "drive_parent_id": "1MHbbKK5ptJuQq_nWjgrgat9Gg-w6lrlW",
-        "drive_web_view_link": "https://drive.google.com/file/d/15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7/view?usp=drivesdk",
-        "drive_md5_checksum": "2f68eeabd7b30ddd4526d9206cc4e6bb",
+        "drive_file_id": "1LTq4AGUI8Yxfz1DTQ59gp16fjzYriaO3",
+        "drive_parent_id": "1wOcMB7Q3ykZcHXGOGtyokplGdqUwnMGG",
+        "drive_web_view_link": "https://drive.google.com/file/d/1LTq4AGUI8Yxfz1DTQ59gp16fjzYriaO3/view?usp=drivesdk",
+        "drive_md5_checksum": "67840409e514e966183e1d65864bc2cd",
         "reconciled_from_file_level_drive_readback": true
       }
     ]
   },
   "artifacts": {
-    "script": "drive://1TPuu7zWZW3u8lPDdLFR3vwl2H4vST03d",
-    "voiceover": "drive://1gKlf1wNX-wIg-ecVGhFKmniFp9-pi0s9",
-    "captions": "drive://1xCw6070vlh2pyIKgSQpQ-xE58gGi46NM",
-    "video": "drive://15R8_3HFQ2A3ETVcnHyuxfImjSeRBPUD7",
-    "qc_report": "drive://1u95MQenmGSIOWvf0mr2tSQ0f1PSyma4V"
+    "script": "drive://12g_lrk2dZ0TXPxQtWGVl-v8m8DS8cg5Q",
+    "voiceover": "drive://1iu-_sX6PhqXQ_kD7NaEyPJSRhn4F7i3e",
+    "captions": "drive://1jdrw3NOQVU3vVKjV-OWNPXpADUFtjWo8",
+    "video": "drive://1LTq4AGUI8Yxfz1DTQ59gp16fjzYriaO3",
+    "qc_report": "drive://1qPrAt_4yMbOs5QK0feqJJF4B-JMeSrRH"
   },
   "attempts": [],
   "events": [

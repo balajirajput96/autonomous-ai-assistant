@@ -2,47 +2,47 @@
   "schema_version": 1,
   "reel_id": "Reel_0018",
   "batch_id": "Batch_001",
-  "title": "जब शब्द याद है, पर जुबान पर नहीं आता",
-  "topic": "Tip-of-the-tongue word retrieval state",
-  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "title": "Drive-reconciled Reel_0018",
+  "topic": "Use the verified Drive research record; local media cache was intentionally not restored.",
+  "claim_type": "Drive-reconciled historical record",
   "status": "complete",
-  "created_at_utc": "2026-08-26T04:07:40Z",
-  "updated_at_utc": "2026-08-26T04:07:40Z",
-  "source_record": "drive://1Tflp7mqcXvUkeH12JXe7LPn9g6xTRB9H/R0018_RESEARCH_NOTES.md",
+  "created_at_utc": "2026-08-26T11:39:38Z",
+  "updated_at_utc": "2026-08-26T11:39:38Z",
+  "source_record": "drive://1Tflp7mqcXvUkeH12JXe7LPn9g6xTRB9H",
   "drive": {
     "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "reel_folder_id": "1h7OdqXbSxDGvR7Rv-0gWd_0O-M27BR5c",
     "upload_records": [
       {
-        "at_utc": "2026-08-26T04:07:40Z",
-        "source": "post_hoc_drive_reconciliation",
+        "at_utc": "2026-08-26T11:39:38Z",
+        "local_file": null,
+        "sha256": null,
         "drive_file_id": "1soZIK_OV0wqcYP3DBa6uTskwS2AK5igM",
         "drive_parent_id": "1h7OdqXbSxDGvR7Rv-0gWd_0O-M27BR5c",
         "drive_web_view_link": "https://drive.google.com/file/d/1soZIK_OV0wqcYP3DBa6uTskwS2AK5igM/view?usp=drivesdk",
         "drive_md5_checksum": "7dc7e9fee2679e1e28e58a56ff685e4d",
-        "drive_size_bytes": 6095009
+        "reconciled_from_file_level_drive_readback": true
       }
     ]
   },
   "artifacts": {
-    "script": "drive://1eiPipHMUe6oZ2gp-JS5bey7qaW4fNMcy/R0018_SCRIPT_HI_v2_shortened.md",
-    "voiceover": "drive://1ew-s812NrNXAFEek6ZitZMs3RR1JhoNR/R0018_voiceover_hi_56_68s_ready.wav",
-    "captions": "drive://1syDSZZ91E4NC3irjPPIutH19CXIUyJF1/R0018_captions_hi_v2_shortened.srt",
-    "video": "drive://1soZIK_OV0wqcYP3DBa6uTskwS2AK5igM/Reel_0018_final_1080x1920.mp4",
-    "qc_report": "drive://1YBTs-iWex6y63WHU0w_Xxc2KOyDuPWtB/reel_0018_technical_qc.json",
-    "metadata_or_manifest": "drive://1jjdd4Z0UO_oWCuvccZdwozICFenoSuAy/reel_0018_metadata.json"
+    "script": "drive://",
+    "voiceover": "drive://1ew-s812NrNXAFEek6ZitZMs3RR1JhoNR",
+    "captions": "drive://1syDSZZ91E4NC3irjPPIutH19CXIUyJF1",
+    "video": "drive://1soZIK_OV0wqcYP3DBa6uTskwS2AK5igM",
+    "qc_report": "drive://1YBTs-iWex6y63WHU0w_Xxc2KOyDuPWtB"
   },
   "attempts": [],
   "events": [
     {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "drive_reconciliation",
-      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. An earlier quota blocker remains historical; current Drive metadata records complete_verified with an uploaded 60-second deterministic-fallback final video and PASS QC."
-    },
-    {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "status_transition",
-      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+      "at_utc": "2026-08-26T11:39:38Z",
+      "event": "drive_reconciled",
+      "detail": "Local manifest rebuilt from file-level Google Drive readback; local generated media was not recreated."
     }
-  ]
+  ],
+  "reconciliation": {
+    "audit_record": "reels-production/audits/drive_reconciliation_20260826.json",
+    "critical_missing": [],
+    "custom_package_note": "0016 and 0017 use producer-specific manifest formats; prior audit accepted their embedded-audio/custom-package evidence."
+  }
 }

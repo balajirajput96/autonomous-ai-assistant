@@ -1,10 +1,10 @@
 {
   "mission": "3000 Hindi Research Reels",
   "schema_version": 1,
-  "last_updated_utc": "2026-08-26T04:17:08Z",
+  "last_updated_utc": "2026-08-26T11:50:58Z",
   "completion": {
     "target_reels": 3000,
-    "completed_reels": 19,
+    "completed_reels": 21,
     "failed_reels": 0,
     "needs_review_reels": 0
   },
@@ -73,106 +73,105 @@
         },
         "Reel_0006": {
           "status": "complete",
-          "title": "If–then plan से prospective memory को cue दीजिए",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0006",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0007": {
           "status": "complete",
-          "title": "Emotion memory को focus दे सकती है—पर accuracy की guarantee नहीं",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0007",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0008": {
           "status": "complete",
-          "title": "Decision fatigue: popular claim से आगे की science",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0008",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0009": {
           "status": "complete",
-          "title": "आपकी memory camera नहीं है",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0009",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0010": {
           "status": "complete",
-          "title": "अधूरा काम ध्यान को क्यों खींचता है?",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0010",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0011": {
           "status": "complete",
-          "title": "Mind wandering हमेशा बुरा नहीं होता",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0011",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0012": {
           "status": "complete",
-          "title": "Memory कोई magic edit button नहीं है",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0012",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0013": {
           "status": "complete",
-          "title": "Placebo effect: context कैसे experience बदलता है?",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0013",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0014": {
           "status": "complete",
-          "title": "नींद memory को कैसे consolidate करती है?",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0014",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0015": {
           "status": "complete",
-          "title": "Habit 21 दिन में नहीं, context से बनती है",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0015",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0016": {
           "status": "complete",
-          "title": "शरीर का अलार्म, फैसला नहीं",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0016",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0017": {
           "status": "complete",
-          "title": "शब्द बार-बार बोलने पर अजीब क्यों लगता है?",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0017",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0018": {
           "status": "complete",
-          "title": "जब शब्द याद है, पर जुबान पर नहीं आता",
-          "updated_at_utc": "2026-08-26T04:07:40Z",
-          "attempt_count": 0,
-          "reconciled_from_drive": true
+          "title": "Drive-reconciled Reel_0018",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
         },
         "Reel_0019": {
           "status": "complete",
-          "title": "Feelings ko naam dena: kya research kehti hai?",
-          "updated_at_utc": "2026-08-26T04:17:08Z",
+          "title": "Drive-reconciled Reel_0019",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
           "attempt_count": 0
+        },
+        "Reel_0020": {
+          "status": "complete",
+          "title": "Drive-reconciled Reel_0020",
+          "updated_at_utc": "2026-08-26T11:39:38Z",
+          "attempt_count": 0
+        },
+        "Reel_0021": {
+          "status": "complete",
+          "title": "Naya context, purani aadat: kya badal sakta hai?",
+          "updated_at_utc": "2026-08-26T11:50:58Z",
+          "attempt_count": 1
         }
       }
     }
   ],
-  "last_successful_reel_id": "Reel_0019",
-  "next_reel_id": "Reel_0020",
+  "last_successful_reel_id": "Reel_0021",
+  "next_reel_id": "Reel_0022",
   "blocking_issues": [
     {
       "code": "SCHEDULE_REQUIRES_DEPLOYED_PROJECT",
@@ -181,11 +180,31 @@
       "detail": "Recurring continuation schedule creation was rejected because the current project is not deployed. Continue current-session production; re-attempt only after the user completes the managed publish flow."
     },
     {
-      "code": "FRESH_MEDIA_QUOTA_REQUIRES_RECHECK",
-      "severity": "non_blocking_when_documented_fallback_is_suitable",
-      "recorded_at_utc": "2026-08-26T04:07:40Z",
-      "detail": "Reel 0018 retains its historical fresh-image quota blocker but its final Drive package documents an original deterministic fallback. Do not assume new media quota availability until a harmless current recheck is performed."
+      "code": "MEDIA_GENERATION_DAILY_QUOTAS_REACHED",
+      "severity": "non_blocking_when_existing_asset_fallback_is_suitable",
+      "recorded_at_utc": "2026-08-22T05:19:30Z",
+      "detail": "Fresh AI video generation was limited at 1/1 and fresh AI image generation was limited at 20/20. Reel 0003 retained its failure/recovery event and used only documented existing approved visual assets. Future reels requiring fresh visuals must wait for quota reset or use an explicitly recorded non-fresh fallback."
     }
   ],
-  "notes": "A reel is complete only after source metadata, QC evidence, and a verified Google Drive upload are recorded. Reels 0006–0018 were independently reconciled from Drive on 2026-08-26; older producer pending statuses, where present, are preserved in local manifest events. The daily schedule remains deferred until the project is published through the managed publish flow."
+  "notes": "A reel is complete only after source metadata, QC evidence, and a verified Google Drive upload are recorded. The daily schedule is deferred until the project is deployed through the managed publish flow.",
+  "reconciliation": {
+    "source": "file-level Drive readback",
+    "reconciled_reels": [
+      "Reel_0006",
+      "Reel_0007",
+      "Reel_0008",
+      "Reel_0009",
+      "Reel_0010",
+      "Reel_0011",
+      "Reel_0012",
+      "Reel_0013",
+      "Reel_0014",
+      "Reel_0015",
+      "Reel_0016",
+      "Reel_0017",
+      "Reel_0018",
+      "Reel_0019",
+      "Reel_0020"
+    ]
+  }
 }

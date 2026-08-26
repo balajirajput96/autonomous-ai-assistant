@@ -2,47 +2,47 @@
   "schema_version": 1,
   "reel_id": "Reel_0006",
   "batch_id": "Batch_001",
-  "title": "If–then plan से prospective memory को cue दीजिए",
-  "topic": "Implementation intentions and prospective-memory cueing",
-  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "title": "Drive-reconciled Reel_0006",
+  "topic": "Use the verified Drive research record; local media cache was intentionally not restored.",
+  "claim_type": "Drive-reconciled historical record",
   "status": "complete",
-  "created_at_utc": "2026-08-26T04:07:40Z",
-  "updated_at_utc": "2026-08-26T04:07:40Z",
-  "source_record": "drive://1Mcq1-w7gGEJ-JulOaJb5DPI8mgWmfJHk/Reel_0006_sources.md",
+  "created_at_utc": "2026-08-26T11:39:38Z",
+  "updated_at_utc": "2026-08-26T11:39:38Z",
+  "source_record": "drive://1Mcq1-w7gGEJ-JulOaJb5DPI8mgWmfJHk",
   "drive": {
     "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "reel_folder_id": "1MCPJgU_3t5V2be8evAuy8wyCUrQwjymg",
     "upload_records": [
       {
-        "at_utc": "2026-08-26T04:07:40Z",
-        "source": "post_hoc_drive_reconciliation",
+        "at_utc": "2026-08-26T11:39:38Z",
+        "local_file": null,
+        "sha256": null,
         "drive_file_id": "17R-4j-232V-HkQuGZVV0Dm-ACscChmA_",
         "drive_parent_id": "1MCPJgU_3t5V2be8evAuy8wyCUrQwjymg",
         "drive_web_view_link": "https://drive.google.com/file/d/17R-4j-232V-HkQuGZVV0Dm-ACscChmA_/view?usp=drivesdk",
         "drive_md5_checksum": "22f2be37519350bc7b21dd2a47246743",
-        "drive_size_bytes": 8373967
+        "reconciled_from_file_level_drive_readback": true
       }
     ]
   },
   "artifacts": {
-    "script": "drive://1FG9QEv3T9MmAlEpCubD0Fj60clyaWev6/voiceover_hi.md",
-    "voiceover": "embedded_audio_track:drive://17R-4j-232V-HkQuGZVV0Dm-ACscChmA_/Reel_0006_final_1080x1920.mp4",
-    "captions": "drive://1yVlyPhB7WV3vPlyvQo-7jm9jybFCGFN-/voiceover_hi_final.srt",
-    "video": "drive://17R-4j-232V-HkQuGZVV0Dm-ACscChmA_/Reel_0006_final_1080x1920.mp4",
-    "qc_report": "drive://1qFsub1nAN4OhT2vpgFRa1oMRxWVP2eRz/technical_qc.json",
-    "metadata_or_manifest": "drive://1b9g1JFwZs0NPIKY38QE5xWCiF9Cz1Gxb/metadata.json"
+    "script": "drive://1FG9QEv3T9MmAlEpCubD0Fj60clyaWev6",
+    "voiceover": "drive://",
+    "captions": "drive://1yVlyPhB7WV3vPlyvQo-7jm9jybFCGFN-",
+    "video": "drive://17R-4j-232V-HkQuGZVV0Dm-ACscChmA_",
+    "qc_report": "drive://1qFsub1nAN4OhT2vpgFRa1oMRxWVP2eRz"
   },
   "attempts": [],
   "events": [
     {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "drive_reconciliation",
-      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Drive manifest explicitly records complete_drive_verified."
-    },
-    {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "status_transition",
-      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+      "at_utc": "2026-08-26T11:39:38Z",
+      "event": "drive_reconciled",
+      "detail": "Local manifest rebuilt from file-level Google Drive readback; local generated media was not recreated."
     }
-  ]
+  ],
+  "reconciliation": {
+    "audit_record": "reels-production/audits/drive_reconciliation_20260826.json",
+    "critical_missing": [],
+    "custom_package_note": "0016 and 0017 use producer-specific manifest formats; prior audit accepted their embedded-audio/custom-package evidence."
+  }
 }

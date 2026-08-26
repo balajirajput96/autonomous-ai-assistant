@@ -2,47 +2,47 @@
   "schema_version": 1,
   "reel_id": "Reel_0016",
   "batch_id": "Batch_001",
-  "title": "शरीर का अलार्म, फैसला नहीं",
-  "topic": "Interoception, affect, and context-sensitive interpretation of body signals",
-  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "title": "Drive-reconciled Reel_0016",
+  "topic": "Use the verified Drive research record; local media cache was intentionally not restored.",
+  "claim_type": "Drive-reconciled historical record",
   "status": "complete",
-  "created_at_utc": "2026-08-26T04:07:40Z",
-  "updated_at_utc": "2026-08-26T04:07:40Z",
-  "source_record": "drive://1Cdcx7bQL-P70j8q_ALo5tlaPZc6rgPe0/R0016_RESEARCH_NOTES.md",
+  "created_at_utc": "2026-08-26T11:39:38Z",
+  "updated_at_utc": "2026-08-26T11:39:38Z",
+  "source_record": "drive://1Cdcx7bQL-P70j8q_ALo5tlaPZc6rgPe0",
   "drive": {
     "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "reel_folder_id": "1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6",
     "upload_records": [
       {
-        "at_utc": "2026-08-26T04:07:40Z",
-        "source": "post_hoc_drive_reconciliation",
+        "at_utc": "2026-08-26T11:39:38Z",
+        "local_file": null,
+        "sha256": null,
         "drive_file_id": "1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY",
         "drive_parent_id": "1BbOyDg1cOr4V5R1V25jZ7FP6jAjqxsc6",
         "drive_web_view_link": "https://drive.google.com/file/d/1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY/view?usp=drivesdk",
         "drive_md5_checksum": "fec8a42b01671ad433de3840d66e5b8d",
-        "drive_size_bytes": 6538156
+        "reconciled_from_file_level_drive_readback": true
       }
     ]
   },
   "artifacts": {
-    "script": "drive://1xGAuNdWr7vRSbKKLan0R6-GuRnhjq499/R0016_SCRIPT_HI.md",
-    "voiceover": "drive://1jDyxE95TEWdTUGkOzSq4G3-zWgFEK02t/R0016_voiceover_hi.wav",
-    "captions": "drive://1IeUEK87oRQSRoPYXFzVgmXWGybftjBp-/R0016_captions_hi.srt",
-    "video": "drive://1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY/Reel_0016_Body_Signals_Not_Verdict_Hindi.mp4",
-    "qc_report": "drive://1cWBAlC77A7j5jybmH4BWGMCNGbw5aBN6/R0016_TECHNICAL_QC.json",
-    "metadata_or_manifest": "drive://1sJc8mSsAth43JCcSWo-hhYzqlh1MYCBi/R0016_MANIFEST.json"
+    "script": "drive://",
+    "voiceover": "drive://1jDyxE95TEWdTUGkOzSq4G3-zWgFEK02t",
+    "captions": "drive://1IeUEK87oRQSRoPYXFzVgmXWGybftjBp-",
+    "video": "drive://1PkT5UIwrgOZLNNzaibiVsnqdGGzWdZSY",
+    "qc_report": "drive://1cWBAlC77A7j5jybmH4BWGMCNGbw5aBN6"
   },
   "attempts": [],
   "events": [
     {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "drive_reconciliation",
-      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Custom manifest records video readback verification, supporting artifacts, a 60-second MP4, and a disclosed visual fallback."
-    },
-    {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "status_transition",
-      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+      "at_utc": "2026-08-26T11:39:38Z",
+      "event": "drive_reconciled",
+      "detail": "Local manifest rebuilt from file-level Google Drive readback; local generated media was not recreated."
     }
-  ]
+  ],
+  "reconciliation": {
+    "audit_record": "reels-production/audits/drive_reconciliation_20260826.json",
+    "critical_missing": [],
+    "custom_package_note": "0016 and 0017 use producer-specific manifest formats; prior audit accepted their embedded-audio/custom-package evidence."
+  }
 }

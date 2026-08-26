@@ -1,0 +1,36 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi.wav, file size: 2.99 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 65.2 seconds
+Language: hin
+Timestamped segments:
+[00:00.6 - 00:09.0] नया घर, नई नौकरी या नया रास्ता। कभी notice किया कि पुराना routine अचानक उतना automatic नहीं लगता?
+[00:09.0 - 00:19.0] Psychology में इसे habit discontinuity कहा जाता है। Habits अक्सर stable context में cue से जुड़ती हैं। वही kitchen, वही
+[00:19.0 - 00:29.3] mug और बिना सोचे वही drink। Context बड़ा बदले तो पुराना cue कम familiar हो सकता है। तब next choice पर थोड़ा ज्यादा ध्यान जा सकता है।
+[00:29.3 - 00:39.4] लेकिन इसे reset button मत समझिए। Home move और commuting पर research में, हाल में move हुए लोगों में environmental views और कम car use का relation दिखा।
+[00:39.4 - 00:49.7] मगर यह travel context का finding है, guarantee नहीं। Study habit research में stable context ने automaticity support की। इसलिए context change unwanted
+[00:49.7 - 00:58.4] routine को हिला सकता है पर helpful routine को भी disrupt कर सकता है। Takeaway: Change के बाद पूछिए, मेरा पुराना cue क्या था?
+[00:58.4 - 01:01.6] और नए routine में कौन सा छोटा action जोड़ना है?
+[01:01.6 - 01:05.0] नया context एक मौका हो सकता है, magic नहीं।
+Complete transcription result saved to: /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi_transcription_20260826_114454.json
+Plain text transcription saved to: /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi_transcription_20260826_114454.txt
+[2J[H[3Jmanus-speech-to-text reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi.wav
+Starting Speech-to-Text conversion...
+Transcribing audio file: reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi.wav, file size: 2.99 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.6 - 00:09.0] नया घर, नई नौकरी या नया रास्ता। कभी notice किया कि पुराना routine अचानक उतना automatic नहीं लगता?
+[00:09.0 - 00:19.0] Psychology में इसे habit discontinuity कहा जाता है। Habits अक्सर stable context में cue से जुड़ती हैं। वही kitchen, वही
+[00:19.0 - 00:29.3] mug और बिना सोचे वही drink। Context बड़ा बदले तो पुराना cue कम familiar हो सकता है। तब next choice पर थोड़ा ज्यादा ध्यान जा सकता है।
+[00:29.3 - 00:39.4] लेकिन इसे reset button मत समझिए। Home move और commuting पर research में, हाल में move हुए लोगों में environmental views और कम car use का relation दिखा।
+[00:39.4 - 00:49.7] मगर यह travel context का finding है, guarantee नहीं। Study habit research में stable context ने automaticity support की। इसलिए context change unwanted
+[00:49.7 - 00:58.4] routine को हिला सकता है पर helpful routine को भी disrupt कर सकता है। Takeaway: Change के बाद पूछिए, मेरा पुराना cue क्या था?
+[00:58.4 - 01:01.6] और नए routine में कौन सा छोटा action जोड़ना है?
+[01:01.6 - 01:05.0] नया context एक मौका हो सकता है, magic नहीं।
+
+Completed transcription, JSON saved to /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi_transcription_20260826_114454.json
+Plain text transcription saved to /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi_transcription_20260826_114454.txt

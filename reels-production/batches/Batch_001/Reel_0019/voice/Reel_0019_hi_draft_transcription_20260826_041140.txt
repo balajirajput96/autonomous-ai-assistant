@@ -1,6 +1,0 @@
-[00:00.3 - 00:10.4] कभी ऐसा हुआ कि मन बहुत भरा हुआ हो और सही शब्द मिलते ही थोड़ा साफ लगे। Psychology में इसे affect labeling कहते हैं। यानी अपने
-[00:10.4 - 00:20.5] अनुभव को एक शब्द देना। जैसे मैं घबराया हुआ हूं, मुझे उदासी लग रही है या मैं चिढ़ा हुआ हूं। लेकिन इसे magic trick मत समझिए।
-[00:20.5 - 00:30.6] Controlled lab studies में लोगों ने नकारात्मक तस्वीरें देखते हुए भावनाओं को label किया तो सिर्फ देखने की तुलना में distress कम report हुआ। कुछ fMRI studies
-[00:30.6 - 00:41.1] में labeling के दौरान amygdala response और prefrontal activity में differences भी दिखे। इसका मतलब यह नहीं कि एक शब्द आपके brain का switch off कर देता है और
-[00:41.1 - 00:51.2] context matter करता है। एक study में high intensity images पर labeling के साथ distress घटा, लेकिन lower intensity condition में बढ़ा भी। इसलिए takeaway है
-[00:51.2 - 01:00.4] feeling को पहचानना एक useful experiment हो सकता है, guarantee नहीं। अभी बस पूछिए मैं क्या महसूस कर रहा या रही हूं। फिर एक honest शब्द चुनिए।

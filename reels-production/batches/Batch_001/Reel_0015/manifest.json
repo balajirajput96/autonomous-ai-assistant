@@ -2,47 +2,47 @@
   "schema_version": 1,
   "reel_id": "Reel_0015",
   "batch_id": "Batch_001",
-  "title": "Habit 21 दिन में नहीं, context से बनती है",
-  "topic": "Habit formation, context cues, and time-course variability",
-  "claim_type": "Source-backed psychology/neuroscience explainer; Drive-reconciled",
+  "title": "Drive-reconciled Reel_0015",
+  "topic": "Use the verified Drive research record; local media cache was intentionally not restored.",
+  "claim_type": "Drive-reconciled historical record",
   "status": "complete",
-  "created_at_utc": "2026-08-26T04:07:40Z",
-  "updated_at_utc": "2026-08-26T04:07:40Z",
-  "source_record": "drive://10gXkIyb0eR-4-VCEUCT2Fv3ywtXdiuJf/reel_0015_research_notes.md",
+  "created_at_utc": "2026-08-26T11:39:38Z",
+  "updated_at_utc": "2026-08-26T11:39:38Z",
+  "source_record": "drive://10gXkIyb0eR-4-VCEUCT2Fv3ywtXdiuJf",
   "drive": {
     "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
     "reel_folder_id": "1hTuPexv4D5Z8YSz9hduB6plaUfvSUyXf",
     "upload_records": [
       {
-        "at_utc": "2026-08-26T04:07:40Z",
-        "source": "post_hoc_drive_reconciliation",
+        "at_utc": "2026-08-26T11:39:38Z",
+        "local_file": null,
+        "sha256": null,
         "drive_file_id": "1JWS_RWLL8G-vYe0r8FYL9qk-Df-E1fxp",
         "drive_parent_id": "1hTuPexv4D5Z8YSz9hduB6plaUfvSUyXf",
         "drive_web_view_link": "https://drive.google.com/file/d/1JWS_RWLL8G-vYe0r8FYL9qk-Df-E1fxp/view?usp=drivesdk",
         "drive_md5_checksum": "8c2c9f2429e28377227dd7a1f887f812",
-        "drive_size_bytes": 6117622
+        "reconciled_from_file_level_drive_readback": true
       }
     ]
   },
   "artifacts": {
-    "script": "drive://1F2_Zth_7dz5NWAo6ECaHwfoB76vR4kag/reel_0015_voiceover_hi.md",
-    "voiceover": "drive://15a_f8eR7nh9WWO6pV7Jacxos8N905Bmb/reel_0015_voiceover_hi.wav",
-    "captions": "drive://197Rsf3cr2BSBY_G3h6hzxrgfv50Ry7_2/reel_0015_voiceover_hi_final.srt",
-    "video": "drive://1JWS_RWLL8G-vYe0r8FYL9qk-Df-E1fxp/Reel_0015_final_1080x1920.mp4",
-    "qc_report": "drive://1_uFjEdgibJRlQzcL2tpEJlF4_PEPDpW9/reel_0015_technical_qc.json",
-    "metadata_or_manifest": "drive://1KJ6GgNWxrhGGZ9l4Of3MFT6TfaeDIrdW/reel_0015_metadata.json"
+    "script": "drive://1F2_Zth_7dz5NWAo6ECaHwfoB76vR4kag",
+    "voiceover": "drive://15a_f8eR7nh9WWO6pV7Jacxos8N905Bmb",
+    "captions": "drive://197Rsf3cr2BSBY_G3h6hzxrgfv50Ry7_2",
+    "video": "drive://1JWS_RWLL8G-vYe0r8FYL9qk-Df-E1fxp",
+    "qc_report": "drive://1_uFjEdgibJRlQzcL2tpEJlF4_PEPDpW9"
   },
   "attempts": [],
   "events": [
     {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "drive_reconciliation",
-      "detail": "Canonical Drive folder, final MP4 checksum/size, research record, Hindi script, voiceover, captions, technical QC, and metadata were independently read back. Manifest and production log both record complete_verified_drive with complete readback."
-    },
-    {
-      "at_utc": "2026-08-26T04:07:40Z",
-      "event": "status_transition",
-      "detail": "Drive-evidenced package normalized to complete without regenerating or overwriting any artifact."
+      "at_utc": "2026-08-26T11:39:38Z",
+      "event": "drive_reconciled",
+      "detail": "Local manifest rebuilt from file-level Google Drive readback; local generated media was not recreated."
     }
-  ]
+  ],
+  "reconciliation": {
+    "audit_record": "reels-production/audits/drive_reconciliation_20260826.json",
+    "critical_missing": [],
+    "custom_package_note": "0016 and 0017 use producer-specific manifest formats; prior audit accepted their embedded-audio/custom-package evidence."
+  }
 }

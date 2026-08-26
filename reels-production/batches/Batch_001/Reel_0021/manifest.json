@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0021",
+  "batch_id": "Batch_001",
+  "title": "Naya context, purani aadat: kya badal sakta hai?",
+  "topic": "Habit discontinuity after a major context change",
+  "claim_type": "Habit-theory evidence plus observational and field findings",
+  "status": "complete",
+  "created_at_utc": "2026-08-26T11:42:04Z",
+  "updated_at_utc": "2026-08-26T11:50:58Z",
+  "source_record": "reels-production/research/Reel_0021_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1BYGdwig6glRbUOeU8nd7wsI1eiD6dEVg",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-26T11:50:57Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/video/Reel_0021_final_1080x1920.mp4",
+        "sha256": "1350cf4388ffd76fffacaab909c442295e378c929ae2285b4955e2da699e4624",
+        "drive_file_id": "12F5gawsLZGZOR8LjjuGKVpMBRWg8glpI",
+        "drive_parent_id": "1BYGdwig6glRbUOeU8nd7wsI1eiD6dEVg",
+        "drive_web_view_link": "https://drive.google.com/file/d/12F5gawsLZGZOR8LjjuGKVpMBRWg8glpI/view"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/voice/Reel_0021_hi.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/captions/Reel_0021_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/video/Reel_0021_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0021/qc/technical_qc.json"
+  },
+  "attempts": [
+    {
+      "at_utc": "2026-08-26T11:45:45Z",
+      "stage": "visual_generation",
+      "error": "2026-08-26: fresh image generation rejected because the free-plan daily quota is exhausted (20/20).",
+      "next_action": "Use an original deterministic Pillow/FFmpeg visual fallback with explicit provenance; do not claim fresh AI visual generation."
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-08-26T11:42:04Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-26T11:42:04Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Source record distinguishes context-cue mechanisms, observational/field findings, intentional-habit studies, and non-guarantee limits."
+    },
+    {
+      "at_utc": "2026-08-26T11:42:04Z",
+      "event": "status_transition",
+      "detail": "researched → verified. All central claims are bounded to the studied settings; no reset-brain, automatic-cure, or universal-duration claim is permitted."
+    },
+    {
+      "at_utc": "2026-08-26T11:42:34Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-26T11:42:34Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Hindi script retains context-specific evidence boundaries and explicitly rejects reset-button or universal-change claims."
+    },
+    {
+      "at_utc": "2026-08-26T11:45:19Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0021_hi.wav"
+    },
+    {
+      "at_utc": "2026-08-26T11:45:19Z",
+      "event": "artifact_recorded",
+      "detail": "captions: Reel_0021_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-26T11:45:19Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. Hindi WAV transcription reached 65.0 seconds, within the 55–65 second technical range; captions are aligned to the readback segments."
+    },
+    {
+      "at_utc": "2026-08-26T11:45:45Z",
+      "event": "failure_recorded",
+      "detail": "visual_generation: 2026-08-26: fresh image generation rejected because the free-plan daily quota is exhausted (20/20)."
+    },
+    {
+      "at_utc": "2026-08-26T11:45:45Z",
+      "event": "recovery_resumed",
+      "detail": "failed → voiced. Quota failure is retained in attempts; proceeding only with a disclosed deterministic visual fallback."
+    },
+    {
+      "at_utc": "2026-08-26T11:49:12Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-26T11:49:12Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. Original deterministic three-scene 2.5D visual fallback assembled with Hindi audio and captions; fresh image attempt remains recorded as quota-blocked."
+    },
+    {
+      "at_utc": "2026-08-26T11:49:12Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. Technical QC passed: non-empty H.264/AAC MP4, 1080x1920, 65.000 seconds, SHA-256 recorded."
+    },
+    {
+      "at_utc": "2026-08-26T11:50:57Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0021_final_1080x1920.mp4 → 12F5gawsLZGZOR8LjjuGKVpMBRWg8glpI"
+    },
+    {
+      "at_utc": "2026-08-26T11:50:57Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 upload record contains canonical Drive file and folder IDs; companion artifact uploads are present."
+    },
+    {
+      "at_utc": "2026-08-26T11:50:58Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Completion pending a final Drive readback in this same workflow; no local cache pruning before that verification."
+    }
+  ]
+}
