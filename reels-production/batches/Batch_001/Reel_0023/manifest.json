@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0023",
+  "batch_id": "Batch_001",
+  "title": "Reward prediction error: उम्मीद और नतीजे का फर्क",
+  "topic": "Reward prediction error in reinforcement-learning models",
+  "claim_type": "Computational model with animal neurophysiology and human fMRI evidence; subjective-experience claims excluded",
+  "status": "complete",
+  "created_at_utc": "2026-08-27T18:17:10Z",
+  "updated_at_utc": "2026-08-27T18:35:15Z",
+  "source_record": "reels-production/research/Reel_0023_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "193q6l_6CLsj8mwY8DvvWXXkWzENYP6-p",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-27T18:35:15Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/video/Reel_0023_final_1080x1920.mp4",
+        "sha256": "568bb932b9b4a6b6faa3db8ae092dcc4c83565db3423bc624477fc04c61b845c",
+        "drive_file_id": "1Ak8YyS0coKRxEO_mq7WqzmRcNQc1PUSV",
+        "drive_parent_id": "193q6l_6CLsj8mwY8DvvWXXkWzENYP6-p",
+        "drive_web_view_link": "https://drive.google.com/file/d/1Ak8YyS0coKRxEO_mq7WqzmRcNQc1PUSV/view?usp=drivesdk"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/voice/Reel_0023_hi.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/captions/Reel_0023_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/video/Reel_0023_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0023/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-27T18:17:10Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-27T18:17:11Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Source record includes an accessible dopamine RPE review, human high-resolution fMRI evidence and model-scope limits."
+    },
+    {
+      "at_utc": "2026-08-27T18:17:11Z",
+      "event": "status_transition",
+      "detail": "researched → verified. Claims are bounded to reward-learning tasks and computational models; dopamine is not equated with pleasure or a direct readout of subjective experience."
+    },
+    {
+      "at_utc": "2026-08-27T18:17:49Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-27T18:17:49Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Hindi script distinguishes expected, better-than-expected and worse-than-expected outcomes in a computational learning model; it excludes pleasure-meter and individual-diagnosis claims."
+    },
+    {
+      "at_utc": "2026-08-27T18:31:28Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0023_hi.wav"
+    },
+    {
+      "at_utc": "2026-08-27T18:31:28Z",
+      "event": "artifact_recorded",
+      "detail": "captions: Reel_0023_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-27T18:31:28Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. A 63.440-second Hindi narration was assembled from two successful short segments after the initial single-pass generation was interrupted; captions use the generated narration readback."
+    },
+    {
+      "at_utc": "2026-08-27T18:33:09Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-27T18:33:09Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. Captioned 1080x1920 H.264/AAC final package rendered from disclosed deterministic scenes; pending background image was not used."
+    },
+    {
+      "at_utc": "2026-08-27T18:33:09Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. Technical QC passed for file existence, 9:16 geometry, audio stream and 55–65-second duration."
+    },
+    {
+      "at_utc": "2026-08-27T18:35:15Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0023_final_1080x1920.mp4 → 1Ak8YyS0coKRxEO_mq7WqzmRcNQc1PUSV"
+    },
+    {
+      "at_utc": "2026-08-27T18:35:15Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 and nine required companion records were uploaded to the canonical Drive folder and read back with final-video MD5 checksum."
+    },
+    {
+      "at_utc": "2026-08-27T18:35:15Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Drive folder and all required artifacts were verified; final metadata and manifest synchronization is the remaining recordkeeping action."
+    }
+  ]
+}

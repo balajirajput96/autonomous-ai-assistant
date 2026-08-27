@@ -1,0 +1,60 @@
+{
+  "reel_id": "Reel_0023",
+  "title": "Reward prediction error: उम्मीद और नतीजे का फर्क",
+  "topic": "Reward prediction error in reinforcement-learning models",
+  "language": "hi-IN",
+  "claim_type": "Computational reinforcement-learning model with controlled animal neurophysiology and human fMRI evidence; not a direct subjective-experience measurement.",
+  "research_record": "reels-production/research/Reel_0023_sources.md",
+  "claim_boundaries": {
+    "safe": [
+      "A reward prediction error models the difference between an expected and received reward in a learning task.",
+      "Better-than-expected, expected and worse-than-expected outcomes are modelled as positive, near-zero and negative prediction errors.",
+      "Controlled experiments and human neuroimaging studies provide evidence consistent with particular reward-learning models."
+    ],
+    "excluded": [
+      "Dopamine equals pleasure.",
+      "A reward-prediction-error term directly measures happiness, motivation, free will or an individual's mental state.",
+      "A single reinforcement-learning algorithm is established as the exact model implemented by every human brain."
+    ]
+  },
+  "final_video": {
+    "local_filename": "Reel_0023_final_1080x1920.mp4",
+    "duration_seconds": 63.44,
+    "resolution": "1080x1920",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "sha256": "568bb932b9b4a6b6faa3db8ae092dcc4c83565db3423bc624477fc04c61b845c",
+    "drive_file_id": "1Ak8YyS0coKRxEO_mq7WqzmRcNQc1PUSV",
+    "drive_md5_checksum": "9927868a1ab0dc565651e71d2ca13d5c"
+  },
+  "technical_qc": {
+    "report": "qc/technical_qc.json",
+    "passed": true,
+    "checks": ["file_exists", "vertical_9_16", "audio_stream", "duration_55_to_65_seconds"]
+  },
+  "visual_provenance": {
+    "final_route": "original deterministic Pillow illustrations assembled with FFmpeg",
+    "fresh_image_request": "Asynchronous Nano Banana Pro request reserved at /manus-storage/reel_0023_reward_prediction_error_master_51b579d3.png; it was not used in the final video because no completed image artifact was available during assembly.",
+    "disclosure": "The visuals are conceptual educational illustrations, not fMRI data, real neuronal recordings, a diagnostic, or a measurement of emotion."
+  },
+  "voice_provenance": {
+    "voice": "Charon",
+    "generation_note": "The initial full narration request was interrupted; two successful short Hindi segments were concatenated losslessly to the final 63.44-second WAV.",
+    "captions": "Reel_0023_hi_final.srt is aligned to the generated speech readback."
+  },
+  "drive_verification": {
+    "status": "verified_complete",
+    "reel_folder_id": "193q6l_6CLsj8mwY8DvvWXXkWzENYP6-p",
+    "required_companions": [
+      "source record",
+      "Hindi script",
+      "captions",
+      "Hindi narration WAV",
+      "technical QC report",
+      "visual provenance plan",
+      "renderer source",
+      "metadata",
+      "manifest"
+    ]
+  }
+}

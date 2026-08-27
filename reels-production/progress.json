@@ -1,10 +1,10 @@
 {
   "mission": "3000 Hindi Research Reels",
   "schema_version": 1,
-  "last_updated_utc": "2026-08-27T02:53:01Z",
+  "last_updated_utc": "2026-08-27T18:35:15Z",
   "completion": {
     "target_reels": 3000,
-    "completed_reels": 22,
+    "completed_reels": 23,
     "failed_reels": 0,
     "needs_review_reels": 0
   },
@@ -172,12 +172,18 @@
           "title": "If–then plan: iraada kab action banta hai?",
           "updated_at_utc": "2026-08-27T02:53:01Z",
           "attempt_count": 0
+        },
+        "Reel_0023": {
+          "status": "complete",
+          "title": "Reward prediction error: उम्मीद और नतीजे का फर्क",
+          "updated_at_utc": "2026-08-27T18:35:15Z",
+          "attempt_count": 0
         }
       }
     }
   ],
-  "last_successful_reel_id": "Reel_0022",
-  "next_reel_id": "Reel_0023",
+  "last_successful_reel_id": "Reel_0023",
+  "next_reel_id": "Reel_0024",
   "blocking_issues": [
     {
       "code": "SCHEDULE_REQUIRES_DEPLOYED_PROJECT",
