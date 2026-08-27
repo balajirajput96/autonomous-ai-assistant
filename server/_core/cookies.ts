@@ -24,14 +24,20 @@ function isSecureRequest(req: Request) {
  * e.g., "3000-xxx.manuspre.computer" -> ".manuspre.computer"
  * This allows cookies set by 3000-xxx to be read by 8081-xxx
  */
-function getParentDomain(hostname: string): string | undefined {
+function getParentDomain(hostname: string | undefined): string | undefined {
+  const normalizedHostname = hostname?.trim().toLowerCase();
+
+  if (!normalizedHostname) {
+    return undefined;
+  }
+
   // Don't set domain for localhost or IP addresses
-  if (LOCAL_HOSTS.has(hostname) || isIpAddress(hostname)) {
+  if (LOCAL_HOSTS.has(normalizedHostname) || isIpAddress(normalizedHostname)) {
     return undefined;
   }
 
   // Split hostname into parts
-  const parts = hostname.split(".");
+  const parts = normalizedHostname.split(".");
 
   // Need at least 3 parts for a subdomain (e.g., "3000-xxx.manuspre.computer")
   // For "manuspre.computer", we can't set a parent domain

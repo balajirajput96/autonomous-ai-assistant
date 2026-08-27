@@ -1,10 +1,10 @@
 {
   "mission": "3000 Hindi Research Reels",
   "schema_version": 1,
-  "last_updated_utc": "2026-08-26T11:50:58Z",
+  "last_updated_utc": "2026-08-27T02:53:01Z",
   "completion": {
     "target_reels": 3000,
-    "completed_reels": 21,
+    "completed_reels": 22,
     "failed_reels": 0,
     "needs_review_reels": 0
   },
@@ -166,12 +166,18 @@
           "title": "Naya context, purani aadat: kya badal sakta hai?",
           "updated_at_utc": "2026-08-26T11:50:58Z",
           "attempt_count": 1
+        },
+        "Reel_0022": {
+          "status": "complete",
+          "title": "If–then plan: iraada kab action banta hai?",
+          "updated_at_utc": "2026-08-27T02:53:01Z",
+          "attempt_count": 0
         }
       }
     }
   ],
-  "last_successful_reel_id": "Reel_0021",
-  "next_reel_id": "Reel_0022",
+  "last_successful_reel_id": "Reel_0022",
+  "next_reel_id": "Reel_0023",
   "blocking_issues": [
     {
       "code": "SCHEDULE_REQUIRES_DEPLOYED_PROJECT",

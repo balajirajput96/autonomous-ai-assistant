@@ -1,0 +1,79 @@
+{
+  "reel_id": "Reel_0022",
+  "title_hi": "If–then plan: इरादा कब action बनता है?",
+  "topic": "Implementation intentions",
+  "claim_type": "Goal-setting and behaviour-change evidence with meta-analytic and domain-specific limits",
+  "language": "hi-IN",
+  "evidence_boundaries": [
+    "Implementation intentions are if–then plans linking a specific situation or opportunity to a goal-directed response.",
+    "Aggregated evidence can support an average benefit without guaranteeing an individual outcome.",
+    "Effects depend on a strong underlying goal, a realistic cue, a feasible action and the behavioural context.",
+    "A physical-activity randomized-trial review reported a non-significant pooled overall result with moderate heterogeneity; a reinforced-plans subgroup showed benefit.",
+    "The reel is not medical, mental-health or productivity treatment advice."
+  ],
+  "prohibited_overclaims": [
+    "If–then plans guarantee consistency or goal attainment.",
+    "The strategy removes time, access, illness, safety or structural barriers.",
+    "Every behaviour has the same evidence pattern.",
+    "The visual example proves a causal result for the viewer."
+  ],
+  "sources": [
+    {
+      "label": "National Cancer Institute — Implementation Intentions",
+      "url": "https://cancercontrol.cancer.gov/brp/research/constructs/implementation-intentions",
+      "use": "construct definition, conditions and cited aggregate evidence"
+    },
+    {
+      "label": "da Silva et al. (2018), PLOS ONE systematic review and meta-analysis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6235272/",
+      "use": "physical-activity heterogeneity and non-uniform outcome limitation"
+    },
+    {
+      "label": "Wieber, Thürmer & Gollwitzer (2015), Frontiers review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4500900/",
+      "use": "conceptual background only; no neural-causation claim"
+    }
+  ],
+  "artifacts": {
+    "source_record": "reels-production/research/Reel_0022_sources.md",
+    "script": "reels-production/batches/Batch_001/Reel_0022/scripts/voiceover_hi.md",
+    "voiceover": "reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi.wav",
+    "captions": "reels-production/batches/Batch_001/Reel_0022/captions/Reel_0022_hi_final.srt",
+    "renderer": "reels-production/tools/render_reel_0022.py",
+    "technical_qc": "reels-production/batches/Batch_001/Reel_0022/qc/technical_qc.json",
+    "final_video": "reels-production/batches/Batch_001/Reel_0022/video/Reel_0022_final_1080x1920.mp4"
+  },
+  "visual_provenance": {
+    "actual_route": "original deterministic 2.5D cue-to-action scenes rendered locally with Pillow and FFmpeg",
+    "fresh_image_request": "A fresh master-image request was initiated but was not incorporated into the final render while its result was unconfirmed.",
+    "representation_rule": "Do not describe this final video as fresh AI video footage or as incorporating the pending fresh image."
+  },
+  "technical_qc": {
+    "status": "passed",
+    "duration_seconds": 56.0,
+    "resolution": "1080x1920",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "sha256": "aa51862f576a5826edf9477091dadbad564e667e566a4a790aa18c33e5f9f7d8"
+  },
+  "drive": {
+    "folder_id": "1oSX52btjlIrSB4VqW6m6W21OsgXpl9Ll",
+    "final_video_id": "1VfGtPCZ9o8Nvbif6arIiBMt3-CG1-Oi3",
+    "final_video_md5": "dbdb7c8b3d4ff83f56dadba98a4cb953",
+    "package_verified": true,
+    "readback_verified_at_utc": "2026-08-27T02:51:41Z",
+    "required_files_verified": [
+      "Reel_0022_final_1080x1920.mp4",
+      "Reel_0022_sources.md",
+      "voiceover_hi.md",
+      "Reel_0022_hi_final.srt",
+      "Reel_0022_hi.wav",
+      "technical_qc.json",
+      "metadata.json",
+      "manifest.json",
+      "visual_provenance_plan.md",
+      "render_reel_0022.py"
+    ]
+  },
+  "status": "complete_drive_verified"
+}

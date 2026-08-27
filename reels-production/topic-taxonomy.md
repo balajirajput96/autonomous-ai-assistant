@@ -59,4 +59,4 @@ The mission uses a constrained topic registry rather than a list of interchangea
 | 0029 | What are identity-based behaviour claims: evidence, model or motivation? | Theory boundary |
 | 0030 | What does health-behaviour evidence say about small changes? | Systematic review |
 
-Reels 0001–0020 are `complete` and Drive-verified. Reel 0021 onward remain `planned` until each has its own source record, manifest, technical QC report and verified Drive upload. The actual output registry supersedes the older provisional order so completed subjects are never regenerated merely to match an initial slot plan.
+Reels 0001–0022 are `complete` and Drive-verified. Reel 0023 onward remain `planned` until each has its own source record, manifest, technical QC report and verified Drive upload. The actual output registry supersedes the older provisional order so completed subjects are never regenerated merely to match an initial slot plan.

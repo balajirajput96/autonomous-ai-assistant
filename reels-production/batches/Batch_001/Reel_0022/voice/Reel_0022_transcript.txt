@@ -1,0 +1,32 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi.wav, file size: 2.60 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 56.7 seconds
+Language: hin
+Timestamped segments:
+[00:00.3 - 00:10.5] इरादा strong है, फिर भी action नहीं हो रहा। कल walk करूंगा goal है। Psychology में implementation intention उससे आगे का if-then plan
+[00:10.5 - 00:20.5] है। मतलब अगर मैं lunch खत्म करूं तो walking shoes पहनकर 10 minute बाहर जाऊंगा। इसमें एक realistic cue और specific response जुड़ते हैं। मौका
+[00:20.5 - 00:30.5] आने पर उसे notice करना और action शुरू करना थोड़ा आसान हो सकता है। Research summaries में goal attainment पर average benefit मिला है, लेकिन average result आपकी guarantee नहीं
+[00:30.5 - 00:40.7] है। Effect तब बेहतर हो सकता है जब goal important हो, cue सच में आए और action feasible हो। Adult Physical Activity Trials की एक review में overall result clear
+[00:40.7 - 00:51.4] positive नहीं था। Reinforced plans वाले subgroup में benefit दिखा। इसलिए if-then plan magic formula नहीं है। यह time, access, illness या unsafe conditions नहीं हटाता।
+[00:51.4 - 00:56.6] Takeaway: छोटा, सच में मिलने वाला cue चुनिए। फिर देखिए plan चले या बदलना है।
+Complete transcription result saved to: /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi_transcription_20260827_024740.json
+Plain text transcription saved to: /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi_transcription_20260827_024740.txt
+[2J[H[3Jmanus-speech-to-text reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi.wav
+Starting Speech-to-Text conversion...
+Transcribing audio file: reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi.wav, file size: 2.60 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.3 - 00:10.5] इरादा strong है, फिर भी action नहीं हो रहा। कल walk करूंगा goal है। Psychology में implementation intention उससे आगे का if-then plan
+[00:10.5 - 00:20.5] है। मतलब अगर मैं lunch खत्म करूं तो walking shoes पहनकर 10 minute बाहर जाऊंगा। इसमें एक realistic cue और specific response जुड़ते हैं। मौका
+[00:20.5 - 00:30.5] आने पर उसे notice करना और action शुरू करना थोड़ा आसान हो सकता है। Research summaries में goal attainment पर average benefit मिला है, लेकिन average result आपकी guarantee नहीं
+[00:30.5 - 00:40.7] है। Effect तब बेहतर हो सकता है जब goal important हो, cue सच में आए और action feasible हो। Adult Physical Activity Trials की एक review में overall result clear
+[00:40.7 - 00:51.4] positive नहीं था। Reinforced plans वाले subgroup में benefit दिखा। इसलिए if-then plan magic formula नहीं है। यह time, access, illness या unsafe conditions नहीं हटाता।
+[00:51.4 - 00:56.6] Takeaway: छोटा, सच में मिलने वाला cue चुनिए। फिर देखिए plan चले या बदलना है।
+
+Completed transcription, JSON saved to /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi_transcription_20260827_024740.json
+Plain text transcription saved to /home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi_transcription_20260827_024740.txt

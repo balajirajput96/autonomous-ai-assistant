@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "reel_id": "Reel_0022",
+  "batch_id": "Batch_001",
+  "title": "If–then plan: iraada kab action banta hai?",
+  "topic": "Implementation intentions",
+  "claim_type": "Goal-setting and behaviour-change evidence with meta-analytic and domain-specific limits",
+  "status": "complete",
+  "created_at_utc": "2026-08-27T02:43:51Z",
+  "updated_at_utc": "2026-08-27T02:53:01Z",
+  "source_record": "reels-production/research/Reel_0022_sources.md",
+  "drive": {
+    "root_folder_id": "1-sIkvOsLlfTCY4CPC0Cb1B6St72UrqFj",
+    "reel_folder_id": "1oSX52btjlIrSB4VqW6m6W21OsgXpl9Ll",
+    "upload_records": [
+      {
+        "at_utc": "2026-08-27T02:53:00Z",
+        "local_file": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/video/Reel_0022_final_1080x1920.mp4",
+        "sha256": "aa51862f576a5826edf9477091dadbad564e667e566a4a790aa18c33e5f9f7d8",
+        "drive_file_id": "1VfGtPCZ9o8Nvbif6arIiBMt3-CG1-Oi3",
+        "drive_parent_id": "1oSX52btjlIrSB4VqW6m6W21OsgXpl9Ll",
+        "drive_web_view_link": "https://drive.google.com/file/d/1VfGtPCZ9o8Nvbif6arIiBMt3-CG1-Oi3/view"
+      }
+    ]
+  },
+  "artifacts": {
+    "script": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/scripts/voiceover_hi.md",
+    "voiceover": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/voice/Reel_0022_hi.wav",
+    "captions": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/captions/Reel_0022_hi_final.srt",
+    "video": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/video/Reel_0022_final_1080x1920.mp4",
+    "qc_report": "/home/ubuntu/autonomous-ai-assistant/reels-production/batches/Batch_001/Reel_0022/qc/technical_qc.json"
+  },
+  "attempts": [],
+  "events": [
+    {
+      "at_utc": "2026-08-27T02:43:51Z",
+      "event": "initialized",
+      "detail": "Manifest और स्थानीय कार्य-निर्देशिका बनाई गई; कोई मीडिया अभी उत्पन्न नहीं।"
+    },
+    {
+      "at_utc": "2026-08-27T02:43:51Z",
+      "event": "status_transition",
+      "detail": "planned → researched. Source record separates construct definition, aggregated evidence, physical-activity heterogeneity, and non-guarantee boundaries."
+    },
+    {
+      "at_utc": "2026-08-27T02:43:51Z",
+      "event": "status_transition",
+      "detail": "researched → verified. All central claims retain conditions: specific cue-response link, strong underlying goal, feasible action, and behaviour-specific evidence variation."
+    },
+    {
+      "at_utc": "2026-08-27T02:44:16Z",
+      "event": "artifact_recorded",
+      "detail": "script: voiceover_hi.md"
+    },
+    {
+      "at_utc": "2026-08-27T02:44:16Z",
+      "event": "status_transition",
+      "detail": "verified → scripted. Hindi script distinguishes abstract goals from cue-response if-then plans and preserves heterogeneous-evidence, feasibility, and non-guarantee limits."
+    },
+    {
+      "at_utc": "2026-08-27T02:48:04Z",
+      "event": "artifact_recorded",
+      "detail": "voiceover: Reel_0022_hi.wav"
+    },
+    {
+      "at_utc": "2026-08-27T02:48:04Z",
+      "event": "artifact_recorded",
+      "detail": "captions: Reel_0022_hi_final.srt"
+    },
+    {
+      "at_utc": "2026-08-27T02:48:04Z",
+      "event": "status_transition",
+      "detail": "scripted → voiced. Hindi narration is 56.72 seconds; captions use transcription-aligned timing. Script preserves if-then plan limits and avoids a guaranteed-outcome claim."
+    },
+    {
+      "at_utc": "2026-08-27T02:50:12Z",
+      "event": "artifact_recorded",
+      "detail": "video: Reel_0022_final_1080x1920.mp4"
+    },
+    {
+      "at_utc": "2026-08-27T02:50:27Z",
+      "event": "technical_qc",
+      "detail": "PASS"
+    },
+    {
+      "at_utc": "2026-08-27T02:50:51Z",
+      "event": "artifact_recorded",
+      "detail": "qc_report: technical_qc.json"
+    },
+    {
+      "at_utc": "2026-08-27T02:50:51Z",
+      "event": "status_transition",
+      "detail": "voiced → rendered. Rendered original deterministic three-scene cue-to-action visuals; no pending fresh-image result was included in the final package."
+    },
+    {
+      "at_utc": "2026-08-27T02:50:51Z",
+      "event": "status_transition",
+      "detail": "rendered → qc_passed. Technical QC passed: 56.000 seconds, 1080x1920, one AAC audio stream and SHA-256 aa51862f576a5826edf9477091dadbad564e667e566a4a790aa18c33e5f9f7d8."
+    },
+    {
+      "at_utc": "2026-08-27T02:53:00Z",
+      "event": "upload_recorded",
+      "detail": "Reel_0022_final_1080x1920.mp4 → 1VfGtPCZ9o8Nvbif6arIiBMt3-CG1-Oi3"
+    },
+    {
+      "at_utc": "2026-08-27T02:53:01Z",
+      "event": "status_transition",
+      "detail": "qc_passed → uploaded. Final MP4 and all companion artifacts were uploaded to canonical Drive folder 1oSX52btjlIrSB4VqW6m6W21OsgXpl9Ll and readback-verified by filename, non-zero size and MP4 MD5 dbdb7c8b3d4ff83f56dadba98a4cb953."
+    },
+    {
+      "at_utc": "2026-08-27T02:53:01Z",
+      "event": "status_transition",
+      "detail": "uploaded → complete. Drive package complete: source, script, Hindi WAV, captions, final video, technical QC, metadata, manifest, visual provenance plan and renderer are present. Final visuals are deterministic fallback scenes; pending fresh image was not used."
+    }
+  ]
+}
